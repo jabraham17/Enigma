@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
-		D44295891E328241006EC08E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* ViewController.swift */; };
+		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
 		D442958E1E328241006EC08E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D442958D1E328241006EC08E /* Assets.xcassets */; };
 		D44295911E328241006EC08E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958F1E328241006EC08E /* LaunchScreen.storyboard */; };
 		D442959C1E328242006EC08E /* EnigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D442959B1E328242006EC08E /* EnigmaTests.swift */; };
 		D44295A71E328242006EC08E /* EnigmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295A61E328242006EC08E /* EnigmaUITests.swift */; };
+		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
+		D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */; };
+		D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B751E417D720035A688 /* UIButtonBorder.swift */; };
+		D4E99B7B1E4240420035A688 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B7A1E4240420035A688 /* Global.swift */; };
+		D4E99B7D1E42467A0035A688 /* EncryptionNameHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */; };
+		D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */; };
+		D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,7 @@
 /* Begin PBXFileReference section */
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D44295881E328241006EC08E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
 		D442958B1E328241006EC08E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D442958D1E328241006EC08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44295901E328241006EC08E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,13 @@
 		D44295A21E328242006EC08E /* EnigmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnigmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295A61E328242006EC08E /* EnigmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaUITests.swift; sourceTree = "<group>"; };
 		D44295A81E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
+		D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITextViewCustom.xib; sourceTree = "<group>"; };
+		D4E99B751E417D720035A688 /* UIButtonBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonBorder.swift; sourceTree = "<group>"; };
+		D4E99B7A1E4240420035A688 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncryptionNameHeader.xib; sourceTree = "<group>"; };
+		D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionNameHeader.swift; sourceTree = "<group>"; };
+		D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				D44295861E328241006EC08E /* AppDelegate.swift */,
-				D44295881E328241006EC08E /* ViewController.swift */,
+				D4E99B7A1E4240420035A688 /* Global.swift */,
+				D44295881E328241006EC08E /* UnKeyedVC.swift */,
 				D442958A1E328241006EC08E /* Main.storyboard */,
+				D4E99B841E43A0D40035A688 /* EncryptionHeader */,
+				D4E99B781E4180E00035A688 /* CustomTextView */,
+				D4E99B771E4180C10035A688 /* Borders */,
 				D442958D1E328241006EC08E /* Assets.xcassets */,
 				D442958F1E328241006EC08E /* LaunchScreen.storyboard */,
 				D44295921E328241006EC08E /* Info.plist */,
@@ -123,6 +141,33 @@
 				D44295A81E328242006EC08E /* Info.plist */,
 			);
 			path = EnigmaUITests;
+			sourceTree = "<group>";
+		};
+		D4E99B771E4180C10035A688 /* Borders */ = {
+			isa = PBXGroup;
+			children = (
+				D4E99B751E417D720035A688 /* UIButtonBorder.swift */,
+			);
+			name = Borders;
+			sourceTree = "<group>";
+		};
+		D4E99B781E4180E00035A688 /* CustomTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D44295B61E3285BA006EC08E /* UITextViewCustom.swift */,
+				D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */,
+			);
+			name = CustomTextView;
+			sourceTree = "<group>";
+		};
+		D4E99B841E43A0D40035A688 /* EncryptionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */,
+				D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */,
+				D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */,
+			);
+			name = EncryptionHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,8 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E99B7D1E42467A0035A688 /* EncryptionNameHeader.xib in Resources */,
 				D44295911E328241006EC08E /* LaunchScreen.storyboard in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
+				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44295891E328241006EC08E /* ViewController.swift in Sources */,
+				D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */,
+				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
+				D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */,
+				D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */,
+				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
+				D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */,
 				D44295871E328241006EC08E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +471,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,6 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -512,6 +566,7 @@
 				D44295AD1E328242006EC08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D44295AE1E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +575,7 @@
 				D44295B01E328242006EC08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D44295B11E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +584,7 @@
 				D44295B31E328242006EC08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
