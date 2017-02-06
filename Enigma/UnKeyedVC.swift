@@ -9,25 +9,31 @@
 import UIKit
 
 //view controller for unkeyed encryptions
-class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, UIPopoverPresentationControllerDelegate {
+class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UIPopoverPresentationControllerDelegate {
     
-    var currentEncyption = Global.EncryptionTypes.Encryptions.None
+    //the header view from storyboard
+    @IBOutlet var headerView: EncryptionNameHeader!
+    
+    
+    //current encryption
+    var currentEncyption = Global.EncryptionTypes.Encryptions.None {
+        //on set, set the currentEncryption to the new value and update the label
+        didSet {
+            headerView.name.text = self.currentEncyption.description
+        }
+    }
+    //current encryption type, never changes
+    let currentEncyptionType = Global.EncryptionTypes.Types.UnKeyed
     
     //when the screen loads
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //added delegate to NaviagtionBar Header
-        //get the title view as a EncryptionNameHeader
-        let titleView = self.navigationItem.titleView as! EncryptionNameHeader
-        //let titleView = self.navigationController?.navigationItem.titleView as! EncryptionNameHeader
-        //set the delegate
-        titleView.delegate = self
+        //add delegate to header
+        headerView.delegate = self
         
         //MARK: Will be fixed in future to read from save what the last opened encryption is
         currentEncyption = Global.EncryptionTypes.Encryptions.PigLatin
-        //set the title of the screen to the current encryption
-        titleView.name.text = currentEncyption.description
     }
     //override from EncryptionNameHeaderDelegate, used to determine when the NavigationBar header was tapped
     //when tapped, open EncryptionSelection
@@ -35,6 +41,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, UIPopoverPresen
         
         //get the view controller
         let selectionVC = EncryptionSelection()
+        //set the delegate
+        selectionVC.delegate = self
         //set the current encryption of the selection view controller
         selectionVC.currentEncyption = currentEncyption
         //set the preferred size of the popup
@@ -55,7 +63,22 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, UIPopoverPresen
         //present the popover
         present(selectionVC, animated: true, completion:nil)
     }
-    
+    //override from EncryptionSelectionDelegate, used to determine which encryption was selected
+    //if current encryption, do nothing, otherwise change to anther encryption
+    func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions) {
+        
+        //if the encryption selected is not the same as the current encryption
+        if currentEncyption != encryption {
+            //if its of the same type of encryption, change current encryption to the new one
+            if currentEncyptionType == encryptionType {
+                currentEncyption = encryption
+            }
+            //otherwise, change to another encryption type
+            else {
+                // TODO: CHange to another type
+            }
+        }
+    }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {

@@ -104,6 +104,9 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="headerView" destination="w9c-0O-sTr" id="H3M-jy-tGu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

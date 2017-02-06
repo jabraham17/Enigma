@@ -8,11 +8,19 @@
 
 import UIKit
 
+//protocol/delegate that view controller class will acknolege
+protocol EncryptionSelectionDelegate: class {
+    //called when encryption is tapped, will be implemented in view controller acknolwding this protocol/delegate
+    func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions)
+}
 //popover view controller to select encryption
 class EncryptionSelection: UITableViewController {
     
     //the currently selected encryption
     var currentEncyption = Global.EncryptionTypes.Encryptions.None
+    
+    //holds EncryptionSelectionDelegate object, used to call encryptionSelected for view controller
+    weak var delegate: EncryptionSelectionDelegate?
     
     //after screen has loaded
     override func viewDidLoad() {
@@ -67,11 +75,25 @@ class EncryptionSelection: UITableViewController {
         //if the next encryption is the same as the current encryption, mark it
         if currentEncyption == encryption
         {
+            print(encryption)
             cell.textLabel?.textColor = UIColor.blue
         }
         //add the text to the cell
         cell.textLabel?.text = name
         
         return cell
+    }
+    //when cell is tapped
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //get the type encryption of the cell that was tapped
+        let type = Global.EncryptionTypes.Types.allTypes[indexPath.section]
+        //get the encryption of the cell that was tapped
+        let encryption = Global.EncryptionTypes.Encryptions.allEncyptions[indexPath.section][indexPath.row]
+        
+        //call the delegate
+        delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
+        
+        //dismiss the selection
+        self.dismiss(animated: true, completion: nil)
     }
 }
