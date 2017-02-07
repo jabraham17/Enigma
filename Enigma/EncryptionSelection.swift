@@ -72,14 +72,19 @@ class EncryptionSelection: UITableViewController {
         //get the encyption name
         let name: String = encryption.description
         
-        //if the next encryption is the same as the current encryption, mark it
+        //if the next encryption is the same as the current encryption, mark it as blue
         if currentEncyption == encryption
         {
-            print(encryption)
             cell.textLabel?.textColor = UIColor.blue
+        }
+        //otherwise, make text black
+        else
+        {
+            cell.textLabel?.textColor = UIColor.black
         }
         //add the text to the cell
         cell.textLabel?.text = name
+        
         
         return cell
     }

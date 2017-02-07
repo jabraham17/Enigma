@@ -17,6 +17,20 @@ class Global {
     static var xUnit = UIScreen.main.bounds.width / 20
     static var yUnit = UIScreen.main.bounds.height / 30
     
+    enum TypesOfField: Int, CustomStringConvertible {
+        case None
+        case Unencrypt
+        case Encrypt
+        case Key
+        
+        //string versions of the types
+        var description: String {
+            let names = ["", "Unencrypt", "Encrypt", "Key"]
+            return names[self.rawValue]
+        }
+        static let allTypes = [Unencrypt, Encrypt, Key]
+    }
+    
     //encryption vars
     struct EncryptionTypes {
         //enum for all types of encryptions

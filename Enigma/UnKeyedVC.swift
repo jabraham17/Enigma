@@ -13,11 +13,36 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     
     //the header view from storyboard
     @IBOutlet var headerView: EncryptionNameHeader!
+    //text fields
+    @IBOutlet var unencryptedField: UITextViewCustom!
+    @IBOutlet var encryptedField: UITextViewCustom!
     
+    //holds which field is currently on top/allowed to be edited
+    var currentField = Global.TypesOfField.None {
+        //if currentField was changed, update the view accordingly
+        didSet {
+            updateView()
+        }
+    }
+    //update the view to reflect currentField
+    func updateView() {
+        print(currentField)
+    }
+    //change currentField on switch click
+    @IBAction func switchAction(_ sender: UIButtonBorder) {
+        //if unencrypt, change to encrypt
+        if currentField == Global.TypesOfField.Unencrypt {
+            currentField = Global.TypesOfField.Encrypt
+        }
+        //if encrypt, change to unencrypt
+        else if currentField == Global.TypesOfField.Encrypt {
+            currentField = Global.TypesOfField.Unencrypt
+        }
+    }
     
     //current encryption
     var currentEncyption = Global.EncryptionTypes.Encryptions.None {
-        //on set, set the currentEncryption to the new value and update the label
+        //if encryption was set, update the header label
         didSet {
             headerView.name.text = self.currentEncyption.description
         }
@@ -34,6 +59,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         
         //MARK: Will be fixed in future to read from save what the last opened encryption is
         currentEncyption = Global.EncryptionTypes.Encryptions.PigLatin
+        //MARK: Will be fixed in future to read from save what the currentField is
+        currentField = Global.TypesOfField.Unencrypt
     }
     //override from EncryptionNameHeaderDelegate, used to determine when the NavigationBar header was tapped
     //when tapped, open EncryptionSelection

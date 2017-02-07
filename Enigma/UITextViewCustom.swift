@@ -18,6 +18,14 @@ import UIKit
     @IBOutlet var divider: UIView!
     var contentView: UIView!
     
+    //wether or not field is editable
+    var editable = false {
+        //if set, update the text view
+        didSet {
+            text.isEditable = self.editable
+        }
+    }
+    
     //required inits, call setup func
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -43,7 +51,6 @@ import UIKit
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.addSubview(contentView);
-
     }
     
     //field for border width of view
