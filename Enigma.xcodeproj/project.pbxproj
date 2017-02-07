@@ -15,6 +15,8 @@
 		D442959C1E328242006EC08E /* EnigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D442959B1E328242006EC08E /* EnigmaTests.swift */; };
 		D44295A71E328242006EC08E /* EnigmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295A61E328242006EC08E /* EnigmaUITests.swift */; };
 		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
+		D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */; };
+		D4BB83321E4A6BF100859B1C /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = D4BB83311E4A6BF100859B1C /* share.png */; };
 		D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */; };
 		D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B751E417D720035A688 /* UIButtonBorder.swift */; };
 		D4E99B7B1E4240420035A688 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B7A1E4240420035A688 /* Global.swift */; };
@@ -55,6 +57,8 @@
 		D44295A61E328242006EC08E /* EnigmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaUITests.swift; sourceTree = "<group>"; };
 		D44295A81E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
+		D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnKeyedEncryption.swift; sourceTree = "<group>"; };
+		D4BB83311E4A6BF100859B1C /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITextViewCustom.xib; sourceTree = "<group>"; };
 		D4E99B751E417D720035A688 /* UIButtonBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonBorder.swift; sourceTree = "<group>"; };
 		D4E99B7A1E4240420035A688 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -114,9 +118,11 @@
 				D44295861E328241006EC08E /* AppDelegate.swift */,
 				D4E99B7A1E4240420035A688 /* Global.swift */,
 				D44295881E328241006EC08E /* UnKeyedVC.swift */,
+				D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */,
 				D442958A1E328241006EC08E /* Main.storyboard */,
 				D4E99B841E43A0D40035A688 /* EncryptionHeader */,
 				D4E99B781E4180E00035A688 /* CustomTextView */,
+				D4BB83311E4A6BF100859B1C /* share.png */,
 				D4E99B771E4180C10035A688 /* Borders */,
 				D442958D1E328241006EC08E /* Assets.xcassets */,
 				D442958F1E328241006EC08E /* LaunchScreen.storyboard */,
@@ -283,6 +289,7 @@
 				D4E99B7D1E42467A0035A688 /* EncryptionNameHeader.xib in Resources */,
 				D44295911E328241006EC08E /* LaunchScreen.storyboard in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
+				D4BB83321E4A6BF100859B1C /* share.png in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
@@ -311,6 +318,7 @@
 			files = (
 				D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */,
 				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
+				D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */,
 				D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */,
 				D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,

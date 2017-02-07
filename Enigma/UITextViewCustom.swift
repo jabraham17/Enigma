@@ -16,6 +16,7 @@ import UIKit
     @IBOutlet var title: UILabel!
     @IBOutlet var text: UITextView!
     @IBOutlet var divider: UIView!
+    @IBOutlet var share: UIButton!
     var contentView: UIView!
     
     //wether or not field is editable
@@ -51,6 +52,20 @@ import UIKit
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.addSubview(contentView);
+        
+        //set the tint color of the share button to app theme
+        share.tintColor = Global.appColorTheme
+    }
+    //add exclusion path
+    func exclusionPath() {
+        //if not editable, add exclusion path
+        if !editable {
+            let exclusionArea = UIBezierPath()//put the frame/bounds of the share button here
+        }
+        //otherwise remove exclusion path
+        else {
+            
+        }
     }
     
     //field for border width of view

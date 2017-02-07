@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
             <connections>
                 <outlet property="divider" destination="6Zc-mk-kks" id="6BP-2z-ldq"/>
+                <outlet property="share" destination="gWe-ca-Jhv" id="F5z-3J-lv3"/>
                 <outlet property="text" destination="BAo-4P-eiX" id="WPm-P8-ZYg"/>
                 <outlet property="title" destination="IA6-e0-AMk" id="1kB-wa-Cbr"/>
             </connections>
@@ -38,6 +39,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-ca-Jhv">
+                    <rect key="frame" x="301" y="225" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="share.png" backgroundImage="share.png"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -60,4 +66,7 @@
             <point key="canvasLocation" x="43.5" y="-206.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="share.png" width="128" height="128"/>
+    </resources>
 </document>

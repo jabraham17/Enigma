@@ -17,8 +17,13 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     @IBOutlet var unencryptedField: UITextViewCustom!
     @IBOutlet var encryptedField: UITextViewCustom!
     
+    //positions for encryption text views
+    var topPosition: CGPoint = CGPoint()
+    var bottomPosition: CGPoint = CGPoint()
+    
+    
     //holds which field is currently on top/allowed to be edited
-    var currentField = Global.TypesOfField.None {
+    var currentField: Global.TypesOfField = .None {
         //if currentField was changed, update the view accordingly
         didSet {
             updateView()
@@ -26,29 +31,43 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     }
     //update the view to reflect currentField
     func updateView() {
-        print(currentField)
+        //if current field is unencrypted, put it at the top, then enable it
+        if currentField == Global.TypesOfField.Unencrypted {
+            unencryptedField.frame.origin = topPosition
+            unencryptedField.editable = true
+            encryptedField.frame.origin = bottomPosition
+            encryptedField.editable = false
+        }
+        //if currentField is encrypted, put it at the top, then enable it
+        else if currentField == Global.TypesOfField.Encrypted {
+            encryptedField.frame.origin = topPosition
+            encryptedField.editable = true
+            unencryptedField.frame.origin = bottomPosition
+            unencryptedField.editable = false
+        }
+
     }
     //change currentField on switch click
     @IBAction func switchAction(_ sender: UIButtonBorder) {
         //if unencrypt, change to encrypt
-        if currentField == Global.TypesOfField.Unencrypt {
-            currentField = Global.TypesOfField.Encrypt
+        if currentField == Global.TypesOfField.Unencrypted {
+            currentField = .Encrypted
         }
         //if encrypt, change to unencrypt
-        else if currentField == Global.TypesOfField.Encrypt {
-            currentField = Global.TypesOfField.Unencrypt
+        else if currentField == Global.TypesOfField.Encrypted {
+            currentField = .Unencrypted
         }
     }
     
     //current encryption
-    var currentEncyption = Global.EncryptionTypes.Encryptions.None {
+    var currentEncyption: Global.EncryptionTypes.Encryptions = .None {
         //if encryption was set, update the header label
         didSet {
             headerView.name.text = self.currentEncyption.description
         }
     }
     //current encryption type, never changes
-    let currentEncyptionType = Global.EncryptionTypes.Types.UnKeyed
+    let currentEncyptionType: Global.EncryptionTypes.Types = .UnKeyed
     
     //when the screen loads
     override func viewDidLoad() {
@@ -57,10 +76,15 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //add delegate to header
         headerView.delegate = self
         
+        //get the inital positions of the encryot fields set them to the top and bottom positions
+        topPosition = unencryptedField.frame.origin
+        bottomPosition = encryptedField.frame.origin
+        
+        
         //MARK: Will be fixed in future to read from save what the last opened encryption is
-        currentEncyption = Global.EncryptionTypes.Encryptions.PigLatin
+        currentEncyption = .PigLatin
         //MARK: Will be fixed in future to read from save what the currentField is
-        currentField = Global.TypesOfField.Unencrypt
+        currentField = .Unencrypted
     }
     //override from EncryptionNameHeaderDelegate, used to determine when the NavigationBar header was tapped
     //when tapped, open EncryptionSelection
@@ -72,8 +96,6 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         selectionVC.delegate = self
         //set the current encryption of the selection view controller
         selectionVC.currentEncyption = currentEncyption
-        //set the preferred size of the popup
-        selectionVC.preferredContentSize = CGSize(width: Global.xUnit * 17, height: Global.yUnit * 20)
         
         
         //set the presentation style to popover

@@ -17,7 +17,7 @@ protocol EncryptionSelectionDelegate: class {
 class EncryptionSelection: UITableViewController {
     
     //the currently selected encryption
-    var currentEncyption = Global.EncryptionTypes.Encryptions.None
+    var currentEncyption: Global.EncryptionTypes.Encryptions = Global.EncryptionTypes.Encryptions.None
     
     //holds EncryptionSelectionDelegate object, used to call encryptionSelected for view controller
     weak var delegate: EncryptionSelectionDelegate?

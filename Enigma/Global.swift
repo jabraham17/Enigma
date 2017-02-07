@@ -19,16 +19,16 @@ class Global {
     
     enum TypesOfField: Int, CustomStringConvertible {
         case None
-        case Unencrypt
-        case Encrypt
+        case Unencrypted
+        case Encrypted
         case Key
         
         //string versions of the types
         var description: String {
-            let names = ["", "Unencrypt", "Encrypt", "Key"]
+            let names = ["", "Unencrypted", "Encrypted", "Key"]
             return names[self.rawValue]
         }
-        static let allTypes = [Unencrypt, Encrypt, Key]
+        static let allTypes = [Unencrypted, Encrypted, Key]
     }
     
     //encryption vars
