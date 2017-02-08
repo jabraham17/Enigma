@@ -33,31 +33,42 @@
                     <rect key="frame" x="0.0" y="44" width="343" height="3"/>
                     <color key="backgroundColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sample Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BAo-4P-eiX">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" text="Sample Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BAo-4P-eiX">
                     <rect key="frame" x="10" y="49" width="323" height="208"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-ca-Jhv">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-ca-Jhv" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
                     <rect key="frame" x="301" y="225" width="32" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="6Oi-7F-8Zu"/>
+                        <constraint firstAttribute="height" constant="32" id="b3o-K5-4cF"/>
+                    </constraints>
+                    <color key="tintColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="share.png" backgroundImage="share.png"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
+                            <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="BAo-4P-eiX" firstAttribute="top" secondItem="6Zc-mk-kks" secondAttribute="bottom" constant="2" id="114-iD-BFV"/>
-                <constraint firstAttribute="bottom" secondItem="BAo-4P-eiX" secondAttribute="bottom" constant="10" id="5E8-DH-HaN"/>
-                <constraint firstItem="6Zc-mk-kks" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" id="6pp-9F-mMw"/>
-                <constraint firstItem="BAo-4P-eiX" firstAttribute="top" secondItem="IA6-e0-AMk" secondAttribute="bottom" constant="8" symbolic="YES" id="9L2-lS-Wpj"/>
-                <constraint firstItem="IA6-e0-AMk" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" constant="16" id="GG0-fI-0qK"/>
-                <constraint firstItem="6Zc-mk-kks" firstAttribute="centerX" secondItem="BAo-4P-eiX" secondAttribute="centerX" id="IQl-B5-Fd5"/>
-                <constraint firstItem="6Zc-mk-kks" firstAttribute="top" secondItem="IA6-e0-AMk" secondAttribute="bottom" constant="3" id="bdS-kE-PVe"/>
-                <constraint firstItem="BAo-4P-eiX" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" constant="10" id="dbY-CU-mmC"/>
-                <constraint firstItem="IA6-e0-AMk" firstAttribute="top" secondItem="o8e-jU-zos" secondAttribute="topMargin" id="lil-ga-itl"/>
-                <constraint firstAttribute="trailing" secondItem="6Zc-mk-kks" secondAttribute="trailing" id="noX-Ip-FPZ"/>
-                <constraint firstItem="IA6-e0-AMk" firstAttribute="centerX" secondItem="6Zc-mk-kks" secondAttribute="centerX" id="tP6-28-jDY"/>
+                <constraint firstItem="IA6-e0-AMk" firstAttribute="top" secondItem="o8e-jU-zos" secondAttribute="topMargin" id="0Jz-0G-38O"/>
+                <constraint firstItem="6Zc-mk-kks" firstAttribute="centerX" secondItem="BAo-4P-eiX" secondAttribute="centerX" id="0Rq-Dh-QOb"/>
+                <constraint firstItem="6Zc-mk-kks" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" id="3AR-P3-sIW"/>
+                <constraint firstItem="BAo-4P-eiX" firstAttribute="bottom" secondItem="gWe-ca-Jhv" secondAttribute="bottom" id="9B8-Ih-ehP"/>
+                <constraint firstItem="BAo-4P-eiX" firstAttribute="top" secondItem="IA6-e0-AMk" secondAttribute="bottom" constant="8" symbolic="YES" id="CoK-FC-r9t"/>
+                <constraint firstItem="IA6-e0-AMk" firstAttribute="centerX" secondItem="6Zc-mk-kks" secondAttribute="centerX" id="EcO-qh-sJ1"/>
+                <constraint firstAttribute="trailing" secondItem="6Zc-mk-kks" secondAttribute="trailing" id="GnT-xa-Cg7"/>
+                <constraint firstItem="BAo-4P-eiX" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" constant="10" id="H1O-D5-yMr"/>
+                <constraint firstItem="IA6-e0-AMk" firstAttribute="leading" secondItem="o8e-jU-zos" secondAttribute="leading" constant="16" id="J8b-ig-XgV"/>
+                <constraint firstItem="6Zc-mk-kks" firstAttribute="top" secondItem="IA6-e0-AMk" secondAttribute="bottom" constant="3" id="JiV-Xb-hr8"/>
+                <constraint firstItem="BAo-4P-eiX" firstAttribute="trailing" secondItem="gWe-ca-Jhv" secondAttribute="trailing" id="Kcy-jt-xvE"/>
+                <constraint firstAttribute="bottom" secondItem="BAo-4P-eiX" secondAttribute="bottom" constant="10" id="P5h-ZK-9b5"/>
+                <constraint firstItem="BAo-4P-eiX" firstAttribute="top" secondItem="6Zc-mk-kks" secondAttribute="bottom" constant="2" id="PBd-00-IfJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

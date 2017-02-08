@@ -17,6 +17,17 @@ class Global {
     static var xUnit = UIScreen.main.bounds.width / 20
     static var yUnit = UIScreen.main.bounds.height / 30
     
+    //all of the letters
+    static let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    static let lowercase = "abcdefghijklmnopqrstuvwxyz"
+    //all of the numbers
+    static let numbers = "1234567890"
+    
+    //define all the consonants
+    static let consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz"
+    //define all the vowels
+    static let vowels = "AaEeIiOoUu"
+    
     enum TypesOfField: Int, CustomStringConvertible {
         case None
         case Unencrypted

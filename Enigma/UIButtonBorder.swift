@@ -38,6 +38,18 @@ import UIKit
             layer.cornerRadius = newValue
         }
     }
-    
+    //field for image tint color
+    @IBInspectable var imageColor: UIColor? {
+        get {
+            return tintColor
+        }
+        set {
+            //get the image and render it with no color
+            let noColorImage = imageView?.image?.withRenderingMode(.alwaysTemplate)
+            //set the image
+            setImage(noColorImage, for: .normal)
+            tintColor = newValue
+        }
+    }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 //make UITextView have border and a title
-@IBDesignable class UITextViewCustom: UIView, UITextViewDelegate {
+@IBDesignable class UITextViewCustom: UIView, UITextViewDelegate, UIScrollViewDelegate {
 
     
     //gets refrences to views in IB
@@ -24,6 +24,8 @@ import UIKit
         //if set, update the text view
         didSet {
             text.isEditable = self.editable
+            //show or hide share button
+            showShareButton()
         }
     }
     
@@ -51,23 +53,49 @@ import UIKit
         //setup view so that if screen is resized the view stretches with it
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        self.addSubview(contentView);
+        self.addSubview(contentView)
         
-        //set the tint color of the share button to app theme
-        share.tintColor = Global.appColorTheme
+        //set the delegate
+        text.delegate = self
     }
-    //add exclusion path
-    func exclusionPath() {
-        //if not editable, add exclusion path
+    //add exclusion path and show/hide share button
+    func showShareButton() {
+        //if not editable, add exclusion path and show share button
         if !editable {
-            let exclusionArea = UIBezierPath()//put the frame/bounds of the share button here
-        }
-        //otherwise remove exclusion path
-        else {
+            //show share button
+            share.isHidden = false
+            share.isEnabled = false
             
+            //add exclusion path
+            text.textContainer.exclusionPaths = [updateExclusion(offset: 0)]
+        }
+        //otherwise remove exclusion path and hide share button
+        else {
+            //hide share button
+            share.isHidden = true
+            share.isEnabled = true
+            //remove paths
+            text.textContainer.exclusionPaths.removeAll()
         }
     }
-    
+    //when view has stopped moving
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //if its not editable update the exclusion area
+        if !editable {
+            text.textContainer.exclusionPaths = [updateExclusion(offset: scrollView.contentOffset.y)]
+        }
+    }
+    //update exclusion area
+    func updateExclusion(offset: CGFloat) -> UIBezierPath{
+        //width and height same as share button
+        //x value is (width of field - width of share button)
+        //y value is (scrollView content offset + height of field - height of share button)
+        let x = text.frame.width - share.frame.width
+        let y = offset + text.frame.height - share.frame.height
+        //make exclusion path
+        let exclusionArea = UIBezierPath(rect: CGRect(x: x, y: y, width: share.frame.width, height: share.frame.height))
+        return exclusionArea
+    }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {
         get {
