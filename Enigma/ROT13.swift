@@ -27,7 +27,7 @@ class ROT13: UnKeyedEncryption {
     let byteValue_a = [UInt16]("a".utf16)[0]
     
     //init with encryption type, will always be ROT13
-    init() {
+    override init() {
         super.init(encryption: .ROT13)
     }
     //put ecnryptin code here

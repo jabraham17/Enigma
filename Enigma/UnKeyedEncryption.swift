@@ -16,6 +16,10 @@ class UnKeyedEncryption {
     //the specific encryption the subclass will set
     var encryption = Global.EncryptionTypes.Encryptions.None
     
+    //init
+    init() {
+        self.encryption = .None
+    }
     //init with encryption
     init(encryption: Global.EncryptionTypes.Encryptions) {
         self.encryption = encryption

@@ -13,6 +13,7 @@ protocol EncryptionSelectionDelegate: class {
     //called when encryption is tapped, will be implemented in view controller acknolwding this protocol/delegate
     func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions)
 }
+
 //popover view controller to select encryption
 class EncryptionSelection: UITableViewController {
     

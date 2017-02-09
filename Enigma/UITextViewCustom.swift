@@ -8,9 +8,17 @@
 
 import UIKit
 
+//protocol/delegate that view controller class will acknolege
+protocol UITextViewCustomDelegate: class {
+    //called when enter button is tapped, sends text to view controller, will be implemented in view controller acknolwding this protocol/delegate
+    func enterButton(textView: UITextView, textOfView: String)
+}
+
 //make UITextView have border and a title
 @IBDesignable class UITextViewCustom: UIView, UITextViewDelegate, UIScrollViewDelegate {
 
+    //holds UITextViewCustomDelegate object, used to call enterButton for view controller
+    weak var passingDelegate: UITextViewCustomDelegate?
     
     //gets refrences to views in IB
     @IBOutlet var title: UILabel!
@@ -76,6 +84,21 @@ import UIKit
             share.isEnabled = true
             //remove paths
             text.textContainer.exclusionPaths.removeAll()
+        }
+    }
+    //when the view changes
+    func textViewDidChange(_ textView: UITextView) {
+        //if there is a newline character
+        if textView.text.contains("\n")
+        {
+            //replace all occurences of newline with a blank character
+            let newText = textView.text.replacingOccurrences(of: "\n", with: "")
+            //set the text of the textView
+            textView.text = newText
+            //pass the text to the view controller for encryption
+            passingDelegate?.enterButton(textView: textView, textOfView: newText)
+            //close the keyboard
+            textView.resignFirstResponder()
         }
     }
     //when view has stopped moving

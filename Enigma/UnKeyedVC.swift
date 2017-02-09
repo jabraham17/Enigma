@@ -9,7 +9,7 @@
 import UIKit
 
 //view controller for unkeyed encryptions
-class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UIPopoverPresentationControllerDelegate {
+class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
     
     //the header view from storyboard
     @IBOutlet var headerView: EncryptionNameHeader!
@@ -21,6 +21,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     var topPosition: CGPoint = CGPoint()
     var bottomPosition: CGPoint = CGPoint()
     
+    //encrytion class
+    var encryptor: UnKeyedEncryption = UnKeyedEncryption(encryption: .None)
     
     //holds which field is currently on top/allowed to be edited
     var currentField: Global.TypesOfField = .None {
@@ -64,6 +66,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //if encryption was set, update the header label
         didSet {
             headerView.name.text = self.currentEncyption.description
+            //update encryption
+            setEncryption()
         }
     }
     //current encryption type, never changes
@@ -80,9 +84,13 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         topPosition = unencryptedField.frame.origin
         bottomPosition = encryptedField.frame.origin
         
+        //set the delegates for the text views
+        unencryptedField.passingDelegate = self
+        encryptedField.passingDelegate = self
         
         //MARK: Will be fixed in future to read from save what the last opened encryption is
         currentEncyption = .PigLatin
+        
         //MARK: Will be fixed in future to read from save what the currentField is
         currentField = .Unencrypted
     }
@@ -112,6 +120,21 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //present the popover
         present(selectionVC, animated: true, completion:nil)
     }
+    //if the enter button was tapped, determine wether to encryt or decrupt, then do so
+    func enterButton(textView: UITextView, textOfView: String) {
+        //if the text view is the unecrypted, encrypt text and output to encrypted
+        if textView == unencryptedField.text
+        {
+            let encryptedText = encryptor.encrypt(textOfView)
+            encryptedField.text.text = encryptedText
+        }
+        //if the text view is the ecrypted, decrypt text and output to unencrypted
+        else if textView == encryptedField.text
+        {
+            let unencryptedText = encryptor.decrypt(textOfView)
+            unencryptedField.text.text = unencryptedText
+        }
+    }
     //override from EncryptionSelectionDelegate, used to determine which encryption was selected
     //if current encryption, do nothing, otherwise change to anther encryption
     func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions) {
@@ -126,6 +149,26 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             else {
                 // TODO: CHange to another type
             }
+        }
+    }
+    //set the current encryption type
+    func setEncryption() {
+        switch currentEncyption {
+        //if pig latin, make pig latin encryption
+        case .PigLatin:
+            //encryptor = PigLatin()
+            break
+        //if morse code, make morse code encryption
+        case .MorseCode:
+            //encryptor = MorseCode()
+            break
+        //if rot13, make rot13 encryption
+        case .ROT13:
+            encryptor = ROT13()
+            break
+        default:
+            //shouldnt ever get here
+            break
         }
     }
     //delegate function from UIPopoverControllerDelegate
