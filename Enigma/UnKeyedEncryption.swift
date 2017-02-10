@@ -28,12 +28,12 @@ class UnKeyedEncryption {
     func encrypt(_ toBeEncrypted: String) -> String {
         //tell user that this function cannot be used until overriden
         precondition(false, "Encrypt func must be overriden in a subclass")
-        return "Hi"
+        return ""
     }
     //decrypt function, MUST BE OVERRIDEN
     func decrypt(_ toBeDecrypted: String) -> String {
         //tell user that this function cannot be used until overriden
         precondition(false, "Decrypt func must be overriden in a subclass")
-        return "Hi"
+        return ""
     }
 }

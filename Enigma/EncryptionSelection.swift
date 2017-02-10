@@ -100,6 +100,6 @@ class EncryptionSelection: UITableViewController {
         delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
         
         //dismiss the selection
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }

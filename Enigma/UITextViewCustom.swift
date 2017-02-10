@@ -12,11 +12,12 @@ import UIKit
 protocol UITextViewCustomDelegate: class {
     //called when enter button is tapped, sends text to view controller, will be implemented in view controller acknolwding this protocol/delegate
     func enterButton(textView: UITextView, textOfView: String)
+        //called when share button is tapped, sends text to view controller, will be implemented in view controller acknolwding this protocol/delegate
+    func shareButton(senderButton: UIButton, textToShare: String)
 }
 
 //make UITextView have border and a title
 @IBDesignable class UITextViewCustom: UIView, UITextViewDelegate, UIScrollViewDelegate {
-
     //holds UITextViewCustomDelegate object, used to call enterButton for view controller
     weak var passingDelegate: UITextViewCustomDelegate?
     
@@ -72,7 +73,7 @@ protocol UITextViewCustomDelegate: class {
         if !editable {
             //show share button
             share.isHidden = false
-            share.isEnabled = false
+            share.isEnabled = true
             
             //add exclusion path
             text.textContainer.exclusionPaths = [updateExclusion(offset: 0)]
@@ -81,7 +82,7 @@ protocol UITextViewCustomDelegate: class {
         else {
             //hide share button
             share.isHidden = true
-            share.isEnabled = true
+            share.isEnabled = false
             //remove paths
             text.textContainer.exclusionPaths.removeAll()
         }
@@ -118,6 +119,12 @@ protocol UITextViewCustomDelegate: class {
         //make exclusion path
         let exclusionArea = UIBezierPath(rect: CGRect(x: x, y: y, width: share.frame.width, height: share.frame.height))
         return exclusionArea
+    }
+    //sender button clicked, send the text to the delegate
+    @IBAction func shareAction(_ sender: UIButtonBorder) {
+        print("HI")
+        //get the text and pass it
+        passingDelegate?.shareButton(senderButton: sender, textToShare: text.text)
     }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {

@@ -118,7 +118,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         popover.sourceRect = (self.navigationItem.titleView?.bounds)!
         
         //present the popover
-        present(selectionVC, animated: true, completion:nil)
+        present(selectionVC, animated: false, completion:nil)
     }
     //if the enter button was tapped, determine wether to encryt or decrupt, then do so
     func enterButton(textView: UITextView, textOfView: String) {
@@ -134,6 +134,17 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             let unencryptedText = encryptor.decrypt(textOfView)
             unencryptedField.text.text = unencryptedText
         }
+    }
+    //if the share button was tapped, share the text
+    func shareButton(senderButton: UIButton, textToShare: String) {
+        //creat the activity controller to share the text
+        let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        //excluded certian types
+        activityVC.excludedActivityTypes = [.airDrop, .assignToContact, .addToReadingList, .openInIBooks, .postToFlickr, .postToTencentWeibo, .postToVimeo, .postToWeibo, .saveToCameraRoll]
+        
+        //present as a popover
+        activityVC.popoverPresentationController?.sourceView = senderButton
+        self.present(activityVC, animated: true, completion: nil)
     }
     //override from EncryptionSelectionDelegate, used to determine which encryption was selected
     //if current encryption, do nothing, otherwise change to anther encryption
@@ -156,7 +167,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         switch currentEncyption {
         //if pig latin, make pig latin encryption
         case .PigLatin:
-            //encryptor = PigLatin()
+            encryptor = PigLatin()
             break
         //if morse code, make morse code encryption
         case .MorseCode:
