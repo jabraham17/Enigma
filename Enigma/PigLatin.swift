@@ -29,8 +29,13 @@ class PigLatin: UnKeyedEncryption {
     }
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
+        //if the string is empty, return an empty string
+        if toBeEncrypted == ""
+        {
+            return ""
+        }
         //get a array of all of the words, using split function to split string by spaces
-        let english = toBeEncrypted.components(separatedBy: "  ")
+        let english = toBeEncrypted.components(separatedBy: " ")
         // FIXME: Need to add better filter for creating the words in the unecrypted text, currently only removes whitespace, but punctuation which will confuse encryption technique are not removed/dealt with in encryption
         
         //array to hold the pig latin
@@ -78,6 +83,30 @@ class PigLatin: UnKeyedEncryption {
                 //add vowel ending
                 w += vowelEnding
             }
+            
+            //filter out words so that if a letter is capitailzed it is the capitlaization is moved to the front and if their is a punctuation mark move it to the end
+            //true if their is a capitol
+            var isThereCapitol = false
+            var punctuationMark = ""
+            for var c in w.characters
+            {
+                //if the char is capitalozed, mark that there is a capitol
+                if Global.uppercase.contains(String(c))
+                {
+                    isThereCapitol = true
+                }
+                //TODO: if there is punctuation, remove it and add it to the punctuation to be added at the end of the word
+                
+            }
+            //if there was a capitol, make all letters lowercase except the first letter
+            if isThereCapitol {
+                //make lowercase
+                w = w.lowercased()
+                //make first letter lowercase
+                w = w.capitalized
+            }
+            
+            
             //add the encrypted character to the array of pig latin
             pigLatin.append(w)
         }
