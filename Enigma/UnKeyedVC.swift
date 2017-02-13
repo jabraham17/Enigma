@@ -118,7 +118,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         popover.sourceRect = (self.navigationItem.titleView?.bounds)!
         
         //present the popover
-        present(selectionVC, animated: false, completion:nil)
+        present(selectionVC, animated: true, completion:nil)
     }
     //if the enter button was tapped, determine wether to encryt or decrupt, then do so
     func enterButton(textView: UITextView, textOfView: String) {

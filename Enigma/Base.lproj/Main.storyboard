@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UeG-HJ-gAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UeG-HJ-gAO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +56,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwy-9E-Lpa" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
                                 <rect key="frame" x="111" y="280" width="152" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="3Yn-h7-OND"/>
+                                    <constraint firstAttribute="height" constant="37" id="LCF-nD-JAC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Switch">
@@ -81,23 +80,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Igb-yh-iQc" secondAttribute="bottom" constant="14" id="0y8-zT-kaO"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="280" id="3xT-d1-Lcj"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Q9-JH-chw"/>
-                            <constraint firstItem="Igb-yh-iQc" firstAttribute="top" secondItem="vwy-9E-Lpa" secondAttribute="bottom" constant="5" id="M3q-ly-H3F"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="centerX" secondItem="vwy-9E-Lpa" secondAttribute="centerX" id="end-0e-oSj"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="nAZ-P5-Gjm"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oGC-kx-YmV"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="h4Z-Uq-WcW" secondAttribute="bottom" constant="5" id="rhr-Ay-GbC"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="95" id="wC7-3d-wZP"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="x8h-mL-vAs"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="Igb-yh-iQc" secondAttribute="trailing" id="zLF-1R-wSi"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="Awg-SM-tOy"/>
+                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="95" id="C9t-wX-DG1"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Gy0-ch-Gka"/>
+                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="h4Z-Uq-WcW" secondAttribute="bottom" constant="5" id="Qwc-ca-kxo"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RJi-Cz-mJX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Igb-yh-iQc" secondAttribute="bottom" constant="14" id="ZTc-nP-Qfd"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Zda-sp-2BF"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="centerX" secondItem="vwy-9E-Lpa" secondAttribute="centerX" id="a4l-B1-Dsw"/>
+                            <constraint firstItem="Igb-yh-iQc" firstAttribute="top" secondItem="vwy-9E-Lpa" secondAttribute="bottom" constant="5" id="hQG-8l-Ime"/>
+                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="280" id="m37-gj-rce"/>
+                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="Igb-yh-iQc" secondAttribute="trailing" id="rTX-xY-XPL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="w9c-0O-sTr" customClass="EncryptionNameHeader" customModule="Enigma" customModuleProvider="target">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>

@@ -50,7 +50,8 @@ class EncryptionSelection: UITableViewController {
         header.backgroundColor = Global.appColorTheme
         
         //make label
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: header.frame.width, height: header.frame.height))
+        let label = UILabel(frame: CGRect(x: header.frame.width / 4, y: 0, width: header.frame.width / 2, height: header.frame.height))
+        label.textAlignment = .center
         label.text = Global.EncryptionTypes.Types.allTypes[section].description
         
         //add the label to the view
@@ -100,6 +101,6 @@ class EncryptionSelection: UITableViewController {
         delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
         
         //dismiss the selection
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
