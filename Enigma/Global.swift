@@ -68,7 +68,6 @@ class Global {
             case PigLatin
             case MorseCode
             case ROT13
-            case ROT26
             //keyed
             case Caesar
             case XOR

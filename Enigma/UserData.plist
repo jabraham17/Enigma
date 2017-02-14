@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LastUsedEncryption</key>
+	<integer>0</integer>
+	<key>LastUsedEncryptionType</key>
+	<integer>0</integer>
+	<key>AvailableEncryptionsToUser</key>
+	<dict>
+		<key>PigLatin</key>
+		<false/>
+		<key>MorseCode</key>
+		<false/>
+		<key>ROT13</key>
+		<false/>
+		<key>Caesar</key>
+		<false/>
+		<key>XOR</key>
+		<false/>
+		<key>Trans</key>
+		<false/>
+		<key>Trithemius</key>
+		<false/>
+		<key>Vigenere</key>
+		<false/>
+		<key>RSA</key>
+		<false/>
+		<key>Rabin</key>
+		<false/>
+		<key>RC4</key>
+		<false/>
+		<key>DES</key>
+		<false/>
+		<key>TDEA1</key>
+		<false/>
+		<key>TDEA2</key>
+		<false/>
+		<key>TDEA3</key>
+		<false/>
+		<key>AES128</key>
+		<false/>
+		<key>AES192</key>
+		<false/>
+		<key>AES256</key>
+		<false/>
+		<key>Skipjack</key>
+		<false/>
+		<key>ChaCha20</key>
+		<false/>
+		<key>Salsa20</key>
+		<false/>
+		<key>Rabbit</key>
+		<false/>
+		<key>Blowfish</key>
+		<false/>
+	</dict>
+</dict>
+</plist>
