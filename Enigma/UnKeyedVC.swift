@@ -171,7 +171,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             break
         //if morse code, make morse code encryption
         case .MorseCode:
-            //encryptor = MorseCode()
+            encryptor = MorseCode()
             break
         //if rot13, make rot13 encryption
         case .ROT13:

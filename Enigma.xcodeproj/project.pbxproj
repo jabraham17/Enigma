@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D41294651E529990006F090B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41294641E529990006F090B /* MorseCode.swift */; };
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
 		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D41294641E529990006F090B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */,
 				D4C0C4A81E4E32A000703241 /* PigLatin.swift */,
 				D46CAADC1E4AB273001B32A5 /* ROT13.swift */,
+				D41294641E529990006F090B /* MorseCode.swift */,
 				D442958A1E328241006EC08E /* Main.storyboard */,
 				D4E99B841E43A0D40035A688 /* EncryptionHeader */,
 				D4E99B781E4180E00035A688 /* CustomTextView */,
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */,
+				D41294651E529990006F090B /* MorseCode.swift in Sources */,
 				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
 				D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */,
 				D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */,

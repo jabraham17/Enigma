@@ -68,6 +68,7 @@ class Global {
             case PigLatin
             case MorseCode
             case ROT13
+            case ROT26
             //keyed
             case Caesar
             case XOR
@@ -78,19 +79,24 @@ class Global {
             //high level
             // MARK: Split high level up into something more descriptive
             case RSA
+            case Rabin
             case RC4
             case DES
+            case TDEA1
+            case TDEA2
+            case TDEA3
             case AES128
             case AES192
             case AES256
+            case Skipjack
             case ChaCha20
             case Salsa20
             case Rabbit
             case Blowfish
-            
+
             //string versions of the encryptions
             var description: String {
-                let names = ["", "Pig Latin", "Morse Code", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rivest Cipher 4", "Data Encryption Standard", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
+                let names = ["", "Pig Latin", "Morse Code", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
                 return names[self.rawValue]
             }
             static let allEncyptions = [[PigLatin, MorseCode, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, RC4, DES, AES128, AES192, AES256, ChaCha20, Salsa20, Rabbit, Blowfish]]
