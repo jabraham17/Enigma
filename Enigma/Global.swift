@@ -98,7 +98,7 @@ class Global {
                 let names = ["", "Pig Latin", "Morse Code", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
                 return names[self.rawValue]
             }
-            static let allEncyptions = [[PigLatin, MorseCode, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, RC4, DES, AES128, AES192, AES256, ChaCha20, Salsa20, Rabbit, Blowfish]]
+            static let allEncyptions = [[PigLatin, MorseCode, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish]]
         }
     }
 }

@@ -33,19 +33,23 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     }
     //update the view to reflect currentField
     func updateView() {
-        //if current field is unencrypted, put it at the top, then enable it
-        if currentField == Global.TypesOfField.Unencrypted {
-            unencryptedField.frame.origin = topPosition
-            unencryptedField.editable = true
-            encryptedField.frame.origin = bottomPosition
-            encryptedField.editable = false
-        }
-        //if currentField is encrypted, put it at the top, then enable it
-        else if currentField == Global.TypesOfField.Encrypted {
-            encryptedField.frame.origin = topPosition
-            encryptedField.editable = true
-            unencryptedField.frame.origin = bottomPosition
-            unencryptedField.editable = false
+        //check if fields are nil, if not move on
+        if unencryptedField != nil && encryptedField != nil {
+            
+            //if current field is unencrypted, put it at the top, then enable it
+            if currentField == Global.TypesOfField.Unencrypted {
+                unencryptedField.frame.origin = topPosition
+                unencryptedField.editable = true
+                encryptedField.frame.origin = bottomPosition
+                encryptedField.editable = false
+            }
+            //if currentField is encrypted, put it at the top, then enable it
+            else if currentField == Global.TypesOfField.Encrypted {
+                encryptedField.frame.origin = topPosition
+                encryptedField.editable = true
+                unencryptedField.frame.origin = bottomPosition
+                unencryptedField.editable = false
+            }
         }
 
     }
@@ -63,9 +67,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     
     //current encryption
     var currentEncyption: Global.EncryptionTypes.Encryptions = .None {
-        //if encryption was set, update the header label
+        //if encryption was set, update the header label: this is done in setEncryption
         didSet {
-            headerView.name.text = self.currentEncyption.description
             //update encryption
             setEncryption()
         }
@@ -77,22 +80,47 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //add listener for when to save data
+        NotificationCenter.default.addObserver(self, selector: #selector(saveData), name: NSNotification.Name(rawValue: "saveAllData"), object: nil)
+        
         //add delegate to header
         headerView.delegate = self
         
+        //disable the back button
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         //get the inital positions of the encryot fields set them to the top and bottom positions
-        topPosition = unencryptedField.frame.origin
-        bottomPosition = encryptedField.frame.origin
+        //if the current field is unecnrypted, then top is unecnrypted
+        if currentField == .Unencrypted {
+            topPosition = unencryptedField.frame.origin
+            bottomPosition = encryptedField.frame.origin
+        }
+        //if the current field is ecnrypted, then top is ecnrypted
+        if currentField == .Unencrypted {
+            topPosition = encryptedField.frame.origin
+            bottomPosition = unencryptedField.frame.origin
+        }
         
         //set the delegates for the text views
         unencryptedField.passingDelegate = self
         encryptedField.passingDelegate = self
         
-        //MARK: Will be fixed in future to read from save what the last opened encryption is
-        currentEncyption = .PigLatin
-        
-        //MARK: Will be fixed in future to read from save what the currentField is
-        currentField = .Unencrypted
+        //update the view to reflect what it should look like
+        updateView()
+        //update the encryption
+        setEncryption()
+    }
+    //on deinit of class
+    deinit {
+        //remove all notification listeners
+        NotificationCenter.default.removeObserver(self)
+    }
+    //save all data
+    func saveData() {
+        //save current position
+        UserData.sharedInstance.setLastUsedEncryptionType(currentEncyptionType)
+        UserData.sharedInstance.setLastUsedEncryption(currentEncyption)
+        UserData.sharedInstance.setLastUsedField(currentField)
     }
     //override from EncryptionNameHeaderDelegate, used to determine when the NavigationBar header was tapped
     //when tapped, open EncryptionSelection
@@ -164,6 +192,10 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     }
     //set the current encryption type
     func setEncryption() {
+        
+        //update the header
+        headerView.name.text = self.currentEncyption.description
+        
         switch currentEncyption {
         //if pig latin, make pig latin encryption
         case .PigLatin:

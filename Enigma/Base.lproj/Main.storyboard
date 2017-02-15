@@ -9,6 +9,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Starter-->
+        <scene sceneID="oXl-6K-Otc">
+            <objects>
+                <viewController title="Starter" id="yDi-VE-Tbd" customClass="StarterVC" customModule="Enigma" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ILj-Cp-lgR"/>
+                        <viewControllerLayoutGuide type="bottom" id="LTu-jo-b3t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DS2-p4-9kB">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y4S-zh-YKL"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StarterToUnKeyed" animates="NO" id="aUn-jC-811"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCN-Fu-DKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="793"/>
+        </scene>
         <!--UnKeyed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -96,7 +118,7 @@
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="w9c-0O-sTr" customClass="EncryptionNameHeader" customModule="Enigma" customModuleProvider="target">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
@@ -114,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.8" y="726.38680659670172"/>
+            <point key="canvasLocation" x="1796" y="793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g4H-9I-lGw">
@@ -135,7 +157,7 @@
                         <color key="barTintColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Cqq-WU-f2C"/>
+                        <segue destination="yDi-VE-Tbd" kind="relationship" relationship="rootViewController" id="VLW-A0-gFY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvc-05-hMX" userLabel="First Responder" sceneMemberID="firstResponder"/>

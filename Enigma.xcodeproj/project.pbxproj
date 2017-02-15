@@ -10,6 +10,7 @@
 		D41294651E529990006F090B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41294641E529990006F090B /* MorseCode.swift */; };
 		D41294671E52B573006F090B /* UserData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41294661E52B573006F090B /* UserData.plist */; };
 		D41294691E52BEA6006F090B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41294681E52BEA6006F090B /* UserData.swift */; };
+		D412946B1E53D576006F090B /* StarterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D412946A1E53D576006F090B /* StarterVC.swift */; };
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
 		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		D41294641E529990006F090B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
 		D41294661E52B573006F090B /* UserData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserData.plist; sourceTree = "<group>"; };
 		D41294681E52BEA6006F090B /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		D412946A1E53D576006F090B /* StarterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterVC.swift; sourceTree = "<group>"; };
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				D46CAADC1E4AB273001B32A5 /* ROT13.swift */,
 				D41294641E529990006F090B /* MorseCode.swift */,
 				D442958A1E328241006EC08E /* Main.storyboard */,
+				D412946A1E53D576006F090B /* StarterVC.swift */,
 				D41294661E52B573006F090B /* UserData.plist */,
 				D41294681E52BEA6006F090B /* UserData.swift */,
 				D4E99B841E43A0D40035A688 /* EncryptionHeader */,
@@ -339,6 +342,7 @@
 				D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */,
 				D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */,
 				D41294691E52BEA6006F090B /* UserData.swift in Sources */,
+				D412946B1E53D576006F090B /* StarterVC.swift in Sources */,
 				D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
 				D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */,

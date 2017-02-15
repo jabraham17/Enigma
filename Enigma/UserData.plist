@@ -6,6 +6,8 @@
 	<integer>0</integer>
 	<key>LastUsedEncryptionType</key>
 	<integer>0</integer>
+	<key>LastUsedField</key>
+	<integer>0</integer>
 	<key>AvailableEncryptionsToUser</key>
 	<dict>
 		<key>PigLatin</key>
