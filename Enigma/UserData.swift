@@ -45,19 +45,14 @@ class UserData {
         }
         //get the actual data from the plist and store it locally
         data = NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>
-        let testu = NSDictionary(contentsOfFile: path)
-        print(testu)
-        print(path)
         
     }
     //save all the data that has been edited in the local var
     func save() {
         //get a NSDictionary object from the Dictionary object
         let dataToSave = NSDictionary(dictionary: data)
-        print(dataToSave)
-        print(path)
-        //FIXME: write it to the plist file
-        print(dataToSave.write(toFile: path, atomically: true))
+        //write it to the plist file
+        dataToSave.write(toFile: path, atomically: true)
     }
     //get LastUsedEncryption
     func getLastUsedEncryption() -> Global.EncryptionTypes.Encryptions {
@@ -68,6 +63,7 @@ class UserData {
     }
     //set LastUsedEncryption
     func setLastUsedEncryption(_ lastUsedEncryption: Global.EncryptionTypes.Encryptions) {
+        //set the raw value to the dictionary
         data[LastUsedEncryption] = lastUsedEncryption.rawValue
     }
     //get LastUsedEncryptionType
@@ -79,6 +75,7 @@ class UserData {
     }
     //set LastUsedEncryptionType
     func setLastUsedEncryptionType(_ lastUsedEncryptionType: Global.EncryptionTypes.Types) {
+        //set the raw value to the dictionary
         data[LastUsedEncryptionType] = lastUsedEncryptionType.rawValue
     }
     //get LastUsedField
@@ -90,6 +87,7 @@ class UserData {
     }
     //set LastUsedField
     func setLastUsedField(_ lastUsedField: Global.TypesOfField) {
-        data[LastUsedField] = lastUsedField
+        //set the raw value to the dictionary
+        data[LastUsedField] = lastUsedField.rawValue
     }
 }

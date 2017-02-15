@@ -122,7 +122,6 @@ protocol UITextViewCustomDelegate: class {
     }
     //sender button clicked, send the text to the delegate
     @IBAction func shareAction(_ sender: UIButtonBorder) {
-        print("HI")
         //get the text and pass it
         passingDelegate?.shareButton(senderButton: sender, textToShare: text.text)
     }

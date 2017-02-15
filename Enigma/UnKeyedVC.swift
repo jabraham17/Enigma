@@ -25,44 +25,36 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     var encryptor: UnKeyedEncryption = UnKeyedEncryption(encryption: .None)
     
     //holds which field is currently on top/allowed to be edited
-    var currentField: Global.TypesOfField = .None {
-        //if currentField was changed, update the view accordingly
-        didSet {
-            updateView()
-        }
-    }
+    var currentField: Global.TypesOfField = .None
     //update the view to reflect currentField
     func updateView() {
-        //check if fields are nil, if not move on
-        if unencryptedField != nil && encryptedField != nil {
-            
-            //if current field is unencrypted, put it at the top, then enable it
-            if currentField == Global.TypesOfField.Unencrypted {
-                unencryptedField.frame.origin = topPosition
-                unencryptedField.editable = true
-                encryptedField.frame.origin = bottomPosition
-                encryptedField.editable = false
-            }
-            //if currentField is encrypted, put it at the top, then enable it
-            else if currentField == Global.TypesOfField.Encrypted {
-                encryptedField.frame.origin = topPosition
-                encryptedField.editable = true
-                unencryptedField.frame.origin = bottomPosition
-                unencryptedField.editable = false
-            }
+        //if current field is unencrypted, put it at the top, then enable it
+        if currentField == .Unencrypted {
+            unencryptedField.frame.origin = topPosition
+            unencryptedField.editable = true
+            encryptedField.frame.origin = bottomPosition
+            encryptedField.editable = false
+        }
+        //if currentField is encrypted, put it at the top, then enable it
+        else if currentField == .Encrypted {
+            encryptedField.frame.origin = topPosition
+            encryptedField.editable = true
+            unencryptedField.frame.origin = bottomPosition
+            unencryptedField.editable = false
         }
 
     }
     //change currentField on switch click
     @IBAction func switchAction(_ sender: UIButtonBorder) {
         //if unencrypt, change to encrypt
-        if currentField == Global.TypesOfField.Unencrypted {
+        if currentField == .Unencrypted {
             currentField = .Encrypted
         }
         //if encrypt, change to unencrypt
-        else if currentField == Global.TypesOfField.Encrypted {
+        else if currentField == .Encrypted {
             currentField = .Unencrypted
         }
+        updateView()
     }
     
     //current encryption
@@ -90,16 +82,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         //get the inital positions of the encryot fields set them to the top and bottom positions
-        //if the current field is unecnrypted, then top is unecnrypted
-        if currentField == .Unencrypted {
-            topPosition = unencryptedField.frame.origin
-            bottomPosition = encryptedField.frame.origin
-        }
-        //if the current field is ecnrypted, then top is ecnrypted
-        if currentField == .Unencrypted {
-            topPosition = encryptedField.frame.origin
-            bottomPosition = unencryptedField.frame.origin
-        }
+        topPosition = unencryptedField.frame.origin
+        bottomPosition = encryptedField.frame.origin
         
         //set the delegates for the text views
         unencryptedField.passingDelegate = self
