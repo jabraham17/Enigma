@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UeG-HJ-gAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UeG-HJ-gAO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,76 +43,76 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4Z-Uq-WcW" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
-                                <rect key="frame" x="16" y="8" width="343" height="267"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Unencrypted"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-yh-iQc" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
-                                <rect key="frame" x="16" y="322" width="343" height="267"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Encrypted"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwy-9E-Lpa" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
-                                <rect key="frame" x="111" y="280" width="152" height="37"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-8H-tHc">
+                                <rect key="frame" x="16" y="10" width="344" height="582"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4Z-Uq-WcW" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="260"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Unencrypted"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwy-9E-Lpa" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
+                                        <rect key="frame" x="97" y="267" width="150" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="    Switch    ">
+                                            <color key="titleColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="switchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M9f-BH-x2z"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-yh-iQc" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="322" width="344" height="260"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Encrypted"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="LCF-nD-JAC"/>
+                                    <constraint firstItem="vwy-9E-Lpa" firstAttribute="centerY" secondItem="1pZ-8H-tHc" secondAttribute="centerY" id="5MQ-xu-s5q"/>
+                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="Vvh-Ga-DsG"/>
+                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="1pZ-8H-tHc" secondAttribute="leading" id="oTx-dD-9d3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Switch">
-                                    <color key="titleColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="switchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M9f-BH-x2z"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="Awg-SM-tOy"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="95" id="C9t-wX-DG1"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Gy0-ch-Gka"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="h4Z-Uq-WcW" secondAttribute="bottom" constant="5" id="Qwc-ca-kxo"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RJi-Cz-mJX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Igb-yh-iQc" secondAttribute="bottom" constant="14" id="ZTc-nP-Qfd"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Zda-sp-2BF"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="centerX" secondItem="vwy-9E-Lpa" secondAttribute="centerX" id="a4l-B1-Dsw"/>
-                            <constraint firstItem="Igb-yh-iQc" firstAttribute="top" secondItem="vwy-9E-Lpa" secondAttribute="bottom" constant="5" id="hQG-8l-Ime"/>
-                            <constraint firstItem="vwy-9E-Lpa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="280" id="m37-gj-rce"/>
-                            <constraint firstItem="h4Z-Uq-WcW" firstAttribute="trailing" secondItem="Igb-yh-iQc" secondAttribute="trailing" id="rTX-xY-XPL"/>
+                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7t0-ki-xeA"/>
+                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="M1g-Tt-JF9"/>
+                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cZf-g4-7Dp"/>
+                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="eKH-RO-0pj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">
@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="793"/>
+            <point key="canvasLocation" x="1796" y="792.95352323838085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g4H-9I-lGw">

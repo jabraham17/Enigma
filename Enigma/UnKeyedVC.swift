@@ -42,7 +42,6 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             unencryptedField.frame.origin = bottomPosition
             unencryptedField.editable = false
         }
-
     }
     //change currentField on switch click
     @IBAction func switchAction(_ sender: UIButtonBorder) {
@@ -94,6 +93,12 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //update the encryption
         setEncryption()
     }
+    //after the view has appeared
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //update the view to reflect what it should look like
+        updateView()
+    }
     //on deinit of class
     deinit {
         //remove all notification listeners
@@ -109,6 +114,20 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     //override from EncryptionNameHeaderDelegate, used to determine when the NavigationBar header was tapped
     //when tapped, open EncryptionSelection
     func headerWasTapped() {
+        
+        //close the keyboard
+        //if the current field is unencrypted
+        if currentField == .Unencrypted
+        {
+            //close unecrntpted fields keyboard
+            unencryptedField.text.resignFirstResponder()
+        }
+        //if the current field is encrypted
+        else if currentField == .Encrypted
+        {
+            //close ecrntpted fields keyboard
+            encryptedField.text.resignFirstResponder()
+        }
         
         //get the view controller
         let selectionVC = EncryptionSelection()

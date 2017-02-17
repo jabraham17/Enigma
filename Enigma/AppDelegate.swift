@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         
-        //post message to save data
+        //post message to save data to temp save in UserData
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveAllData"), object: nil)
-        //save data
+        //save data from UserData to file
         UserData.sharedInstance.save()
     }
 
