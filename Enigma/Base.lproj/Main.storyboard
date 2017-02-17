@@ -43,11 +43,11 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-8H-tHc">
-                                <rect key="frame" x="16" y="10" width="344" height="582"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-eQ-UJ5">
+                                <rect key="frame" x="15" y="10" width="345" height="584"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4Z-Uq-WcW" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="260"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="260"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -63,7 +63,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwy-9E-Lpa" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
-                                        <rect key="frame" x="97" y="267" width="150" height="48"/>
+                                        <rect key="frame" x="98" y="268" width="149" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="    Switch    ">
                                             <color key="titleColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,7 +84,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-yh-iQc" customClass="UITextViewCustom" customModule="Enigma" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="322" width="344" height="260"/>
+                                        <rect key="frame" x="0.0" y="324" width="345" height="260"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -101,18 +101,19 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="vwy-9E-Lpa" firstAttribute="centerY" secondItem="1pZ-8H-tHc" secondAttribute="centerY" id="5MQ-xu-s5q"/>
-                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="Vvh-Ga-DsG"/>
-                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="1pZ-8H-tHc" secondAttribute="leading" id="oTx-dD-9d3"/>
+                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Oaf-eQ-UJ5" secondAttribute="leading" id="31n-XQ-7Ma"/>
+                                    <constraint firstItem="h4Z-Uq-WcW" firstAttribute="leading" secondItem="Igb-yh-iQc" secondAttribute="leading" id="7yh-lE-ZhO"/>
+                                    <constraint firstItem="vwy-9E-Lpa" firstAttribute="leading" secondItem="Oaf-eQ-UJ5" secondAttribute="leading" constant="98" id="Itr-Wq-Py2"/>
+                                    <constraint firstItem="vwy-9E-Lpa" firstAttribute="centerY" secondItem="Oaf-eQ-UJ5" secondAttribute="centerY" id="ohY-uv-AtN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7t0-ki-xeA"/>
-                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="M1g-Tt-JF9"/>
-                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cZf-g4-7Dp"/>
-                            <constraint firstItem="1pZ-8H-tHc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="eKH-RO-0pj"/>
+                            <constraint firstItem="Oaf-eQ-UJ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-1" id="MXY-AV-S11"/>
+                            <constraint firstItem="Oaf-eQ-UJ5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aqC-sR-dCa"/>
+                            <constraint firstItem="Oaf-eQ-UJ5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ccq-0a-qrd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Oaf-eQ-UJ5" secondAttribute="bottom" constant="9" id="fa9-FI-uXf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">

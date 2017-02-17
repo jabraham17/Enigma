@@ -96,6 +96,9 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     //after the view has appeared
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //get the inital positions of the encryot fields set them to the top and bottom positions
+        topPosition = unencryptedField.frame.origin
+        bottomPosition = encryptedField.frame.origin
         //update the view to reflect what it should look like
         updateView()
     }
