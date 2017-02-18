@@ -14,6 +14,12 @@
 		<false/>
 		<key>MorseCode</key>
 		<false/>
+		<key>Binary</key>
+		<false/>
+		<key>Base8</key>
+		<false/>
+		<key>Base16</key>
+		<false/>
 		<key>ROT13</key>
 		<false/>
 		<key>Caesar</key>

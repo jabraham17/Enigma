@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+//TODO: Generate error messages and warnings for user
+
 //view controller for unkeyed encryptions
 class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
     
@@ -210,6 +213,10 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //if morse code, make morse code encryption
         case .MorseCode:
             encryptor = MorseCode()
+            break
+        //if binary, make binary encryption
+        case .Binary:
+            encryptor = Binary()
             break
         //if rot13, make rot13 encryption
         case .ROT13:

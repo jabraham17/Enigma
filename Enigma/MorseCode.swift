@@ -190,7 +190,6 @@ class MorseCode: UnKeyedEncryption {
         let englishStringForm = stringFromArray(array: englishText)
         //return the english
         return englishStringForm
-
     }
     //converts an array of strings into a string
     func stringFromArray(array: [String]) -> String {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-//encrypts and decrypts text using a pig latin
+//encrypts and decrypts text using pig latin
 class PigLatin: UnKeyedEncryption {
     
     /*
