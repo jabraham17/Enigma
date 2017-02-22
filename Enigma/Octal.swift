@@ -1,48 +1,48 @@
 //
-//  Binary.swift
+//  Octal.swift
 //  Enigma
 //
-//  Created by Jacob R. Abraham on 2/17/17.
+//  Created by Jacob R. Abraham on 2/22/17.
 //  Copyright © 2017 Jacob R. Abraham. All rights reserved.
 //
 
 import Foundation
 
-//encrypts and decrypts text using binary
-class Binary: UnKeyedEncryption {
+//encrypts and decrypts text using octal(base 8)
+class Octal: UnKeyedEncryption {
     
     /*
-     Rules for Binary
-     turns words into pure binary 1's and 0's according to ascii
+     Rules for Octal
+     turns words into base 8 numbers according to ascii
      put 1 space between letters
      */
     
     
-    //init with encryption type, will always be Binary
+    //init with encryption type, will always be Octal
     override init() {
-        super.init(encryption: .Binary)
+        super.init(encryption: .Octal)
     }
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
         //get a array of all of the characters
         let regularText = Array(toBeEncrypted.characters)
-        //array to hold the binary
-        var binaryText = [String]()
+        //array to hold the octal
+        var octalText = [String]()
         //loop through all the characters
         for c in regularText
         {
             //convert the character to a byte
             let by = toByte(c: c)
             print(by)
-            //convert the byte to binary
-            let bi = String(by, radix: 2)
-            //add the binary to the array with a space
-            binaryText.append(bi + " ")
+            //convert the byte to octal
+            let oct = String(by, radix: 8)
+            //add the octal to the array with a space
+            octalText.append(oct + " ")
         }
-        //convert the binary array to a string
-        let binaryString = stringFromArray(array: binaryText)
-        //return the binary
-        return binaryString
+        //convert the octal array to a string
+        let octalString = stringFromArray(array: octalText)
+        //return the octal
+        return octalString
     }
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
@@ -53,8 +53,8 @@ class Binary: UnKeyedEncryption {
         //loop through the words
         for l in letters
         {
-            //convert binary letter to byte
-            let by = UInt16(l, radix: 2)
+            //convert octal letter to byte
+            let by = UInt16(l, radix: 8)
             //convert byte to character
             let c = toCharacter(b: by!)
             //add add character to array

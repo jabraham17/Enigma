@@ -1,48 +1,48 @@
 //
-//  Binary.swift
+//  Hexadecimal.swift
 //  Enigma
 //
-//  Created by Jacob R. Abraham on 2/17/17.
+//  Created by Jacob R. Abraham on 2/22/17.
 //  Copyright © 2017 Jacob R. Abraham. All rights reserved.
 //
 
 import Foundation
 
-//encrypts and decrypts text using binary
-class Binary: UnKeyedEncryption {
+//encrypts and decrypts text using hexadecimal(base 8)
+class Hexadecimal: UnKeyedEncryption {
     
     /*
-     Rules for Binary
-     turns words into pure binary 1's and 0's according to ascii
+     Rules for Hexadecimal
+     turns words into base 16 numbers according to ascii
      put 1 space between letters
      */
     
     
-    //init with encryption type, will always be Binary
+    //init with encryption type, will always be Hexadecimal
     override init() {
-        super.init(encryption: .Binary)
+        super.init(encryption: .Hexadecimal)
     }
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
         //get a array of all of the characters
         let regularText = Array(toBeEncrypted.characters)
-        //array to hold the binary
-        var binaryText = [String]()
+        //array to hold the hexadecimal
+        var hexaText = [String]()
         //loop through all the characters
         for c in regularText
         {
             //convert the character to a byte
             let by = toByte(c: c)
             print(by)
-            //convert the byte to binary
-            let bi = String(by, radix: 2)
-            //add the binary to the array with a space
-            binaryText.append(bi + " ")
+            //convert the byte to hexadecimal
+            let hexa = String(by, radix: 16)
+            //add the hexadecimal to the array with a space
+            hexaText.append(hexa + " ")
         }
-        //convert the binary array to a string
-        let binaryString = stringFromArray(array: binaryText)
-        //return the binary
-        return binaryString
+        //convert the hexadecimal array to a string
+        let hexaString = stringFromArray(array: hexaText)
+        //return the hexadecimal
+        return hexaString
     }
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
@@ -53,8 +53,8 @@ class Binary: UnKeyedEncryption {
         //loop through the words
         for l in letters
         {
-            //convert binary letter to byte
-            let by = UInt16(l, radix: 2)
+            //convert hexadecimal letter to byte
+            let by = UInt16(l, radix: 16)
             //convert byte to character
             let c = toCharacter(b: by!)
             //add add character to array

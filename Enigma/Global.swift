@@ -68,8 +68,8 @@ class Global {
             case PigLatin
             case MorseCode
             case Binary
-            case Base8
-            case Base16
+            case Octal
+            case Hexadecimal
             case ROT13
             //keyed
             case Caesar
@@ -98,10 +98,10 @@ class Global {
 
             //string versions of the encryptions
             var description: String {
-                let names = ["", "Pig Latin", "Morse Code", "Binary", "Base 8", "Base 16", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
+                let names = ["", "Pig Latin", "Morse Code", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
                 return names[self.rawValue]
             }
-            static let allEncyptions = [[PigLatin, MorseCode, Binary, Base8, Base16, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish]]
+            static let allEncyptions = [[PigLatin, MorseCode, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish]]
         }
     }
 }

@@ -16,9 +16,9 @@
 		<false/>
 		<key>Binary</key>
 		<false/>
-		<key>Base8</key>
+		<key>Octal</key>
 		<false/>
-		<key>Base16</key>
+		<key>Hexadecimal</key>
 		<false/>
 		<key>ROT13</key>
 		<false/>

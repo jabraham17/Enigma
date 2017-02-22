@@ -83,16 +83,11 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //disable the back button
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        //get the inital positions of the encryot fields set them to the top and bottom positions
-        topPosition = unencryptedField.frame.origin
-        bottomPosition = encryptedField.frame.origin
-        
         //set the delegates for the text views
         unencryptedField.passingDelegate = self
         encryptedField.passingDelegate = self
+
         
-        //update the view to reflect what it should look like
-        updateView()
         //update the encryption
         setEncryption()
     }
@@ -100,8 +95,21 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //get the inital positions of the encryot fields set them to the top and bottom positions
-        topPosition = unencryptedField.frame.origin
-        bottomPosition = encryptedField.frame.origin
+        //get the initila positions
+        let unencrpytedPos = unencryptedField.frame.origin
+        let encrpytedPos = encryptedField.frame.origin
+        //if th current field is unencrypted,put it on top
+        if currentField == .Unencrypted
+        {
+            topPosition = unencrpytedPos
+            bottomPosition = encrpytedPos
+        }
+        //if th current field is encrypted,put it on top
+        if currentField == .Encrypted
+        {
+            topPosition = encrpytedPos
+            bottomPosition = unencrpytedPos
+        }
         //update the view to reflect what it should look like
         updateView()
     }
@@ -217,6 +225,14 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //if binary, make binary encryption
         case .Binary:
             encryptor = Binary()
+            break
+        //if Octal, make Octal encryption
+        case .Octal:
+            encryptor = Octal()
+            break
+        //if Hexadecimal, make Hexadecimal encryption
+        case .Hexadecimal:
+            encryptor = Hexadecimal()
             break
         //if rot13, make rot13 encryption
         case .ROT13:

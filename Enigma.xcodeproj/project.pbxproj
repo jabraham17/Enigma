@@ -25,6 +25,8 @@
 		D442959C1E328242006EC08E /* EnigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D442959B1E328242006EC08E /* EnigmaTests.swift */; };
 		D44295A71E328242006EC08E /* EnigmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295A61E328242006EC08E /* EnigmaUITests.swift */; };
 		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
+		D46137921E5DED6300A9D87A /* Octal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137911E5DED6300A9D87A /* Octal.swift */; };
+		D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137931E5DF48100A9D87A /* Hexadecimal.swift */; };
 		D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CAADC1E4AB273001B32A5 /* ROT13.swift */; };
 		D4B3D95F1E5793F500C8A75D /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3D95E1E5793F500C8A75D /* Binary.swift */; };
 		D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */; };
@@ -80,6 +82,8 @@
 		D44295A61E328242006EC08E /* EnigmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaUITests.swift; sourceTree = "<group>"; };
 		D44295A81E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
+		D46137911E5DED6300A9D87A /* Octal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octal.swift; sourceTree = "<group>"; };
+		D46137931E5DF48100A9D87A /* Hexadecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexadecimal.swift; sourceTree = "<group>"; };
 		D46CAADC1E4AB273001B32A5 /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROT13.swift; sourceTree = "<group>"; };
 		D4B3D95E1E5793F500C8A75D /* Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnKeyedEncryption.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				D4C0C4A81E4E32A000703241 /* PigLatin.swift */,
 				D41294641E529990006F090B /* MorseCode.swift */,
 				D4B3D95E1E5793F500C8A75D /* Binary.swift */,
+				D46137911E5DED6300A9D87A /* Octal.swift */,
+				D46137931E5DF48100A9D87A /* Hexadecimal.swift */,
 				D46CAADC1E4AB273001B32A5 /* ROT13.swift */,
 			);
 			name = Encryption;
@@ -402,6 +408,8 @@
 				D41294691E52BEA6006F090B /* UserData.swift in Sources */,
 				D412946B1E53D576006F090B /* StarterVC.swift in Sources */,
 				D4B3D95F1E5793F500C8A75D /* Binary.swift in Sources */,
+				D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */,
+				D46137921E5DED6300A9D87A /* Octal.swift in Sources */,
 				D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
 				D40341081E5819C300FDFF7E /* WarningView.swift in Sources */,
