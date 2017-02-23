@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D40341061E5818C700FDFF7E /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40341051E5818C700FDFF7E /* WarningView.xib */; };
-		D40341081E5819C300FDFF7E /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40341071E5819C300FDFF7E /* WarningView.swift */; };
+		D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40341051E5818C700FDFF7E /* WarningVC.xib */; };
+		D40341081E5819C300FDFF7E /* WarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40341071E5819C300FDFF7E /* WarningVC.swift */; };
 		D41294651E529990006F090B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41294641E529990006F090B /* MorseCode.swift */; };
 		D41294671E52B573006F090B /* UserData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41294661E52B573006F090B /* UserData.plist */; };
 		D41294691E52BEA6006F090B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41294681E52BEA6006F090B /* UserData.swift */; };
@@ -58,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D40341051E5818C700FDFF7E /* WarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningView.xib; sourceTree = "<group>"; };
-		D40341071E5819C300FDFF7E /* WarningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		D40341051E5818C700FDFF7E /* WarningVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningVC.xib; sourceTree = "<group>"; };
+		D40341071E5819C300FDFF7E /* WarningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarningVC.swift; sourceTree = "<group>"; };
 		D41294641E529990006F090B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
 		D41294661E52B573006F090B /* UserData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserData.plist; sourceTree = "<group>"; };
 		D41294681E52BEA6006F090B /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 				D4E99B7A1E4240420035A688 /* Global.swift */,
 				D442958A1E328241006EC08E /* Main.storyboard */,
 				D415D6A91E58135F00AE1C86 /* ErrorView.xib */,
-				D40341051E5818C700FDFF7E /* WarningView.xib */,
-				D40341071E5819C300FDFF7E /* WarningView.swift */,
+				D40341051E5818C700FDFF7E /* WarningVC.xib */,
+				D40341071E5819C300FDFF7E /* WarningVC.swift */,
 				D415D6AF1E58144400AE1C86 /* ViewController */,
 				D415D6B01E58145F00AE1C86 /* Encryption */,
 				D415D6AE1E58142400AE1C86 /* UserData */,
@@ -372,7 +372,7 @@
 				D415D6AC1E5813E800AE1C86 /* close.png in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
 				D4BB83321E4A6BF100859B1C /* share.png in Resources */,
-				D40341061E5818C700FDFF7E /* WarningView.xib in Resources */,
+				D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
@@ -412,7 +412,7 @@
 				D46137921E5DED6300A9D87A /* Octal.swift in Sources */,
 				D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
-				D40341081E5819C300FDFF7E /* WarningView.swift in Sources */,
+				D40341081E5819C300FDFF7E /* WarningVC.swift in Sources */,
 				D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */,
 				D44295871E328241006EC08E /* AppDelegate.swift in Sources */,
 				D4C0C4A91E4E32A100703241 /* PigLatin.swift in Sources */,

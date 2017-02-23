@@ -179,6 +179,10 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             let unencryptedText = encryptor.decrypt(textOfView)
             unencryptedField.text.text = unencryptedText
         }
+        //make warning
+        let warning = Global.warning(text: "This action may have unintended side effects", cancelAction: nil, continueAction: {})
+        //show warning
+        self.present(warning, animated: true, completion: nil)
     }
     //if the share button was tapped, share the text
     func shareButton(senderButton: UIButton, textToShare: String) {

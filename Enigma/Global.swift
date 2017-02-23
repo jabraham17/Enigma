@@ -28,6 +28,17 @@ class Global {
     //define all the vowels
     static let vowels = "AaEeIiOoUu"
     
+    //return an object of WarningVC
+    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) -> WarningVC
+    {
+        //make warning
+        let warning = WarningVC.init(nibName: "WarningVC", bundle: Bundle(for: WarningVC.self))
+        //setup with info
+        warning.setup(text: text, cancelAction: cancelAction, continueAction: cancelAction)
+        //return warning to be presented in VC
+        return warning
+    }
+    
     enum TypesOfField: Int, CustomStringConvertible {
         case None
         case Unencrypted
