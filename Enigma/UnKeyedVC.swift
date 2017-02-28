@@ -167,6 +167,19 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     }
     //if the enter button was tapped, determine wether to encryt or decrupt, then do so
     func enterButton(textView: UITextView, textOfView: String) {
+        //dismiss keyboard
+        textView.resignFirstResponder()
+        
+        //show warning
+        /*warning(text: "This action may have unintended side effects", cancelAction: {
+            //cancel action
+            
+        },
+                continueAction: {
+                    //continue action
+                    
+        })*/
+        
         //if the text view is the unecrypted, encrypt text and output to encrypted
         if textView == unencryptedField.text
         {
@@ -179,8 +192,22 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             let unencryptedText = encryptor.decrypt(textOfView)
             unencryptedField.text.text = unencryptedText
         }
-        //make warning
-        let warning = Global.warning(text: "This action may have unintended side effects", cancelAction: nil, continueAction: {})
+    }
+    //make warning popup
+    func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: WarningVC.self), bundle: Bundle(for: WarningVC.self))
+        
+        let warning = nib.instantiate(withOwner: self, options: nil)[0] as! WarningVC
+        //setup with info
+        warning.setup(text: text, cancelAction: cancelAction, continueAction: continueAction)
+        
+        //make presentation so warning appears over this vc
+        warning.modalPresentationStyle = .overFullScreen
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        warning.transitioningDelegate = transDel
+        
         //show warning
         self.present(warning, animated: true, completion: nil)
     }

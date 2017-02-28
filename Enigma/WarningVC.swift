@@ -9,10 +9,10 @@
 import UIKit
 
 //display warnings to user
-@IBDesignable class WarningVC: UIViewController {
+@IBDesignable class WarningVC: UIViewController, UIViewControllerTransitioningDelegate {
     
     //gets refrences to views in IB
-    //@IBOutlet var textView: UITextView!
+    @IBOutlet var textView: UITextView!
     
     //actions for cancelButton and continueButton
     var cancelAction: (() -> Void)?
@@ -22,14 +22,10 @@ import UIKit
     func setup(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?)
     {
         //set text
-        //textView.text = text
+        textView.text = text
         //set the actions for the buttons
         self.cancelAction = cancelAction
         self.continueAction = continueAction
-    }
-    //init from nib
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     //required init
     required init?(coder aDecoder: NSCoder) {
@@ -39,7 +35,7 @@ import UIKit
     @IBAction func cancelButton(_ sender: UIButton) {
         //defered to ensure it is performed no matter what, dismiss vc
         defer {
-            dismiss(animated: true, completion: nil)
+            presentingViewController!.dismiss(animated: true, completion: nil)
         }
         
         //get function to call from action
@@ -51,13 +47,45 @@ import UIKit
     @IBAction func continueButton(_ sender: UIButton) {
         //defered to ensure it is performed no matter what, dismiss vc
         defer {
-            dismiss(animated: true, completion: nil)
+            presentingViewController!.dismiss(animated: true, completion: nil)
         }
         
         //get function to call from action
         guard let action = continueAction else {return}
         //call function
         action()
+        /*presentingViewController!.dismiss(animated: true, completion: {
+            //get function to call from action
+            guard let action = self.continueAction else {return}
+            //call function
+            action()
+        })*/
     }
-    
+    //field for border width of view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return self.view.layer.borderWidth
+        }
+        set {
+            self.view.layer.borderWidth = newValue
+        }
+    }
+    //field for border color of view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return UIColor(cgColor: self.view.layer.borderColor!)
+        }
+        set {
+            self.view.layer.borderColor = newValue?.cgColor
+        }
+    }
+    //field for corner radius of view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.view.layer.cornerRadius
+        }
+        set {
+            self.view.layer.cornerRadius = newValue
+        }
+    }
 }

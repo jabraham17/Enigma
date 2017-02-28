@@ -13,6 +13,10 @@ class Global {
     
     //app color theme
     static let appColorTheme = UIColor(red: 184/255, green: 254/255, blue: 158/255, alpha: 1)
+    //error color
+    static let errorColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    //warning color
+    static let warningColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
     //varibles for setting up view in corridinate grid
     static var xUnit = UIScreen.main.bounds.width / 20
     static var yUnit = UIScreen.main.bounds.height / 30
@@ -27,17 +31,6 @@ class Global {
     static let consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz"
     //define all the vowels
     static let vowels = "AaEeIiOoUu"
-    
-    //return an object of WarningVC
-    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) -> WarningVC
-    {
-        //make warning
-        let warning = WarningVC.init(nibName: "WarningVC", bundle: Bundle(for: WarningVC.self))
-        //setup with info
-        warning.setup(text: text, cancelAction: cancelAction, continueAction: cancelAction)
-        //return warning to be presented in VC
-        return warning
-    }
     
     enum TypesOfField: Int, CustomStringConvertible {
         case None
@@ -63,13 +56,14 @@ class Global {
             case Keyed
             case Poly
             case HighLevel
+            case Image
 
             //string versions of the types
             var description: String {
-                let names = ["", "UnKeyed", "Keyed", "Polyalphabetic", "High Level"]
+                let names = ["", "UnKeyed", "Keyed", "Polyalphabetic", "High Level", "Image"]
                 return names[self.rawValue]
             }
-            static let allTypes = [UnKeyed, Keyed, Poly, HighLevel]
+            static let allTypes = [UnKeyed, Keyed, Poly, HighLevel, Image]
         }
         //enums for all the encryptions
         enum Encryptions: Int, CustomStringConvertible {
@@ -106,13 +100,15 @@ class Global {
             case Salsa20
             case Rabbit
             case Blowfish
+            
+            case Image
 
             //string versions of the encryptions
             var description: String {
-                let names = ["", "Pig Latin", "Morse Code", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish"]
+                let names = ["", "Pig Latin", "Morse Code", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return names[self.rawValue]
             }
-            static let allEncyptions = [[PigLatin, MorseCode, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish]]
+            static let allEncyptions = [[PigLatin, MorseCode, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
         }
     }
 }

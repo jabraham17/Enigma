@@ -158,7 +158,7 @@ class MorseCode: UnKeyedEncryption {
         morse.append(finalWordNoWhiteSpace)
         
         //convert the morse words array to a string
-        let morseStringForm = stringFromArray(array: morse)
+        let morseStringForm = stringFromArrayRemoveTrailer(array: morse)
         //return the morse code
         return morseStringForm
     }
@@ -190,32 +190,6 @@ class MorseCode: UnKeyedEncryption {
         let englishStringForm = stringFromArray(array: englishText)
         //return the english
         return englishStringForm
-    }
-    //converts an array of strings into a string
-    func stringFromArray(array: [String]) -> String {
-        //var to hold new string
-        var newString = ""
-        //loop through all elements in array and add them to newString
-        for str in array
-        {
-            //add array element to newString with a space added
-            newString += str + " "
-        }
-        //if newString is not empty, remove trailing whitespace
-        if !newString.isEmpty
-        {
-            //get the final index of the string, which is the (endIndex - 1)
-            let finalIndex = newString.index(before: newString.endIndex)
-            //remove trailing space
-            let newStringNoTrailingWhiteSpace = newString.substring(to: finalIndex)
-            //return the newString with no trailing whitespace
-            return newStringNoTrailingWhiteSpace
-        }
-            //otherwise return an empty string
-        else
-        {
-            return ""
-        }
     }
     //convert character to morse code chararcter, return string value
     func convertToMorse(c: String) -> String {

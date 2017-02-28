@@ -40,7 +40,7 @@ class Octal: UnKeyedEncryption {
             octalText.append(oct + " ")
         }
         //convert the octal array to a string
-        let octalString = stringFromArray(array: octalText)
+        let octalString = stringFromArrayRemoveTrailer(array: octalText)
         //return the octal
         return octalString
     }
@@ -48,6 +48,7 @@ class Octal: UnKeyedEncryption {
     override func decrypt(_ toBeDecrypted: String) -> String {
         //split text into sperate letters
         let letters = toBeDecrypted.components(separatedBy: " ")
+        print(letters)
         //var to hold decrypted text
         var englishText = [String]()
         //loop through the words
@@ -64,41 +65,5 @@ class Octal: UnKeyedEncryption {
         let englishStringForm = stringFromArray(array: englishText)
         //return the english
         return englishStringForm
-    }
-    //converts an array of strings into a string
-    func stringFromArray(array: [String]) -> String {
-        //var to hold new string
-        var newString = ""
-        //loop through all elements in array and add them to newString
-        for str in array
-        {
-            //add array element to newString
-            newString += str
-        }
-        //if newString is not empty, remove trailing whitespace
-        if !newString.isEmpty
-        {
-            //get the final index of the string, which is the (endIndex - 1)
-            let finalIndex = newString.index(before: newString.endIndex)
-            //remove trailing space
-            let newStringNoTrailingWhiteSpace = newString.substring(to: finalIndex)
-            //return the newString with no trailing whitespace
-            return newStringNoTrailingWhiteSpace
-        }
-            //otherwise return an empty string
-        else
-        {
-            return ""
-        }
-    }
-    //convert a character to a byte
-    func toByte(c: Character) -> UInt16{
-        //convert character to a string, then to a byte array, then grab the byte from the array
-        return [UInt16](String(c).utf16)[0]
-    }
-    //convert a byte to a character
-    func toCharacter(b: UInt16) -> Character {
-        //convert byte back into a character
-        return Character(UnicodeScalar(b)!)
     }
 }

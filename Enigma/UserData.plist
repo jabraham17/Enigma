@@ -62,6 +62,8 @@
 		<false/>
 		<key>Blowfish</key>
 		<false/>
+		<key>Image</key>
+		<false/>
 	</dict>
 </dict>
 </plist>

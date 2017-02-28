@@ -78,14 +78,4 @@ class ROT13: UnKeyedEncryption {
         //return the ecrypted text
         return shiftedString
     }
-    //convert a character to a byte
-    func toByte(c: Character) -> UInt16{
-        //convert character to a string, then to a byte array, then grab the byte from the array
-        return [UInt16](String(c).utf16)[0]
-    }
-    //convert a byte to a character
-    func toCharacter(b: UInt16) -> Character {
-        //convert byte back into a character
-        return Character(UnicodeScalar(b)!)
-    }
 }
