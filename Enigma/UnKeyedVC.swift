@@ -171,13 +171,19 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         textView.resignFirstResponder()
         
         //show warning
-        /*warning(text: "This action may have unintended side effects", cancelAction: {
+        /*warning(text: "warning message", cancelAction: {
             //cancel action
             
         },
                 continueAction: {
                     //continue action
                     
+        })
+        
+        //show error
+        error(text: "error message", okAction: {
+            //ok action
+            
         })*/
         
         //if the text view is the unecrypted, encrypt text and output to encrypted
@@ -202,7 +208,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //setup with info
         warning.setup(text: text, cancelAction: cancelAction, continueAction: continueAction)
         
-        //make presentation so warning appears over this vc
+        //make presentation so warning appears over container vc
         warning.modalPresentationStyle = .overFullScreen
         //set delaget for custom presentation
         let transDel = PopupAnimatorDelegate()
@@ -210,6 +216,24 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         
         //show warning
         self.present(warning, animated: true, completion: nil)
+    }
+    //make warning popup
+    func error(text: String, okAction: (() -> Void)?) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: ErrorVC.self), bundle: Bundle(for: ErrorVC.self))
+        
+        let error = nib.instantiate(withOwner: self, options: nil)[0] as! ErrorVC
+        //setup with info
+        error.setup(text: text, okAction: okAction)
+        
+        //make presentation so error appears over container vc
+        error.modalPresentationStyle = .overFullScreen
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        error.transitioningDelegate = transDel
+        
+        //show error
+        self.present(error, animated: true, completion: nil)
     }
     //if the share button was tapped, share the text
     func shareButton(senderButton: UIButton, textToShare: String) {
