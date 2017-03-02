@@ -54,6 +54,15 @@ class StarterVC: UIViewController {
             vc.currentField = lastUsedField
             
             break
+        case .Keyed:
+            //get destination vc as KeyedVC
+            let vc = segue.destination as! KeyedVC
+            
+            //set last used field and encryption
+            vc.currentEncyption = lastUsedEncryption
+            vc.currentField = lastUsedField
+            
+            break
         default:
             //never should reach here
             break

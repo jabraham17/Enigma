@@ -26,6 +26,10 @@
 		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
 		D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44B534A1E65FDDF005CFAE0 /* ErrorVC.xib */; };
 		D44B534D1E65FE9E005CFAE0 /* ErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B534C1E65FE9E005CFAE0 /* ErrorVC.swift */; };
+		D44B53501E6612E4005CFAE0 /* KeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B534F1E6612E4005CFAE0 /* KeyedVC.swift */; };
+		D44B53531E6727FF005CFAE0 /* KeyedEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B53521E6727FF005CFAE0 /* KeyedEncryption.swift */; };
+		D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44B53541E6729D6005CFAE0 /* UITextFieldCustom.xib */; };
+		D44B53571E672BD9005CFAE0 /* UITextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B53561E672BD9005CFAE0 /* UITextFieldCustom.swift */; };
 		D46137921E5DED6300A9D87A /* Octal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137911E5DED6300A9D87A /* Octal.swift */; };
 		D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137931E5DF48100A9D87A /* Hexadecimal.swift */; };
 		D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CAADC1E4AB273001B32A5 /* ROT13.swift */; };
@@ -86,6 +90,10 @@
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
 		D44B534A1E65FDDF005CFAE0 /* ErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorVC.xib; sourceTree = "<group>"; };
 		D44B534C1E65FE9E005CFAE0 /* ErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorVC.swift; sourceTree = "<group>"; };
+		D44B534F1E6612E4005CFAE0 /* KeyedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedVC.swift; sourceTree = "<group>"; };
+		D44B53521E6727FF005CFAE0 /* KeyedEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedEncryption.swift; sourceTree = "<group>"; };
+		D44B53541E6729D6005CFAE0 /* UITextFieldCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITextFieldCustom.xib; sourceTree = "<group>"; };
+		D44B53561E672BD9005CFAE0 /* UITextFieldCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldCustom.swift; sourceTree = "<group>"; };
 		D46137911E5DED6300A9D87A /* Octal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octal.swift; sourceTree = "<group>"; };
 		D46137931E5DF48100A9D87A /* Hexadecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexadecimal.swift; sourceTree = "<group>"; };
 		D46CAADC1E4AB273001B32A5 /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROT13.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D44295881E328241006EC08E /* UnKeyedVC.swift */,
+				D44B534F1E6612E4005CFAE0 /* KeyedVC.swift */,
 				D412946A1E53D576006F090B /* StarterVC.swift */,
 			);
 			name = ViewController;
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */,
+				D44B53521E6727FF005CFAE0 /* KeyedEncryption.swift */,
 				D4C0C4A81E4E32A000703241 /* PigLatin.swift */,
 				D41294641E529990006F090B /* MorseCode.swift */,
 				D4B3D95E1E5793F500C8A75D /* Binary.swift */,
@@ -280,6 +290,8 @@
 			children = (
 				D44295B61E3285BA006EC08E /* UITextViewCustom.swift */,
 				D4E99B6E1E412B810035A688 /* UITextViewCustom.xib */,
+				D44B53561E672BD9005CFAE0 /* UITextFieldCustom.swift */,
+				D44B53541E6729D6005CFAE0 /* UITextFieldCustom.xib */,
 			);
 			name = CustomTextView;
 			sourceTree = "<group>";
@@ -414,6 +426,7 @@
 				D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */,
 				D4BB83321E4A6BF100859B1C /* share.png in Resources */,
 				D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */,
+				D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
@@ -444,6 +457,9 @@
 				D41294651E529990006F090B /* MorseCode.swift in Sources */,
 				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
 				D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */,
+				D44B53501E6612E4005CFAE0 /* KeyedVC.swift in Sources */,
+				D44B53531E6727FF005CFAE0 /* KeyedEncryption.swift in Sources */,
+				D44B53571E672BD9005CFAE0 /* UITextFieldCustom.swift in Sources */,
 				D4E99B761E417D720035A688 /* UIButtonBorder.swift in Sources */,
 				D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */,
 				D41294691E52BEA6006F090B /* UserData.swift in Sources */,

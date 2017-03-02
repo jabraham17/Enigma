@@ -36,14 +36,13 @@ class Global {
         case None
         case Unencrypted
         case Encrypted
-        case Key
         
         //string versions of the types
         var description: String {
-            let names = ["", "Unencrypted", "Encrypted", "Key"]
+            let names = ["", "Unencrypted", "Encrypted"]
             return names[self.rawValue]
         }
-        static let allTypes = [Unencrypted, Encrypted, Key]
+        static let allTypes = [Unencrypted, Encrypted]
     }
     
     //encryption vars

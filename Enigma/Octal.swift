@@ -33,7 +33,6 @@ class Octal: UnKeyedEncryption {
         {
             //convert the character to a byte
             let by = toByte(c: c)
-            print(by)
             //convert the byte to octal
             let oct = String(by, radix: 8)
             //add the octal to the array with a space

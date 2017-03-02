@@ -33,7 +33,6 @@ class Hexadecimal: UnKeyedEncryption {
         {
             //convert the character to a byte
             let by = toByte(c: c)
-            print(by)
             //convert the byte to hexadecimal
             let hexa = String(by, radix: 16)
             //add the hexadecimal to the array with a space

@@ -1,17 +1,14 @@
 //
-//  UnKeyedVC.swift
+//  Keyed.swift
 //  Enigma
 //
-//  Created by Jacob R. Abraham on 1/20/17.
+//  Created by Jacob R. Abraham on 2/28/17.
 //  Copyright © 2017 Jacob R. Abraham. All rights reserved.
 //
 
 import UIKit
 
-//TODO: Generate error messages and warnings for user
-
-//view controller for unkeyed encryptions
-class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
+@IBDesignable class KeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
     
     //the header view from storyboard
     @IBOutlet var headerView: EncryptionNameHeader!
@@ -24,7 +21,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     var bottomPosition: CGPoint = CGPoint()
     
     //encrytion class
-    var encryptor: UnKeyedEncryption = UnKeyedEncryption(encryption: .None)
+    var encryptor: KeyedEncryption = KeyedEncryption(encryption: .None)
     
     //holds which field is currently on top/allowed to be edited
     var currentField: Global.TypesOfField = .None
@@ -37,7 +34,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             encryptedField.frame.origin = bottomPosition
             encryptedField.editable = false
         }
-        //if currentField is encrypted, put it at the top, then enable it
+            //if currentField is encrypted, put it at the top, then enable it
         else if currentField == .Encrypted {
             encryptedField.frame.origin = topPosition
             encryptedField.editable = true
@@ -51,7 +48,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         if currentField == .Unencrypted {
             currentField = .Encrypted
         }
-        //if encrypt, change to unencrypt
+            //if encrypt, change to unencrypt
         else if currentField == .Encrypted {
             currentField = .Unencrypted
         }
@@ -85,7 +82,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //set the delegates for the text views
         unencryptedField.passingDelegate = self
         encryptedField.passingDelegate = self
-
+        
         
         //update the encryption
         setEncryption()
@@ -135,7 +132,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             //close unecrntpted fields keyboard
             unencryptedField.text.resignFirstResponder()
         }
-        //if the current field is encrypted
+            //if the current field is encrypted
         else if currentField == .Encrypted
         {
             //close ecrntpted fields keyboard
@@ -171,19 +168,19 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         
         //show warning
         /*warning(text: "warning message", cancelAction: {
-            //cancel action
-            
-        },
-                continueAction: {
-                    //continue action
-                    
-        })
-        
-        //show error
-        error(text: "error message", okAction: {
-            //ok action
-            
-        })*/
+         //cancel action
+         
+         },
+         continueAction: {
+         //continue action
+         
+         })
+         
+         //show error
+         error(text: "error message", okAction: {
+         //ok action
+         
+         })*/
         
         //if the text view is the unecrypted, encrypt text and output to encrypted
         if textView == unencryptedField.text
@@ -191,7 +188,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             let encryptedText = encryptor.encrypt(textOfView)
             encryptedField.text.text = encryptedText
         }
-        //if the text view is the ecrypted, decrypt text and output to unencrypted
+            //if the text view is the ecrypted, decrypt text and output to unencrypted
         else if textView == encryptedField.text
         {
             let unencryptedText = encryptor.decrypt(textOfView)
@@ -255,7 +252,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             if currentEncyptionType == encryptionType {
                 currentEncyption = encryption
             }
-            //otherwise, change to another encryption type
+                //otherwise, change to another encryption type
             else {
                 // TODO: CHange to another type
             }
@@ -267,35 +264,15 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //update the header
         headerView.name.text = self.currentEncyption.description
         
-        switch currentEncyption {
-        //if pig latin, make pig latin encryption
-        case .PigLatin:
-            encryptor = PigLatin()
-            break
-        //if morse code, make morse code encryption
-        case .MorseCode:
-            encryptor = MorseCode()
-            break
-        //if binary, make binary encryption
-        case .Binary:
-            encryptor = Binary()
-            break
-        //if Octal, make Octal encryption
-        case .Octal:
-            encryptor = Octal()
-            break
-        //if Hexadecimal, make Hexadecimal encryption
-        case .Hexadecimal:
-            encryptor = Hexadecimal()
-            break
-        //if rot13, make rot13 encryption
-        case .ROT13:
-            encryptor = ROT13()
+        /*switch currentEncyption {
+        //if _, make _ encryption
+        case ._:
+            encryptor = _()
             break
         default:
             //shouldnt ever get here
             break
-        }
+        }*/
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style
@@ -303,4 +280,5 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         return .none
     }
 }
+
 
