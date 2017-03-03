@@ -66,8 +66,8 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             setEncryption()
         }
     }
-    //current encryption type, never changes
-    let currentEncyptionType: Global.EncryptionTypes.Types = .UnKeyed
+    //current encryption type, only changes when moving to new view
+    var currentEncyptionType: Global.EncryptionTypes.Types = .UnKeyed
     
     //when the screen loads
     override func viewDidLoad() {
@@ -89,6 +89,13 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         
         //update the encryption
         setEncryption()
+    }
+    //when the view will diaspear
+    override func viewWillDisappear(_ animated: Bool) {
+        //post notifivtion to disapppear
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveAllData"), object: nil)
+        //remove all notification listeners
+        NotificationCenter.default.removeObserver(self)
     }
     //after the view has appeared
     override func viewDidAppear(_ animated: Bool) {
@@ -257,7 +264,13 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             }
             //otherwise, change to another encryption type
             else {
-                // TODO: CHange to another type
+                //set the new encryption and encryotin type
+                currentEncyption = encryption
+                currentEncyptionType = encryptionType
+                //save all the data
+                saveData()
+                //unwind the segue, this pops current view off the stack
+                _ = self.navigationController?.popViewController(animated: false)
             }
         }
     }

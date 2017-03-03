@@ -97,10 +97,11 @@ class EncryptionSelection: UITableViewController {
         //get the encryption of the cell that was tapped
         let encryption = Global.EncryptionTypes.Encryptions.allEncyptions[indexPath.section][indexPath.row]
         
-        //call the delegate
-        delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
-        
         //dismiss the selection
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+         
+            //after popup is dismissed, call the delegate
+            self.delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
+        })
     }
 }
