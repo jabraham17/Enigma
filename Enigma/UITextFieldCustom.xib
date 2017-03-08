@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,23 +20,26 @@
             <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-oh-Mc1">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-oh-Mc1">
                     <rect key="frame" x="65" y="9" width="228" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAJ-iz-iUP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAJ-iz-iUP">
                     <rect key="frame" x="16" y="9" width="47" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="st7-5U-wmr"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ6-8p-BAo" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ6-8p-BAo" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
                     <rect key="frame" x="295" y="8" width="32" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="0uz-Ci-F8l"/>
+                    </constraints>
                     <state key="normal" image="share.png" backgroundImage="share.png"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
@@ -48,6 +52,18 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nI7-oh-Mc1" firstAttribute="centerY" secondItem="aZ6-8p-BAo" secondAttribute="centerY" id="0Xd-xe-S0A"/>
+                <constraint firstItem="jAJ-iz-iUP" firstAttribute="bottom" secondItem="nI7-oh-Mc1" secondAttribute="bottom" id="1KM-Ek-d8D"/>
+                <constraint firstItem="jAJ-iz-iUP" firstAttribute="top" secondItem="nI7-oh-Mc1" secondAttribute="top" id="5Hx-XE-WE6"/>
+                <constraint firstAttribute="trailing" secondItem="aZ6-8p-BAo" secondAttribute="trailing" constant="16" id="HrW-D7-tjL"/>
+                <constraint firstItem="nI7-oh-Mc1" firstAttribute="leading" secondItem="jAJ-iz-iUP" secondAttribute="trailing" constant="2" id="JYr-JW-M1h"/>
+                <constraint firstItem="aZ6-8p-BAo" firstAttribute="leading" secondItem="nI7-oh-Mc1" secondAttribute="trailing" constant="2" id="RVe-Kf-FkW"/>
+                <constraint firstItem="jAJ-iz-iUP" firstAttribute="leading" secondItem="87d-qu-QWz" secondAttribute="leading" constant="16" id="Wlz-Vk-Osa"/>
+                <constraint firstItem="aZ6-8p-BAo" firstAttribute="top" secondItem="87d-qu-QWz" secondAttribute="topMargin" id="XbP-b4-t5J"/>
+                <constraint firstItem="jAJ-iz-iUP" firstAttribute="top" secondItem="87d-qu-QWz" secondAttribute="top" constant="9" id="aOf-pE-sRg"/>
+                <constraint firstItem="aZ6-8p-BAo" firstAttribute="bottom" secondItem="87d-qu-QWz" secondAttribute="bottomMargin" id="fzS-Nm-o06"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

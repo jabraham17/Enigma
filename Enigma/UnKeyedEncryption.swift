@@ -51,7 +51,7 @@ class UnKeyedEncryption {
     //converts an array of strings into a string
     func stringFromArrayRemoveTrailer(array: [String]) -> String {
         //var to hold new string
-        var newString = stringFromArray(array: array)
+        let newString = stringFromArray(array: array)
         //if newString is not empty, remove trailing whitespace
         if !newString.isEmpty
         {

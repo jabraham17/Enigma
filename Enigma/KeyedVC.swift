@@ -228,18 +228,9 @@ import UIKit
          
          })*/
         
-        //if the text view is the unecrypted, encrypt text and output to encrypted
-        if textView == unencryptedField.text
-        {
-            let encryptedText = encryptor.encrypt(textOfView)
-            encryptedField.text.text = encryptedText
-        }
-            //if the text view is the ecrypted, decrypt text and output to unencrypted
-        else if textView == encryptedField.text
-        {
-            let unencryptedText = encryptor.decrypt(textOfView)
-            unencryptedField.text.text = unencryptedText
-        }
+        //update the key, incase user did not press enter when entering key
+        //this will also update the text views so there is no need to do it again
+        key = keyField.field.text!
     }
     //if the share button was tapped, share the text
     func shareButton(senderButton: UIButton, textToShare: String) {
@@ -256,7 +247,6 @@ import UIKit
     func enterButton(textField: UITextField, textOfField: String) {
         //dismiss keyboard
         textField.resignFirstResponder()
-        print(textOfField)
         //set new key
         key = textOfField
     }
@@ -339,6 +329,10 @@ import UIKit
         //if Caesar, make CaesarCipher encryption
         case .Caesar:
             encryptor = CaesarCipher(key: key)
+            break
+        //if XOR, make XORCipher encryption
+        case .XOR:
+            encryptor = XORCipher(key: key)
             break
         default:
             //shouldnt ever get here

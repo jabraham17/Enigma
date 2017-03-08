@@ -42,7 +42,7 @@ class KeyedEncryption {
         return ""
     }
     //convert a character to a byte
-    func toByte(c: Character) -> UInt16{
+    func toByte(c: Character) -> UInt16 {
         //convert character to a string, then to a byte array, then grab the byte from the array
         return [UInt16](String(c).utf16)[0]
     }
