@@ -87,6 +87,8 @@ class EncryptionSelection: UITableViewController {
         //add the text to the cell
         cell.textLabel?.text = name
         
+        //set textLabel so that it auto resizes the font if the text is too big
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         
         return cell
     }

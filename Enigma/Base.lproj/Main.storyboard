@@ -285,6 +285,7 @@
                     <connections>
                         <outlet property="encryptedField" destination="kNW-zN-TId" id="UVJ-pS-MaD"/>
                         <outlet property="headerView" destination="Hsg-6b-BBM" id="ozb-hH-DiJ"/>
+                        <outlet property="keyField" destination="67x-DE-YzZ" id="2HC-pT-wLi"/>
                         <outlet property="unencryptedField" destination="5uK-bu-vXz" id="vtL-Kh-udO"/>
                     </connections>
                 </viewController>

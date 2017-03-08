@@ -63,6 +63,9 @@ protocol EncryptionNameHeaderDelegate: class {
         //setup view so that if screen is resized the view stretches with it
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        //label adjusts font size if text is too big
+        name.adjustsFontSizeToFitWidth = true
+        
         self.addSubview(contentView);
         
     }

@@ -11,15 +11,15 @@ import UIKit
 //protocol/delegate that view controller class will acknolege
 protocol UITextFieldCustomDelegate: class {
     //called when enter button is tapped, sends text to view controller, will be implemented in view controller acknolwding this protocol/delegate
-    func enterButton(textView: UITextView, textOfView: String)
+    func enterButton(textField: UITextField, textOfField: String)
     //called when share button is tapped, sends text to view controller, will be implemented in view controller acknolwding this protocol/delegate
-    func shareButton(senderButton: UIButton, textToShare: String)
+    func shareButton(senderButton: UIButton, keyToShare: String)
 }
 
 //make UITextField have border and a title
-@IBDesignable class UITextFieldCustom: UIView {
+@IBDesignable class UITextFieldCustom: UIView, UITextFieldDelegate {
     //holds UITextViewCustomDelegate object, used to call enterButton for view controller
-    weak var passingDelegate: UITextViewCustomDelegate?
+    weak var passingDelegate: UITextFieldCustomDelegate?
     
     //gets refrences to views in IB
     @IBOutlet var title: UILabel!
@@ -52,12 +52,22 @@ protocol UITextFieldCustomDelegate: class {
         
         self.addSubview(contentView)
         
-        // FIXME: set the delegate
+        //set the fields delegate
+        field.delegate = self
     }
+    //allow returns on the text field
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //pass the text to the view controller for encryption
+        passingDelegate?.enterButton(textField: textField, textOfField: textField.text!)
+        //close the keyboard
+        textField.resignFirstResponder()
+        return true
+    }
+ 
     //sender button clicked, send the text to the delegate
     @IBAction func shareAction(_ sender: UIButtonBorder) {
         //get the text and pass it
-        passingDelegate?.shareButton(senderButton: sender, textToShare: field.text!)
+        passingDelegate?.shareButton(senderButton: sender, keyToShare: field.text!)
     }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {

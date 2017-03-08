@@ -8,13 +8,15 @@
 
 import UIKit
 
-@IBDesignable class KeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
+@IBDesignable class KeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UITextFieldCustomDelegate, UIPopoverPresentationControllerDelegate {
     
     //the header view from storyboard
     @IBOutlet var headerView: EncryptionNameHeader!
     //text fields
     @IBOutlet var unencryptedField: UITextViewCustom!
     @IBOutlet var encryptedField: UITextViewCustom!
+    //key field
+    @IBOutlet var keyField: UITextFieldCustom!
     
     //positions for encryption text views
     var topPosition: CGPoint = CGPoint()
@@ -23,8 +25,41 @@ import UIKit
     //encrytion class
     var encryptor: KeyedEncryption = KeyedEncryption(encryption: .None)
     
+    //key
+    var key: String {
+        //on get, put return the value of encytor key
+        get {
+            return encryptor.key
+        }
+        //on set, put the value into encryptor key, then update the encryption views
+        set {
+            encryptor.key = newValue
+            //update the text
+            updateText()
+        }
+    }
+    
+    //updates the text after a change, ie encrytpion change or key change
+    func updateText() {
+        //if current field is unencrypted, encrypt the text with the new key
+        if currentField == .Unencrypted {
+            //get the current decypted text and ecnrypt it
+            let encryptedText = encryptor.encrypt(unencryptedField.text.text)
+            //set the new encrypted text
+            encryptedField.text.text = encryptedText
+        }
+            //if current field is encrypted, decrypt the text with the new key
+        else if currentField == .Encrypted {
+            //get the current encypted text and decrypt it
+            let decryptedText = encryptor.decrypt(encryptedField.text.text)
+            //set the new unencrypted text
+            unencryptedField.text.text = decryptedText
+        }
+    }
+    
     //holds which field is currently on top/allowed to be edited
     var currentField: Global.TypesOfField = .None
+    
     //update the view to reflect currentField
     func updateView() {
         //if current field is unencrypted, put it at the top, then enable it
@@ -79,9 +114,10 @@ import UIKit
         //disable the back button
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        //set the delegates for the text views
+        //set the delegates for the text views and text field
         unencryptedField.passingDelegate = self
         encryptedField.passingDelegate = self
+        keyField.passingDelegate = self
         
         
         //update the encryption
@@ -115,6 +151,9 @@ import UIKit
         }
         //update the view to reflect what it should look like
         updateView()
+        
+        //when the view appears set key to keyField text
+        key = keyField.field.text!
     }
     //on deinit of class
     deinit {
@@ -202,6 +241,58 @@ import UIKit
             unencryptedField.text.text = unencryptedText
         }
     }
+    //if the share button was tapped, share the text
+    func shareButton(senderButton: UIButton, textToShare: String) {
+        //creat the activity controller to share the text
+        let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        //excluded certian types
+        activityVC.excludedActivityTypes = [.airDrop, .assignToContact, .addToReadingList, .openInIBooks, .postToFlickr, .postToTencentWeibo, .postToVimeo, .postToWeibo, .saveToCameraRoll]
+        
+        //present as a popover
+        activityVC.popoverPresentationController?.sourceView = senderButton
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    //if the enter button was tapped, set the new key
+    func enterButton(textField: UITextField, textOfField: String) {
+        //dismiss keyboard
+        textField.resignFirstResponder()
+        print(textOfField)
+        //set new key
+        key = textOfField
+    }
+    //if the share button was tapped, share the key
+    func shareButton(senderButton: UIButton, keyToShare: String) {
+        //creat the activity controller to share the key
+        let activityVC = UIActivityViewController(activityItems: [keyToShare], applicationActivities: nil)
+        //excluded certian types
+        activityVC.excludedActivityTypes = [.airDrop, .assignToContact, .addToReadingList, .openInIBooks, .postToFlickr, .postToTencentWeibo, .postToVimeo, .postToWeibo, .saveToCameraRoll]
+        
+        //present as a popover
+        activityVC.popoverPresentationController?.sourceView = senderButton
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    //override from EncryptionSelectionDelegate, used to determine which encryption was selected
+    //if current encryption, do nothing, otherwise change to anther encryption
+    func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions) {
+        
+        //if the encryption selected is not the same as the current encryption
+        if currentEncyption != encryption {
+            //if its of the same type of encryption, change current encryption to the new one
+            if currentEncyptionType == encryptionType {
+                currentEncyption = encryption
+            }
+                //otherwise, change to another encryption type
+            else {
+                //set the new encryption and encryotin type
+                currentEncyption = encryption
+                currentEncyptionType = encryptionType
+                //save all the data
+                saveData()
+                //unwind the segue, this pops current view off the stack
+                _ = self.navigationController?.popViewController(animated: false)
+            }
+        }
+    }
     //make warning popup
     func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) {
         //load vc from nib
@@ -238,54 +329,22 @@ import UIKit
         //show error
         self.present(error, animated: true, completion: nil)
     }
-    //if the share button was tapped, share the text
-    func shareButton(senderButton: UIButton, textToShare: String) {
-        //creat the activity controller to share the text
-        let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
-        //excluded certian types
-        activityVC.excludedActivityTypes = [.airDrop, .assignToContact, .addToReadingList, .openInIBooks, .postToFlickr, .postToTencentWeibo, .postToVimeo, .postToWeibo, .saveToCameraRoll]
-        
-        //present as a popover
-        activityVC.popoverPresentationController?.sourceView = senderButton
-        self.present(activityVC, animated: true, completion: nil)
-    }
-    //override from EncryptionSelectionDelegate, used to determine which encryption was selected
-    //if current encryption, do nothing, otherwise change to anther encryption
-    func encryptionSelected(encryptionType: Global.EncryptionTypes.Types, encryption: Global.EncryptionTypes.Encryptions) {
-        
-        //if the encryption selected is not the same as the current encryption
-        if currentEncyption != encryption {
-            //if its of the same type of encryption, change current encryption to the new one
-            if currentEncyptionType == encryptionType {
-                currentEncyption = encryption
-            }
-                //otherwise, change to another encryption type
-            else {
-                //set the new encryption and encryotin type
-                currentEncyption = encryption
-                currentEncyptionType = encryptionType
-                //save all the data
-                saveData()
-                //unwind the segue, this pops current view off the stack
-                _ = self.navigationController?.popViewController(animated: false)
-            }
-        }
-    }
     //set the current encryption type
     func setEncryption() {
         
         //update the header
         headerView.name.text = self.currentEncyption.description
         
-        /*switch currentEncyption {
-        //if _, make _ encryption
-        case ._:
-            encryptor = _()
+        switch currentEncyption {
+        //if Caesar, make CaesarCipher encryption
+        case .Caesar:
+            encryptor = CaesarCipher(key: key)
             break
         default:
             //shouldnt ever get here
             break
-        }*/
+        }
+        updateText()
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style

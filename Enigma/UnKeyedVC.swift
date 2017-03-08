@@ -26,6 +26,24 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     //encrytion class
     var encryptor: UnKeyedEncryption = UnKeyedEncryption(encryption: .None)
     
+    //updates the text after a change, ie encrytpion change
+    func updateText() {
+        //if current field is unencrypted, encrypt the text with the new key
+        if currentField == .Unencrypted {
+            //get the current decypted text and ecnrypt it
+            let encryptedText = encryptor.encrypt(unencryptedField.text.text)
+            //set the new encrypted text
+            encryptedField.text.text = encryptedText
+        }
+            //if current field is encrypted, decrypt the text with the new key
+        else if currentField == .Encrypted {
+            //get the current encypted text and decrypt it
+            let decryptedText = encryptor.decrypt(encryptedField.text.text)
+            //set the new unencrypted text
+            unencryptedField.text.text = decryptedText
+        }
+    }
+    
     //holds which field is currently on top/allowed to be edited
     var currentField: Global.TypesOfField = .None
     //update the view to reflect currentField
@@ -309,6 +327,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             //shouldnt ever get here
             break
         }
+        updateText()
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style
