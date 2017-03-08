@@ -14,6 +14,8 @@
 		<false/>
 		<key>MorseCode</key>
 		<false/>
+		<key>PigPen</key>
+		<false/>
 		<key>Binary</key>
 		<false/>
 		<key>Octal</key>
@@ -27,6 +29,10 @@
 		<key>XOR</key>
 		<false/>
 		<key>Trans</key>
+		<false/>
+		<key>RailFence</key>
+		<false/>
+		<key>Columnar</key>
 		<false/>
 		<key>Trithemius</key>
 		<false/>

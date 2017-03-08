@@ -18,7 +18,7 @@ class MorseCode: UnKeyedEncryption {
      All punctuation is removed
      */
     // FIXME: Currently only removes all puncutation instead of dealing with it
-    
+    // FIXME: Make morseCode array a dictonary so that code is more effcient
     
     //custom class to hold a letter and its corresponding morse value
     class MorseCharacter {

@@ -8,6 +8,9 @@
 
 import UIKit
 
+//TODO: If key is out of range, send warnign to user
+
+//view controller for keyed encryptions
 @IBDesignable class KeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UITextFieldCustomDelegate, UIPopoverPresentationControllerDelegate {
     
     //the header view from storyboard
@@ -333,6 +336,18 @@ import UIKit
         //if XOR, make XORCipher encryption
         case .XOR:
             encryptor = XORCipher(key: key)
+            break
+        //if Trans, make TranspositionCipher encryption
+        case .Trans:
+            //encryptor = TranspositionCipher(key: key)
+            break
+        //if RailFence, make RailFenceCipher encryption
+        case .RailFence:
+            //encryptor = RailFenceCipher(key: key)
+            break
+        //if Columnar, make ColumnarCipher encryption
+        case .Columnar:
+            //encryptor = ColumnarCipher(key: key)
             break
         default:
             //shouldnt ever get here

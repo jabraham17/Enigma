@@ -323,6 +323,10 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         case .ROT13:
             encryptor = ROT13()
             break
+        //if pigpen, make PigPenCipher
+        case .PigPen:
+            //encryptor = PigPenCipher()
+            break
         default:
             //shouldnt ever get here
             break
