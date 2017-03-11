@@ -137,21 +137,8 @@ import UIKit
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //get the inital positions of the encryot fields set them to the top and bottom positions
-        //get the initila positions
-        let unencrpytedPos = unencryptedField.frame.origin
-        let encrpytedPos = encryptedField.frame.origin
-        //if th current field is unencrypted,put it on top
-        if currentField == .Unencrypted
-        {
-            topPosition = unencrpytedPos
-            bottomPosition = encrpytedPos
-        }
-        //if th current field is encrypted,put it on top
-        if currentField == .Encrypted
-        {
-            topPosition = encrpytedPos
-            bottomPosition = unencrpytedPos
-        }
+        topPosition = unencryptedField.frame.origin
+        bottomPosition = encryptedField.frame.origin
         //update the view to reflect what it should look like
         updateView()
         
@@ -332,6 +319,13 @@ import UIKit
         //if Caesar, make CaesarCipher encryption
         case .Caesar:
             encryptor = CaesarCipher(key: key)
+            //set the special keyboards for caesar cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .numberPad
+            //unhide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = false
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if XOR, make XORCipher encryption
         case .XOR:

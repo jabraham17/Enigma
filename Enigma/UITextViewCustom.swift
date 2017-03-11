@@ -67,6 +67,10 @@ protocol UITextViewCustomDelegate: class {
         //set the delegate
         text.delegate = self
     }
+    //fucntion toclose the keyboard
+    func close() {
+        text.resignFirstResponder()
+    }
     //add exclusion path and show/hide share button
     func showShareButton() {
         //if not editable, add exclusion path and show share button

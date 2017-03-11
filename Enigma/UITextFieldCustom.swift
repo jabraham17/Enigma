@@ -54,6 +54,37 @@ protocol UITextFieldCustomDelegate: class {
         
         //set the fields delegate
         field.delegate = self
+        
+        //setup assecary bar so that there can be a done button on the keyField keyboard
+        //get a tool bar
+        let keyboardToolbar = UIToolbar()
+        //size it to be right size for screen
+        keyboardToolbar.sizeToFit()
+        //make the button, action dismisses the keyboard
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close))
+        //set it as the bars items
+        keyboardToolbar.items = [UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), doneBarButton]
+        //add the tool bar to the keyboard
+        field.inputAccessoryView = keyboardToolbar
+        //by default, this toolbar is hidden
+        field.inputAccessoryView?.isHidden = true
+    }
+    //wether or not tool bar for keyboad is hidden
+    var keyboardToolBarHidden: Bool {
+        get {
+            //return the value of the toolbars visibilty
+            return (self.field.inputAccessoryView?.isHidden)!
+        }
+        set(newValue) {
+            //once its been set, set the same value to the tool bar itself
+            self.field.inputAccessoryView?.isHidden = newValue
+        }
+    }
+    //fucntion toclose the keyboard
+    func close() {
+        //pass the text to the view controller for encryption so that text gets updated
+        passingDelegate?.enterButton(textField: field, textOfField: field.text!)
+        field.resignFirstResponder()
     }
     //allow returns on the text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -63,7 +94,6 @@ protocol UITextFieldCustomDelegate: class {
         textField.resignFirstResponder()
         return true
     }
- 
     //sender button clicked, send the text to the delegate
     @IBAction func shareAction(_ sender: UIButtonBorder) {
         //get the text and pass it

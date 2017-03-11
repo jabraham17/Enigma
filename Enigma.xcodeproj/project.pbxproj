@@ -173,6 +173,15 @@
 		D415D6B01E58145F00AE1C86 /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
+				D422C38C1E71D85F00279126 /* UnKeyed */,
+				D422C38D1E71D86B00279126 /* Keyed */,
+			);
+			name = Encryption;
+			sourceTree = "<group>";
+		};
+		D422C38C1E71D85F00279126 /* UnKeyed */ = {
+			isa = PBXGroup;
+			children = (
 				D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */,
 				D4C0C4A81E4E32A000703241 /* PigLatin.swift */,
 				D41294641E529990006F090B /* MorseCode.swift */,
@@ -180,11 +189,18 @@
 				D46137911E5DED6300A9D87A /* Octal.swift */,
 				D46137931E5DF48100A9D87A /* Hexadecimal.swift */,
 				D46CAADC1E4AB273001B32A5 /* ROT13.swift */,
+			);
+			name = UnKeyed;
+			sourceTree = "<group>";
+		};
+		D422C38D1E71D86B00279126 /* Keyed */ = {
+			isa = PBXGroup;
+			children = (
 				D44B53521E6727FF005CFAE0 /* KeyedEncryption.swift */,
 				D44B53581E6DD91D005CFAE0 /* CaesarCipher.swift */,
 				D44B535A1E70AE7B005CFAE0 /* XORCipher.swift */,
 			);
-			name = Encryption;
+			name = Keyed;
 			sourceTree = "<group>";
 		};
 		D442957A1E328241006EC08E = {
@@ -322,6 +338,7 @@
 				D442957F1E328241006EC08E /* Sources */,
 				D44295801E328241006EC08E /* Frameworks */,
 				D44295811E328241006EC08E /* Resources */,
+				D422C38B1E71D77600279126 /* Mark Todo and Fixme with Warnings */,
 			);
 			buildRules = (
 			);
@@ -453,6 +470,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D422C38B1E71D77600279126 /* Mark Todo and Fixme with Warnings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Mark Todo and Fixme with Warnings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|MARK:\"\nERRORTAG=\"WARNING:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D442957F1E328241006EC08E /* Sources */ = {
@@ -639,7 +673,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -654,7 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";

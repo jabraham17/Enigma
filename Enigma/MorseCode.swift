@@ -19,58 +19,45 @@ class MorseCode: UnKeyedEncryption {
      */
     // FIXME: Currently only removes all puncutation instead of dealing with it
     // FIXME: Make morseCode array a dictonary so that code is more effcient
-    
-    //custom class to hold a letter and its corresponding morse value
-    class MorseCharacter {
-        //letter value
-        var character = ""
-        //morse value
-        var morse = ""
-        //init values
-        init(character: String, morse: String) {
-            self.character = character
-            self.morse = morse
-        }
-    }
-    
-    //array that has the entire morse alphabet
-    let morseCode = [MorseCharacter(character: "a", morse: ".-"),
-                     MorseCharacter(character: "b", morse: "-..."),
-                     MorseCharacter(character: "c", morse: "-.-."),
-                     MorseCharacter(character: "d", morse: "-.."),
-                     MorseCharacter(character: "e", morse: "."),
-                     MorseCharacter(character: "f", morse: "..-."),
-                     MorseCharacter(character: "g", morse: "--."),
-                     MorseCharacter(character: "h", morse: "...."),
-                     MorseCharacter(character: "i", morse: ".."),
-                     MorseCharacter(character: "j", morse: ".---"),
-                     MorseCharacter(character: "k", morse: "-.-"),
-                     MorseCharacter(character: "l", morse: ".-.."),
-                     MorseCharacter(character: "m", morse: "--"),
-                     MorseCharacter(character: "n", morse: "-."),
-                     MorseCharacter(character: "o", morse: "---"),
-                     MorseCharacter(character: "p", morse: ".--."),
-                     MorseCharacter(character: "q", morse: "--.-"),
-                     MorseCharacter(character: "r", morse: ".-.-"),
-                     MorseCharacter(character: "s", morse: "..."),
-                     MorseCharacter(character: "t", morse: "-"),
-                     MorseCharacter(character: "u", morse: "..-"),
-                     MorseCharacter(character: "v", morse: "...-"),
-                     MorseCharacter(character: "w", morse: ".--"),
-                     MorseCharacter(character: "x", morse: "-..-"),
-                     MorseCharacter(character: "y", morse: "-.--"),
-                     MorseCharacter(character: "z", morse: "--.."),
-                     MorseCharacter(character: "1", morse: ".----"),
-                     MorseCharacter(character: "2", morse: "..---"),
-                     MorseCharacter(character: "3", morse: "...--"),
-                     MorseCharacter(character: "4", morse: "....-"),
-                     MorseCharacter(character: "5", morse: "....."),
-                     MorseCharacter(character: "6", morse: "-...."),
-                     MorseCharacter(character: "7", morse: "--..."),
-                     MorseCharacter(character: "8", morse: "---.."),
-                     MorseCharacter(character: "9", morse: "----."),
-                     MorseCharacter(character: "0", morse: "-----")]
 
+    let morseCodeDict = Dictionary(dictionaryLiteral:
+        ("a", ".-"),
+        ("b", "-..."),
+        ("c", "-.-."),
+        ("d", "-.."),
+        ("e", "."),
+        ("f", "..-."),
+        ("g", "--."),
+		("h", "...."),
+		("i", ".."),
+		("j", ".---"),
+        ("k", "-.-"),
+        ("l", ".-.."),
+        ("m", "--"),
+        ("n", "-."),
+        ("o", "---"),
+        ("p", ".--."),
+        ("q", "--.-"),
+        ("r", ".-.-"),
+        ("s", "..."),
+        ("t", "-"),
+        ("u", "..-"),
+        ("v", "...-"),
+        ("w", ".--"),
+        ("x", "-..-"),
+        ("y", "-.--"),
+        ("z", "--.."),
+        ("1", ".----"),
+        ("2", "..---"),
+        ("3", "...--"),
+        ("4", "....-"),
+        ("5", "....."),
+        ("6", "-...."),
+        ("7", "--..."),
+        ("8", "---.."),
+        ("9", "----."),
+        ("0", "-----"))
+    
     //init with encryption type, will always be MorseCode
     override init() {
         super.init(encryption: .MorseCode)
@@ -127,7 +114,8 @@ class MorseCode: UnKeyedEncryption {
                 //add morseChar to morseWord with one space after each letter
                 morseWord += morseChar + " "
             }
-            //additonal space for word is put in inside of stringFromArray
+            //add additonal space for word
+            morseWord += " "
             
             //add the word to the word array
             morse.append(morseWord)
@@ -137,16 +125,15 @@ class MorseCode: UnKeyedEncryption {
         {
             return ""
         }
+        
         //remove trailing two spaces from end of last word
-        //get final word
-        let finalWord = morse[morse.count - 1]
-        //remove the final word from the array of words
-        morse.remove(at: morse.count - 1)
+        //remove the final word, recovering the word in the process
+        let finalWord = morse.remove(at: morse.count - 1)
         
         //var to hold word with no trailing whitespace
         var finalWordNoWhiteSpace = finalWord
-        //if there is trailing whitespace
-        if finalWord.substring(from: finalWord.endIndex) == "  "
+        //if there is trailing whitespace, ie there are two spaces
+        if finalWord.contains("  ")
         {
             //remove trailing whitespace from word
             //get the index of the first whitespace, which is the (endIndex - 2)
@@ -158,7 +145,7 @@ class MorseCode: UnKeyedEncryption {
         morse.append(finalWordNoWhiteSpace)
         
         //convert the morse words array to a string
-        let morseStringForm = stringFromArrayRemoveTrailer(array: morse)
+        let morseStringForm = stringFromArray(array: morse)
         //return the morse code
         return morseStringForm
     }
@@ -183,51 +170,26 @@ class MorseCode: UnKeyedEncryption {
                 //add to englishWord
                 englishWord.append(e)
             }
+            //add space to end of english word
+            englishWord += " "
             //add word to englishText
             englishText.append(englishWord)
         }
         //convert the english words array to a string
-        let englishStringForm = stringFromArray(array: englishText)
+        let englishStringForm = stringFromArrayRemoveTrailer(array: englishText)
         //return the english
         return englishStringForm
     }
     //convert character to morse code chararcter, return string value
     func convertToMorse(c: String) -> String {
-        //variable to hold morse code
-        var morseCodeChar = ""
-        //loop through morseCode index
-        morseLoop: for letterFromArray in morseCode
-        {
-            //if the letter is the same as the character
-            if letterFromArray.character == c
-            {
-                //set the morse value of the letter
-                morseCodeChar = letterFromArray.morse
-                //break the loop
-                break morseLoop
-            }
-        }
-        //return morse code
-        return morseCodeChar
+        //get the index of the character and return the value at that index
+        let index = morseCodeDict.index(forKey: c)
+        return morseCodeDict.values[index!]
     }
     //convert morse code character to englih chararcter, return string value
     func convertToEnglish(m: String) -> String {
-        //variable to hold english character
-        var englishChar = ""
-        //loop through morseCode index
-        morseLoop: for letterFromArray in morseCode
-        {
-            //if the letter is the same as the morse code
-            if letterFromArray.morse == m
-            {
-                //set the character value of the letter
-                englishChar = letterFromArray.character
-                //break the loop
-                break morseLoop
-            }
-        }
-        //return character
-        return englishChar
+        //search the dictinary for the first occurance of the key and return it
+        return morseCodeDict.first(where: {$1 == m})!.key
     }
 
 }

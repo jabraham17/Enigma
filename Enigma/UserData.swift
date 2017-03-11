@@ -32,6 +32,7 @@ class UserData {
         let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)[0]
         //add the plists name to the directory path, this is the plists loaction
         path = dir + "/UserData.plist"
+        print(path)
         //if the plist does not exist at its path, ie the first time the app is opened, move it to its proper path
         if !FileManager.default.fileExists(atPath: path) {
             //this is the plists path in resources, cannot be written to here which is why we move it
