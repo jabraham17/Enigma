@@ -21,8 +21,6 @@
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
 		D442958E1E328241006EC08E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D442958D1E328241006EC08E /* Assets.xcassets */; };
 		D44295911E328241006EC08E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958F1E328241006EC08E /* LaunchScreen.storyboard */; };
-		D442959C1E328242006EC08E /* EnigmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D442959B1E328242006EC08E /* EnigmaTests.swift */; };
-		D44295A71E328242006EC08E /* EnigmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295A61E328242006EC08E /* EnigmaUITests.swift */; };
 		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
 		D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44B534A1E65FDDF005CFAE0 /* ErrorVC.xib */; };
 		D44B534D1E65FE9E005CFAE0 /* ErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B534C1E65FE9E005CFAE0 /* ErrorVC.swift */; };
@@ -49,23 +47,6 @@
 		D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D44295981E328242006EC08E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D442957B1E328241006EC08E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D44295821E328241006EC08E;
-			remoteInfo = Enigma;
-		};
-		D44295A31E328242006EC08E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D442957B1E328241006EC08E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D44295821E328241006EC08E;
-			remoteInfo = Enigma;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		D40341051E5818C700FDFF7E /* WarningVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningVC.xib; sourceTree = "<group>"; };
 		D40341071E5819C300FDFF7E /* WarningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarningVC.swift; sourceTree = "<group>"; };
@@ -83,10 +64,8 @@
 		D442958D1E328241006EC08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44295901E328241006EC08E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D44295921E328241006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D44295971E328242006EC08E /* EnigmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnigmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D442959B1E328242006EC08E /* EnigmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaTests.swift; sourceTree = "<group>"; };
 		D442959D1E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D44295A21E328242006EC08E /* EnigmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnigmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295A61E328242006EC08E /* EnigmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaUITests.swift; sourceTree = "<group>"; };
 		D44295A81E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
@@ -117,20 +96,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D44295801E328241006EC08E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D44295941E328242006EC08E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D442959F1E328242006EC08E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,8 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				D44295831E328241006EC08E /* Enigma.app */,
-				D44295971E328242006EC08E /* EnigmaTests.xctest */,
-				D44295A21E328242006EC08E /* EnigmaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,42 +312,6 @@
 			productReference = D44295831E328241006EC08E /* Enigma.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D44295961E328242006EC08E /* EnigmaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D44295AE1E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaTests" */;
-			buildPhases = (
-				D44295931E328242006EC08E /* Sources */,
-				D44295941E328242006EC08E /* Frameworks */,
-				D44295951E328242006EC08E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D44295991E328242006EC08E /* PBXTargetDependency */,
-			);
-			name = EnigmaTests;
-			productName = EnigmaTests;
-			productReference = D44295971E328242006EC08E /* EnigmaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D44295A11E328242006EC08E /* EnigmaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D44295B11E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaUITests" */;
-			buildPhases = (
-				D442959E1E328242006EC08E /* Sources */,
-				D442959F1E328242006EC08E /* Frameworks */,
-				D44295A01E328242006EC08E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D44295A41E328242006EC08E /* PBXTargetDependency */,
-			);
-			name = EnigmaUITests;
-			productName = EnigmaUITests;
-			productReference = D44295A21E328242006EC08E /* EnigmaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -399,18 +326,6 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = F5CJM79424;
 						ProvisioningStyle = Automatic;
-					};
-					D44295961E328242006EC08E = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = F5CJM79424;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D44295821E328241006EC08E;
-					};
-					D44295A11E328242006EC08E = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = F5CJM79424;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D44295821E328241006EC08E;
 					};
 				};
 			};
@@ -428,8 +343,6 @@
 			projectRoot = "";
 			targets = (
 				D44295821E328241006EC08E /* Enigma */,
-				D44295961E328242006EC08E /* EnigmaTests */,
-				D44295A11E328242006EC08E /* EnigmaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -452,20 +365,6 @@
 				D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D44295951E328242006EC08E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D44295A01E328242006EC08E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,36 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D44295931E328242006EC08E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D442959C1E328242006EC08E /* EnigmaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D442959E1E328242006EC08E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D44295A71E328242006EC08E /* EnigmaUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D44295991E328242006EC08E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D44295821E328241006EC08E /* Enigma */;
-			targetProxy = D44295981E328242006EC08E /* PBXContainerItemProxy */;
-		};
-		D44295A41E328242006EC08E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D44295821E328241006EC08E /* Enigma */;
-			targetProxy = D44295A31E328242006EC08E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D442958A1E328241006EC08E /* Main.storyboard */ = {
@@ -697,64 +567,6 @@
 			};
 			name = Release;
 		};
-		D44295AF1E328242006EC08E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = F5CJM79424;
-				INFOPLIST_FILE = EnigmaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.EnigmaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Enigma.app/Enigma";
-			};
-			name = Debug;
-		};
-		D44295B01E328242006EC08E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = F5CJM79424;
-				INFOPLIST_FILE = EnigmaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.EnigmaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Enigma.app/Enigma";
-			};
-			name = Release;
-		};
-		D44295B21E328242006EC08E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = F5CJM79424;
-				INFOPLIST_FILE = EnigmaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.EnigmaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Enigma;
-			};
-			name = Debug;
-		};
-		D44295B31E328242006EC08E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = F5CJM79424;
-				INFOPLIST_FILE = EnigmaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JBrahamApps.EnigmaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Enigma;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -772,24 +584,6 @@
 			buildConfigurations = (
 				D44295AC1E328242006EC08E /* Debug */,
 				D44295AD1E328242006EC08E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D44295AE1E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D44295AF1E328242006EC08E /* Debug */,
-				D44295B01E328242006EC08E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D44295B11E328242006EC08E /* Build configuration list for PBXNativeTarget "EnigmaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D44295B21E328242006EC08E /* Debug */,
-				D44295B31E328242006EC08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
