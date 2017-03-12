@@ -45,9 +45,12 @@
 		D4E99B7D1E42467A0035A688 /* EncryptionNameHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */; };
 		D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */; };
 		D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */; };
+		F3D4C3255C46B2A957C0E4F8 /* Pods_Enigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5034F58687D6E572F9CA3D36 /* Pods_Enigma.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A8DF6ECF26E61F73DD3D53B /* Pods-Enigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enigma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Enigma/Pods-Enigma.release.xcconfig"; sourceTree = "<group>"; };
+		5034F58687D6E572F9CA3D36 /* Pods_Enigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Enigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40341051E5818C700FDFF7E /* WarningVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningVC.xib; sourceTree = "<group>"; };
 		D40341071E5819C300FDFF7E /* WarningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarningVC.swift; sourceTree = "<group>"; };
 		D41294641E529990006F090B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncryptionNameHeader.xib; sourceTree = "<group>"; };
 		D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionNameHeader.swift; sourceTree = "<group>"; };
 		D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionSelection.swift; sourceTree = "<group>"; };
+		ECBE068918A86CB50BF34862 /* Pods-Enigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enigma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Enigma/Pods-Enigma.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +103,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D4C3255C46B2A957C0E4F8 /* Pods_Enigma.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A688947D6797F15013208DF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE068918A86CB50BF34862 /* Pods-Enigma.debug.xcconfig */,
+				0A8DF6ECF26E61F73DD3D53B /* Pods-Enigma.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D415D6AD1E58140300AE1C86 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +189,8 @@
 				D442959A1E328242006EC08E /* EnigmaTests */,
 				D44295A51E328242006EC08E /* EnigmaUITests */,
 				D44295841E328241006EC08E /* Products */,
+				A688947D6797F15013208DF6 /* Pods */,
+				EDE27FA3B1070ABAC19041A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,6 +307,14 @@
 			name = EncryptionHeader;
 			sourceTree = "<group>";
 		};
+		EDE27FA3B1070ABAC19041A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5034F58687D6E572F9CA3D36 /* Pods_Enigma.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,10 +322,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D44295AB1E328242006EC08E /* Build configuration list for PBXNativeTarget "Enigma" */;
 			buildPhases = (
+				3E1FB649D8FDE0684568262D /* [CP] Check Pods Manifest.lock */,
 				D442957F1E328241006EC08E /* Sources */,
 				D44295801E328241006EC08E /* Frameworks */,
 				D44295811E328241006EC08E /* Resources */,
 				D422C38B1E71D77600279126 /* Mark Todo and Fixme with Warnings */,
+				7AA77B7F51F55B4CB9CEEE0E /* [CP] Embed Pods Frameworks */,
+				04CDBB108FDDFB2A6FF80684 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -371,6 +398,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04CDBB108FDDFB2A6FF80684 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Enigma/Pods-Enigma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E1FB649D8FDE0684568262D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AA77B7F51F55B4CB9CEEE0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Enigma/Pods-Enigma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D422C38B1E71D77600279126 /* Mark Todo and Fixme with Warnings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +611,7 @@
 		};
 		D44295AC1E328242006EC08E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECBE068918A86CB50BF34862 /* Pods-Enigma.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F5CJM79424;
@@ -554,6 +627,7 @@
 		};
 		D44295AD1E328242006EC08E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A8DF6ECF26E61F73DD3D53B /* Pods-Enigma.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F5CJM79424;
