@@ -333,15 +333,15 @@ import UIKit
             break
         //if Trans, make TranspositionCipher encryption
         case .Trans:
-            //encryptor = TranspositionCipher(key: key)
+            encryptor = TranspositionCipher(key: key)
             break
         //if RailFence, make RailFenceCipher encryption
         case .RailFence:
-            //encryptor = RailFenceCipher(key: key)
+            encryptor = RailFenceCipher(key: key)
             break
         //if Columnar, make ColumnarCipher encryption
         case .Columnar:
-            //encryptor = ColumnarCipher(key: key)
+            encryptor = ColumnarCipher(key: key)
             break
         default:
             //shouldnt ever get here
