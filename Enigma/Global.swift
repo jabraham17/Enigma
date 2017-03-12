@@ -17,6 +17,9 @@ class Global {
     static let errorColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     //warning color
     static let warningColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
+    //information color
+    static let informationColor = UIColor(red: 0, green: 122/255, blue: 255, alpha: 1)
+    
     //varibles for setting up view in corridinate grid
     static var xUnit = UIScreen.main.bounds.width / 20
     static var yUnit = UIScreen.main.bounds.height / 30
@@ -82,6 +85,16 @@ class Global {
             case Trans
             case RailFence
             case Columnar
+            
+            //MARK: Possibly add double columnar cipher
+            //MARK: Possinly add repeating modular arthimetic cipher
+            /* NOTE From WIKIpeida: https://en.wikipedia.org/wiki/VIC_cipher#Straddling_checkerboard
+ As a simple example, we will add a secret key number (say, 0452) using modular (non-carrying) arithmetic:
+ 
+             3	1	1	3	2	1	2	7	3	1	2	2	3	6	5	5
+            +0	4	5	2	0	4	5	2	0	4	5	2	0	4	5	2
+            =3	5	6	5	2	5	7	9	3	5	7	4	3	0	0	7
+*/
             //polyalphabetic
             case Trithemius
             case Vigenere

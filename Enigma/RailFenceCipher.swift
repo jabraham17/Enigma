@@ -13,7 +13,10 @@ class RailFenceCipher: KeyedEncryption {
     
     /*
      Rules for a Rail Fence Cipher
-     
+     This cipher simply scrambles the text in a particular pattern
+     the text is written letter by letter down 'rails', moving up when it reaches the bottom
+     the text is then read rail by rail to produce the encrypted text
+     the key refers to the number of rails
      */
     
     //init with encryption type, will always be RailFence

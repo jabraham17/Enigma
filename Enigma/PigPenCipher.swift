@@ -1,66 +1,54 @@
 //
-//  MorseCode.swift
+//  PigPenCipher.swift
 //  Enigma
 //
-//  Created by Jacob R. Abraham on 11/27/16.
-//  Copyright © 2016 Jacob R. Abraham. All rights reserved.
+//  Created by Jacob R. Abraham on 3/11/17.
+//  Copyright © 2017 Jacob R. Abraham. All rights reserved.
 //
 
 import Foundation
 
-//encrypts and decrypts text with morse code
-class MorseCode: UnKeyedEncryption {
+//encrypts and decrypts text using PigPen
+class PigPenCipher: UnKeyedEncryption {
     
     /*
-     Rules for Morse Code
-     Each character is represented by a series of dots and dashes
-     One space between each letter, two spaces between each word
-     All punctuation is removed
+     Rules for a PigPen Cipher
+     Each character translates to symbol in a simple subsitution cipher
      */
-    // FIXME: Currently only removes all puncutation instead of dealing with it
-    // FIXME: Make morseCode array a dictonary so that code is more effcient
-
-    let morseCodeDict = Dictionary(dictionaryLiteral:
-        ("a", ".-"),
-        ("b", "-..."),
-        ("c", "-.-."),
-        ("d", "-.."),
-        ("e", "."),
-        ("f", "..-."),
-        ("g", "--."),
-		("h", "...."),
-		("i", ".."),
-		("j", ".---"),
-        ("k", "-.-"),
-        ("l", ".-.."),
-        ("m", "--"),
-        ("n", "-."),
-        ("o", "---"),
-        ("p", ".--."),
-        ("q", "--.-"),
-        ("r", ".-.-"),
-        ("s", "..."),
-        ("t", "-"),
-        ("u", "..-"),
-        ("v", "...-"),
-        ("w", ".--"),
-        ("x", "-..-"),
-        ("y", "-.--"),
-        ("z", "--.."),
-        ("1", ".----"),
-        ("2", "..---"),
-        ("3", "...--"),
-        ("4", "....-"),
-        ("5", "....."),
-        ("6", "-...."),
-        ("7", "--..."),
-        ("8", "---.."),
-        ("9", "----."),
-        ("0", "-----"))
     
-    //init with encryption type, will always be MorseCode
+    
+    //dictioanry of all pigpen character
+    let pigpenDict = Dictionary(dictionaryLiteral:
+        ("a", "_|"),
+        ("b", "|_|"),
+        ("c", "|_"),
+        ("d", "]"),
+        ("e", "[]"),
+        ("f", "["),
+        ("g", "-|"),
+        ("h", "|-|"),
+        ("i", "|-"),
+        ("j", "._|"),
+        ("k", ".|_|"),
+        ("l", ".|_"),
+        ("m", ".]"),
+        ("n", ".[]"),
+        ("o", ".["),
+        ("p", ".-|"),
+        ("q", ".|-|"),
+        ("r", ".|-"),
+        ("s", "}_{"),
+        ("t", "}"),
+        ("u", "{"),
+        ("v", "}-{"),
+        ("w", ".}_{"),
+        ("x", ".}"),
+        ("y", ".{"),
+        ("z", ".}-{"))
+    
+    //init with encryption type, will always be PigPen
     override init() {
-        super.init(encryption: .MorseCode)
+        super.init(encryption: .PigPen)
     }
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
@@ -69,7 +57,7 @@ class MorseCode: UnKeyedEncryption {
         {
             return ""
         }
-        //convert string to all lowercase as there is no case in morse code
+        //convert string to all lowercase as there is no case in pigpen
         var english = toBeEncrypted.lowercased()
         
         //go through all characters and clean it of non characters
@@ -83,11 +71,11 @@ class MorseCode: UnKeyedEncryption {
         {
             //get the character at current index, then convert to a string
             let c = String(english.characters[currentStringIndex])
-            //if its not a lowercase letter, an uppercase letter, a number, or a space, remove from array
+            //if its not a lowercase letter, an uppercase letter, or a space, remove from array
             //otherwise do nothing
             //this uses De Morgan's Law, applying NOT to entire expression reverses everything
             //|| becomes &&, true statements become false
-            if !(Global.lowercase.contains(c) || Global.uppercase.contains(c) || Global.numbers.contains(c) || " " == c)
+            if !(Global.lowercase.contains(c) || Global.uppercase.contains(c) || " " == c)
             {
                 //remove character at index
                 english.remove(at: currentStringIndex)
@@ -98,37 +86,37 @@ class MorseCode: UnKeyedEncryption {
         //get a array of all of the words, using split function to split string by spaces
         let words = english.components(separatedBy: " ")
         //array to hold the encrypted text
-        var morse = [String]()
+        var pigpen = [String]()
         //loop through all the words
         for w in words
         {
             //get the characters in the word
             let charactersInWord = Array(w.characters)
-            //variable to hold the word as morse code
-            var morseWord = ""
-            //loop through the characters in word, convert to morse, add to morseWord
+            //variable to hold the word as pigpen
+            var pigpenWord = ""
+            //loop through the characters in word, convert to pigpen, add to pigpenWord
             for c in charactersInWord
             {
-                //convert to morse, pass as a string
-                let morseChar = convertToMorse(c: String(c))
-                //add morseChar to morseWord with one space after each letter
-                morseWord += morseChar + " "
+                //convert to pigpen, pass as a string
+                let pigpenChar = convertToPigPen(c: String(c))
+                //add pigpenChar to pigpenWord with one space after each letter
+                pigpenWord += pigpenChar + " "
             }
             //add additonal space for word
-            morseWord += " "
+            pigpenWord += " "
             
             //add the word to the word array
-            morse.append(morseWord)
+            pigpen.append(pigpenWord)
         }
         //check if its ok to do finalWord removal, if word count = 0, return empty string, otherwise do nothing
-        if morse.count == 0
+        if pigpen.count == 0
         {
             return ""
         }
         
         //remove trailing two spaces from end of last word
         //remove the final word, recovering the word in the process
-        let finalWord = morse.remove(at: morse.count - 1)
+        let finalWord = pigpen.remove(at: pigpen.count - 1)
         
         //var to hold word with no trailing whitespace
         var finalWordNoWhiteSpace = finalWord
@@ -142,12 +130,12 @@ class MorseCode: UnKeyedEncryption {
             finalWordNoWhiteSpace = finalWord.substring(to: finalIndex)
         }
         //add final word with no white space to array
-        morse.append(finalWordNoWhiteSpace)
+        pigpen.append(finalWordNoWhiteSpace)
         
-        //convert the morse words array to a string
-        let morseStringForm = stringFromArray(array: morse)
+        //convert the pigpen words array to a string
+        let pigpenStringForm = stringFromArray(array: pigpen)
         //return the morse code
-        return morseStringForm
+        return pigpenStringForm
     }
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
@@ -166,7 +154,7 @@ class MorseCode: UnKeyedEncryption {
             for c in characters
             {
                 //convert to english and add to english word string
-                let e = convertToEnglish(m: c)
+                let e = convertToEnglish(p: c)
                 //add to englishWord
                 englishWord.append(e)
             }
@@ -180,15 +168,16 @@ class MorseCode: UnKeyedEncryption {
         //return the english
         return englishStringForm
     }
-    //convert character to morse code chararcter, return string value
-    func convertToMorse(c: String) -> String {
+
+    //convert character to pigpen symbol, return string value
+    func convertToPigPen(c: String) -> String {
         //get the index of the character and return the value at that index
-        let index = morseCodeDict.index(forKey: c)
-        return morseCodeDict.values[index!]
+        let index = pigpenDict.index(forKey: c)
+        return pigpenDict.values[index!]
     }
-    //convert morse code character to englih chararcter, return string value
-    func convertToEnglish(m: String) -> String {
+    //convert pigpen symbol to englih chararcter, return string value
+    func convertToEnglish(p: String) -> String {
         //search the dictinary for the first occurance of the key and return it
-        return morseCodeDict.first(where: {$1 == m})!.key
+        return pigpenDict.first(where: {$1 == p})!.key
     }
 }

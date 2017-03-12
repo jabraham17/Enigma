@@ -180,7 +180,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     func enterButton(textView: UITextView, textOfView: String) {
         //dismiss keyboard
         textView.resignFirstResponder()
-        
+        information()
         //show warning
         /*warning(text: "warning message", cancelAction: {
             //cancel action
@@ -210,6 +210,23 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
             unencryptedField.text.text = unencryptedText
         }
     }
+    //make information popup
+    func information() {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
+        
+        let information = nib.instantiate(withOwner: self, options: nil)[0] as! InformationVC
+        
+        //make presentation so popup appears over container vc
+        information.modalPresentationStyle = .overCurrentContext
+        
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        information.transitioningDelegate = transDel
+        
+        //show popup
+        self.present(information, animated: true, completion: nil)
+    }
     //make warning popup
     func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) {
         //load vc from nib
@@ -220,7 +237,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         warning.setup(text: text, cancelAction: cancelAction, continueAction: continueAction)
         
         //make presentation so warning appears over container vc
-        warning.modalPresentationStyle = .overFullScreen
+        warning.modalPresentationStyle = .overCurrentContext
         //set delaget for custom presentation
         let transDel = PopupAnimatorDelegate()
         warning.transitioningDelegate = transDel
@@ -238,7 +255,7 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         error.setup(text: text, okAction: okAction)
         
         //make presentation so error appears over container vc
-        error.modalPresentationStyle = .overFullScreen
+        error.modalPresentationStyle = .overCurrentContext
         //set delaget for custom presentation
         let transDel = PopupAnimatorDelegate()
         error.transitioningDelegate = transDel
@@ -294,6 +311,10 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         case .MorseCode:
             encryptor = MorseCode()
             break
+        //if pigpen, make PigPenCipher
+        case .PigPen:
+            encryptor = PigPenCipher()
+            break
         //if binary, make binary encryption
         case .Binary:
             encryptor = Binary()
@@ -309,10 +330,6 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //if rot13, make rot13 encryption
         case .ROT13:
             encryptor = ROT13()
-            break
-        //if pigpen, make PigPenCipher
-        case .PigPen:
-            //encryptor = PigPenCipher()
             break
         default:
             //shouldnt ever get here

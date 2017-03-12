@@ -13,7 +13,9 @@ class ColumnarCipher: KeyedEncryption {
     
     /*
      Rules for a Columnar Cipher
-     
+     the text is written out in a block defined by the key word
+     the length of the word determines the blocks row length
+     then the columns are read out in blocks based on the key word's lexigrahic ordering
      */
     
     //init with encryption type, will always be Columnar

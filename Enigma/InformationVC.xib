@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController autoresizesArchivedViewToFullSize="NO" id="Zk0-3I-hxR" customClass="InformationVC" customModule="Enigma" customModuleProvider="target">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="dHR-KZ-DdP"/>
+                <viewControllerLayoutGuide type="bottom" id="a2s-m7-Iwk"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="6An-gC-LWp">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-N5-Hy6" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
+                        <rect key="frame" x="331" y="8" width="29" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="29" id="50c-Ay-Bbm"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="close.png"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="close:" destination="Zk0-3I-hxR" eventType="touchUpInside" id="MBC-7s-dtc"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLD-zm-7Qj">
+                        <rect key="frame" x="10" y="44" width="350" height="548"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4pW-hZ-OSX">
+                        <rect key="frame" x="10" y="8" width="317" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="mqX-1c-G16"/>
+                        </constraints>
+                        <segments>
+                            <segment title="Current Encryption"/>
+                            <segment title="Enigma"/>
+                            <segment title="Store"/>
+                        </segments>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <action selector="segmentedControlChanged:" destination="Zk0-3I-hxR" eventType="valueChanged" id="Aee-dY-Sn8"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="-6" id="B2f-Fe-MzX"/>
+                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="trailing" secondItem="WLD-zm-7Qj" secondAttribute="trailing" id="B8w-9Y-yVW"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="WLD-zm-7Qj" secondAttribute="leading" id="Gbp-sM-pZB"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="vCM-N5-Hy6" secondAttribute="top" id="Jte-P4-YvX"/>
+                    <constraint firstItem="WLD-zm-7Qj" firstAttribute="top" secondItem="4pW-hZ-OSX" secondAttribute="bottom" constant="8" symbolic="YES" id="WD9-4l-ePG"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="centerY" secondItem="vCM-N5-Hy6" secondAttribute="centerY" id="jQB-Ui-NhP"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="8" symbolic="YES" id="mH8-5B-Ss6"/>
+                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="leading" secondItem="4pW-hZ-OSX" secondAttribute="trailing" constant="4" id="t7E-N5-93Z"/>
+                    <constraint firstItem="a2s-m7-Iwk" firstAttribute="top" secondItem="WLD-zm-7Qj" secondAttribute="bottom" constant="8" symbolic="YES" id="wlz-F4-qhc"/>
+                    <constraint firstItem="WLD-zm-7Qj" firstAttribute="centerX" secondItem="6An-gC-LWp" secondAttribute="centerX" id="zE9-XM-caH"/>
+                </constraints>
+            </view>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="370" height="600"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="6"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="containerView" destination="WLD-zm-7Qj" id="R5m-HE-cz3"/>
+                <outlet property="segmentedControl" destination="4pW-hZ-OSX" id="h8n-JQ-AVJ"/>
+            </connections>
+            <point key="canvasLocation" x="39" y="25"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="close.png" width="64" height="64"/>
+    </resources>
+</document>

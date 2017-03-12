@@ -16,6 +16,7 @@
 		D415D6AC1E5813E800AE1C86 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6AB1E5813E800AE1C86 /* close.png */; };
 		D415D6B21E58156E00AE1C86 /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6B11E58156E00AE1C86 /* Error.png */; };
 		D415D6B41E58159A00AE1C86 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6B31E58159A00AE1C86 /* Warning.png */; };
+		D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */; };
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
 		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
@@ -35,6 +36,9 @@
 		D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */; };
 		D46BB0FB1E74CDA200B87909 /* RailFenceCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FA1E74CDA200B87909 /* RailFenceCipher.swift */; };
 		D46BB0FD1E74CDAF00B87909 /* ColumnarCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FC1E74CDAF00B87909 /* ColumnarCipher.swift */; };
+		D46BB0FF1E74D0A600B87909 /* PigPenCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FE1E74D0A600B87909 /* PigPenCipher.swift */; };
+		D46BB1021E75B71200B87909 /* InformationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46BB1011E75B71200B87909 /* InformationVC.xib */; };
+		D46BB1041E75C49100B87909 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB1031E75C49100B87909 /* InformationVC.swift */; };
 		D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CAADC1E4AB273001B32A5 /* ROT13.swift */; };
 		D47E5A9E1E60CDCA00C100D3 /* PopupAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E5A9D1E60CDCA00C100D3 /* PopupAnimator.swift */; };
 		D47E5AA01E60D8B100C100D3 /* PopupAnimatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E5A9F1E60D8B000C100D3 /* PopupAnimatorDelegate.swift */; };
@@ -63,6 +67,7 @@
 		D415D6AB1E5813E800AE1C86 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		D415D6B11E58156E00AE1C86 /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
 		D415D6B31E58159A00AE1C86 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
+		D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentEncryptionInfomation.xib; sourceTree = "<group>"; };
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
@@ -88,6 +93,9 @@
 		D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspositionCipher.swift; sourceTree = "<group>"; };
 		D46BB0FA1E74CDA200B87909 /* RailFenceCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RailFenceCipher.swift; sourceTree = "<group>"; };
 		D46BB0FC1E74CDAF00B87909 /* ColumnarCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnarCipher.swift; sourceTree = "<group>"; };
+		D46BB0FE1E74D0A600B87909 /* PigPenCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PigPenCipher.swift; sourceTree = "<group>"; };
+		D46BB1011E75B71200B87909 /* InformationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationVC.xib; sourceTree = "<group>"; };
+		D46BB1031E75C49100B87909 /* InformationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationVC.swift; sourceTree = "<group>"; };
 		D46CAADC1E4AB273001B32A5 /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROT13.swift; sourceTree = "<group>"; };
 		D47E5A9D1E60CDCA00C100D3 /* PopupAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnimator.swift; sourceTree = "<group>"; };
 		D47E5A9F1E60D8B000C100D3 /* PopupAnimatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnimatorDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 				D4BB832F1E4A3C9100859B1C /* UnKeyedEncryption.swift */,
 				D4C0C4A81E4E32A000703241 /* PigLatin.swift */,
 				D41294641E529990006F090B /* MorseCode.swift */,
+				D46BB0FE1E74D0A600B87909 /* PigPenCipher.swift */,
 				D4B3D95E1E5793F500C8A75D /* Binary.swift */,
 				D46137911E5DED6300A9D87A /* Octal.swift */,
 				D46137931E5DF48100A9D87A /* Hexadecimal.swift */,
@@ -259,6 +268,16 @@
 			name = Error;
 			sourceTree = "<group>";
 		};
+		D46BB1001E75B6C400B87909 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				D46BB1031E75C49100B87909 /* InformationVC.swift */,
+				D46BB1011E75B71200B87909 /* InformationVC.xib */,
+				D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */,
+			);
+			name = Information;
+			sourceTree = "<group>";
+		};
 		D47E5AA11E65332D00C100D3 /* PopupAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +290,7 @@
 		D47E5AA21E65333F00C100D3 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				D46BB1001E75B6C400B87909 /* Information */,
 				D44B534E1E660206005CFAE0 /* Error */,
 				D47E5AA31E65335300C100D3 /* Warning */,
 				D47E5AA11E65332D00C100D3 /* PopupAnimation */,
@@ -393,6 +413,7 @@
 				D415D6B41E58159A00AE1C86 /* Warning.png in Resources */,
 				D41294671E52B573006F090B /* UserData.plist in Resources */,
 				D415D6B21E58156E00AE1C86 /* Error.png in Resources */,
+				D46BB1021E75B71200B87909 /* InformationVC.xib in Resources */,
 				D415D6AC1E5813E800AE1C86 /* close.png in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
 				D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */,
@@ -400,6 +421,7 @@
 				D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */,
 				D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
+				D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +508,7 @@
 				D41294691E52BEA6006F090B /* UserData.swift in Sources */,
 				D412946B1E53D576006F090B /* StarterVC.swift in Sources */,
 				D4B3D95F1E5793F500C8A75D /* Binary.swift in Sources */,
+				D46BB1041E75C49100B87909 /* InformationVC.swift in Sources */,
 				D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */,
 				D46137921E5DED6300A9D87A /* Octal.swift in Sources */,
 				D46BB0FD1E74CDAF00B87909 /* ColumnarCipher.swift in Sources */,
@@ -493,6 +516,7 @@
 				D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */,
 				D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
+				D46BB0FF1E74D0A600B87909 /* PigPenCipher.swift in Sources */,
 				D40341081E5819C300FDFF7E /* WarningVC.swift in Sources */,
 				D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */,
 				D47E5AA01E60D8B100C100D3 /* PopupAnimatorDelegate.swift in Sources */,

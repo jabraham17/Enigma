@@ -13,7 +13,9 @@ class TranspositionCipher: KeyedEncryption {
     
     /*
      Rules for a Transposition Cipher
-     
+     A simple shift cipher
+     A key word is appended to the beginning of the alphabet, then all duplicate letters are removed
+     Then a simple substituion is applied between the regualr alphabet and the new cipher alphabet
      */
     
     //init with encryption type, will always be Trans
