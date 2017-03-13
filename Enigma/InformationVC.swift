@@ -12,10 +12,29 @@ import UIKit
 @IBDesignable class InformationVC: UIViewController, UIViewControllerTransitioningDelegate {
     
     //the container view that will hold the information view crrently being displayed
-    @IBOutlet var containerView: UIView!
+    @IBOutlet var containerView: InformationView!
     //the refrence to the segemtned control
     @IBOutlet var segmentedControl: UISegmentedControl!
     
+    //all information about current encryption goes here
+    let currentEncryptionInformationView = CurrentEncryptionInformationView()
+    //TODO: add these classes
+    //all information about the app goes here
+    //let enigmaInformationView = EnigmaInformation()
+    //the store view goes here
+    //let storeView = StoreView()
+    
+    //setups up view, param is starting view index
+    func setup(startingIndex: Global.SegmentedControlIndex)
+    {
+        //set the index for the segemented controller
+        segmentedControl.selectedSegmentIndex = startingIndex.rawValue
+        
+        //TODO: do other setup of the other views
+        
+        //update view
+        updateContainerView()
+    }
     //required init
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,7 +46,36 @@ import UIKit
     }
     //when the segemented controller changes, change what is contained in the container view
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        updateContainerView()
+    }
+    //updates container view with the view dictated by the segemented control
+    func updateContainerView() {
         
+        //rmeove all subviews of the conatiner view to prepare for the new one
+        //loop through and remove each subview
+        containerView.subviews.forEach({$0.removeFromSuperview()})
+        
+        //determine which segement is selected
+        switch segmentedControl.selectedSegmentIndex {
+        //if its CurrentEncryption
+        case Global.SegmentedControlIndex.Current.rawValue:
+            //add current encryption view as subview to conatiner view
+            containerView.addSubview(currentEncryptionInformationView)
+            break
+        //if its Enigma
+        case Global.SegmentedControlIndex.Enigma.rawValue:
+            //TODO: add app information view as subview to conatiner view
+            //containerView.addSubview(enigmaInformationView)
+            break
+        //if its Store
+        case Global.SegmentedControlIndex.Store.rawValue:
+            //TODO: add the store view as subview to conatiner view
+            //containerView.addSubview(storeView)
+            break
+        default:
+            //shoudlnt ever get here
+            break
+        }
     }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {

@@ -35,6 +35,21 @@ class Global {
     //define all the vowels
     static let vowels = "AaEeIiOoUu"
     
+    //enum that correlates to the segmented control
+    enum SegmentedControlIndex: Int, CustomStringConvertible {
+        case Current
+        case Enigma
+        case Store
+        
+        //string versions of the types
+        var description: String {
+            let names = ["Current", "Enigma", "Store"]
+            return names[self.rawValue]
+        }
+        static let allTypes = [Current, Enigma, Store]
+    }
+    
+    //types of field for which field is the current one
     enum TypesOfField: Int, CustomStringConvertible {
         case None
         case Unencrypted

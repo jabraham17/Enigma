@@ -128,7 +128,7 @@ import UIKit
     }
     //when the view will diaspear
     override func viewWillDisappear(_ animated: Bool) {
-        //post notifivtion to disapppear
+        //post notifivtion to save data
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveAllData"), object: nil)
         //remove all notification listeners
         NotificationCenter.default.removeObserver(self)
@@ -312,6 +312,9 @@ import UIKit
     //set the current encryption type
     func setEncryption() {
         
+        //post notifivtion to save data
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveAllData"), object: nil)
+        
         //update the header
         headerView.name.text = self.currentEncyption.description
         
@@ -348,6 +351,28 @@ import UIKit
             break
         }
         updateText()
+    }
+    //when info button clicked, show information popup with current encryption view showing
+    @IBAction func infoButton(_ sender: UIBarButtonItem) {
+        information(viewShowing: .Current)
+    }
+    //make information popup
+    func information(viewShowing: Global.SegmentedControlIndex) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
+        
+        let information = nib.instantiate(withOwner: self, options: nil)[0] as! InformationVC
+        
+        //make presentation so popup appears over container vc
+        information.modalPresentationStyle = .overCurrentContext
+        information.setup(startingIndex: viewShowing)
+        
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        information.transitioningDelegate = transDel
+        
+        //show popup
+        self.present(information, animated: true, completion: nil)
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style

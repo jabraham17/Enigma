@@ -16,7 +16,10 @@
 		D415D6AC1E5813E800AE1C86 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6AB1E5813E800AE1C86 /* close.png */; };
 		D415D6B21E58156E00AE1C86 /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6B11E58156E00AE1C86 /* Error.png */; };
 		D415D6B41E58159A00AE1C86 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = D415D6B31E58159A00AE1C86 /* Warning.png */; };
-		D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */; };
+		D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib */; };
+		D42AC20D1E763C3800900CA3 /* CurrentEncryptionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AC20C1E763C3800900CA3 /* CurrentEncryptionInformationView.swift */; };
+		D42AC20F1E763D0400900CA3 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AC20E1E763D0400900CA3 /* InformationView.swift */; };
+		D42AC2111E764E7C00900CA3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D42AC2101E764E7C00900CA3 /* info.png */; };
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
 		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
@@ -67,7 +70,10 @@
 		D415D6AB1E5813E800AE1C86 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		D415D6B11E58156E00AE1C86 /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
 		D415D6B31E58159A00AE1C86 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
-		D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentEncryptionInfomation.xib; sourceTree = "<group>"; };
+		D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentEncryptionInformationView.xib; sourceTree = "<group>"; };
+		D42AC20C1E763C3800900CA3 /* CurrentEncryptionInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentEncryptionInformationView.swift; sourceTree = "<group>"; };
+		D42AC20E1E763D0400900CA3 /* InformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		D42AC2101E764E7C00900CA3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		D415D6AD1E58140300AE1C86 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D42AC2101E764E7C00900CA3 /* info.png */,
 				D4BB83311E4A6BF100859B1C /* share.png */,
 				D415D6AB1E5813E800AE1C86 /* close.png */,
 				D415D6B31E58159A00AE1C86 /* Warning.png */,
@@ -273,7 +280,9 @@
 			children = (
 				D46BB1031E75C49100B87909 /* InformationVC.swift */,
 				D46BB1011E75B71200B87909 /* InformationVC.xib */,
-				D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib */,
+				D42AC20E1E763D0400900CA3 /* InformationView.swift */,
+				D42AC20C1E763C3800900CA3 /* CurrentEncryptionInformationView.swift */,
+				D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib */,
 			);
 			name = Information;
 			sourceTree = "<group>";
@@ -415,13 +424,14 @@
 				D415D6B21E58156E00AE1C86 /* Error.png in Resources */,
 				D46BB1021E75B71200B87909 /* InformationVC.xib in Resources */,
 				D415D6AC1E5813E800AE1C86 /* close.png in Resources */,
+				D42AC2111E764E7C00900CA3 /* info.png in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
 				D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */,
 				D4BB83321E4A6BF100859B1C /* share.png in Resources */,
 				D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */,
 				D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */,
 				D4E99B6F1E412B810035A688 /* UITextViewCustom.xib in Resources */,
-				D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInfomation.xib in Resources */,
+				D42AC20B1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib in Resources */,
 				D442958C1E328241006EC08E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +510,7 @@
 				D41294651E529990006F090B /* MorseCode.swift in Sources */,
 				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
 				D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */,
+				D42AC20D1E763C3800900CA3 /* CurrentEncryptionInformationView.swift in Sources */,
 				D44B53501E6612E4005CFAE0 /* KeyedVC.swift in Sources */,
 				D44B53531E6727FF005CFAE0 /* KeyedEncryption.swift in Sources */,
 				D44B53571E672BD9005CFAE0 /* UITextFieldCustom.swift in Sources */,
@@ -511,6 +522,7 @@
 				D46BB1041E75C49100B87909 /* InformationVC.swift in Sources */,
 				D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */,
 				D46137921E5DED6300A9D87A /* Octal.swift in Sources */,
+				D42AC20F1E763D0400900CA3 /* InformationView.swift in Sources */,
 				D46BB0FD1E74CDAF00B87909 /* ColumnarCipher.swift in Sources */,
 				D44B534D1E65FE9E005CFAE0 /* ErrorVC.swift in Sources */,
 				D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */,
