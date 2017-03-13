@@ -123,7 +123,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="info.png" style="plain" id="XOv-4i-OqP">
+                        <barButtonItem key="leftBarButtonItem" image="info.png" id="XOv-4i-OqP">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoButton:" destination="BYZ-38-t0r" id="zdR-Gh-UBd"/>
@@ -285,7 +285,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bNQ-ec-Mha">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="info.png" style="plain" id="YUn-qy-jtR">
+                        <barButtonItem key="leftBarButtonItem" image="info.png" id="YUn-qy-jtR">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoButton:" destination="EAj-Tp-G0s" id="yFe-4P-hQT"/>
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6E-XV-1Q9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824.8" y="1177.961019490255"/>
+            <point key="canvasLocation" x="1825" y="1249"/>
         </scene>
     </scenes>
     <resources>
