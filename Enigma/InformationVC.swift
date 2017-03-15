@@ -20,7 +20,7 @@ import UIKit
     let currentEncryptionInformationView = CurrentEncryptionInformationView()
     //TODO: add these classes
     //all information about the app goes here
-    //let enigmaInformationView = EnigmaInformation()
+    let enigmaView = EnigmaView()
     //the store view goes here
     //let storeView = StoreView()
     
@@ -64,8 +64,8 @@ import UIKit
             break
         //if its Enigma
         case Global.SegmentedControlIndex.Enigma.rawValue:
-            //TODO: add app information view as subview to conatiner view
-            //containerView.addSubview(enigmaInformationView)
+            //add app information view as subview to conatiner view
+            containerView.addSubview(enigmaView)
             break
         //if its Store
         case Global.SegmentedControlIndex.Store.rawValue:

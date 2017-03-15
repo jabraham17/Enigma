@@ -13,7 +13,6 @@ import UIKit
     
     //gets refrences to views in IB
     @IBOutlet var title: UILabel!
-    @IBOutlet var image: UIImageView!
     @IBOutlet var text: UITextView!
     var contentView: UIView!
     
@@ -21,9 +20,28 @@ import UIKit
     var currentEncryption: Global.EncryptionTypes.Encryptions = .None {
         //when the encryption has been set
         didSet {
-            //set the title to be the encryption
-            title.text = currentEncryption.description
-            // TODO: Add a text file containg all the text and picture for this encryption
+            //get encryption name
+            let name = currentEncryption.description
+            //set the title to be the encryption name
+            title.text = name
+            
+            //remove the spaces and dashes in name so that it can be used for reading in the text file
+            //this is done through regualr expression
+            let fileName = name.replacingOccurrences(of: "[ -]", with: "", options: .regularExpression, range: name.range(of: name)) + "Information"
+            //read text file, type is nothing cuz there is no file type
+            let textFile = Bundle.main.path(forResource: fileName, ofType: "")
+            
+            //since reading text throws an error, must be in a do-catch
+            do {
+                //get textFile content
+                let textContent = try String(contentsOfFile: textFile!, encoding: .ascii)
+                
+                //put it as the text of the view
+                text.text = textContent
+            }
+            catch {
+                //TODO: Show an error view
+            }
         }
     }
     
