@@ -22,6 +22,8 @@ import UIKit
     {
         //set text
         textView.text = text
+        //adjust font size to text
+        textView.adjustFontToFitSize()
         //set the action for ok buttn
         self.okAction = okAction
     }

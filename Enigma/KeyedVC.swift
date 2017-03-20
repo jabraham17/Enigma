@@ -273,42 +273,6 @@ import UIKit
             }
         }
     }
-    //make warning popup
-    func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?) {
-        //load vc from nib
-        let nib = UINib(nibName: String(describing: WarningVC.self), bundle: Bundle(for: WarningVC.self))
-        
-        let warning = nib.instantiate(withOwner: self, options: nil)[0] as! WarningVC
-        //setup with info
-        warning.setup(text: text, cancelAction: cancelAction, continueAction: continueAction)
-        
-        //make presentation so warning appears over container vc
-        warning.modalPresentationStyle = .overFullScreen
-        //set delaget for custom presentation
-        let transDel = PopupAnimatorDelegate()
-        warning.transitioningDelegate = transDel
-        
-        //show warning
-        self.present(warning, animated: true, completion: nil)
-    }
-    //make warning popup
-    func error(text: String, okAction: (() -> Void)?) {
-        //load vc from nib
-        let nib = UINib(nibName: String(describing: ErrorVC.self), bundle: Bundle(for: ErrorVC.self))
-        
-        let error = nib.instantiate(withOwner: self, options: nil)[0] as! ErrorVC
-        //setup with info
-        error.setup(text: text, okAction: okAction)
-        
-        //make presentation so error appears over container vc
-        error.modalPresentationStyle = .overFullScreen
-        //set delaget for custom presentation
-        let transDel = PopupAnimatorDelegate()
-        error.transitioningDelegate = transDel
-        
-        //show error
-        self.present(error, animated: true, completion: nil)
-    }
     //set the current encryption type
     func setEncryption() {
         
@@ -354,25 +318,7 @@ import UIKit
     }
     //when info button clicked, show information popup with current encryption view showing
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
-        information(viewShowing: .Current)
-    }
-    //make information popup
-    func information(viewShowing: Global.SegmentedControlIndex) {
-        //load vc from nib
-        let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
-        
-        let information = nib.instantiate(withOwner: self, options: nil)[0] as! InformationVC
-        
-        //make presentation so popup appears over container vc
-        information.modalPresentationStyle = .overCurrentContext
-        information.setup(startingIndex: viewShowing)
-        
-        //set delaget for custom presentation
-        let transDel = PopupAnimatorDelegate()
-        information.transitioningDelegate = transDel
-        
-        //show popup
-        self.present(information, animated: true, completion: nil)
+        Global.information(viewShowing: .Current, containerView: self)
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style

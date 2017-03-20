@@ -36,7 +36,7 @@
 		D44B535B1E70AE7B005CFAE0 /* XORCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B535A1E70AE7B005CFAE0 /* XORCipher.swift */; };
 		D44E268D1E7740C0007B64CE /* PigLatinInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E268C1E7740C0007B64CE /* PigLatinInformation */; };
 		D44E268F1E77A8B6007B64CE /* MorseCodeInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E268E1E77A8B6007B64CE /* MorseCodeInformation */; };
-		D44E26911E77AAC8007B64CE /* PigPenCipherInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26901E77AAC8007B64CE /* PigPenCipherInformation */; };
+		D44E26911E77AAC8007B64CE /* PigPenInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26901E77AAC8007B64CE /* PigPenInformation */; };
 		D44E26931E77AAE3007B64CE /* BinaryInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26921E77AAE3007B64CE /* BinaryInformation */; };
 		D44E26951E77AAF5007B64CE /* OctalInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26941E77AAF5007B64CE /* OctalInformation */; };
 		D44E26971E77AB08007B64CE /* HexadecimalInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26961E77AB08007B64CE /* HexadecimalInformation */; };
@@ -45,6 +45,12 @@
 		D44E269F1E78D2AB007B64CE /* EnigmaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E269E1E78D2AB007B64CE /* EnigmaView.swift */; };
 		D44E26A11E799CB9007B64CE /* EnigmaInformation in Resources */ = {isa = PBXBuildFile; fileRef = D44E26A01E799CB9007B64CE /* EnigmaInformation */; };
 		D44E26A31E799E06007B64CE /* StoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44E26A21E799E06007B64CE /* StoreView.xib */; };
+		D44E26A51E79A166007B64CE /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26A41E79A166007B64CE /* StoreView.swift */; };
+		D44E26A81E7DD091007B64CE /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26A71E7DD091007B64CE /* TextViewExtension.swift */; };
+		D44E26AB1E7DDBA2007B64CE /* ralogo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D44E26AA1E7DDBA2007B64CE /* ralogo.PNG */; };
+		D44E26AD1E7DDBB3007B64CE /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D44E26AC1E7DDBB3007B64CE /* lock.png */; };
+		D44E26AF1E7DDD52007B64CE /* EncryptionSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44E26AE1E7DDD52007B64CE /* EncryptionSelectionCell.xib */; };
+		D44E26B11E7DDE8D007B64CE /* EncryptionSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26B01E7DDE8D007B64CE /* EncryptionSelectionCell.swift */; };
 		D46137921E5DED6300A9D87A /* Octal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137911E5DED6300A9D87A /* Octal.swift */; };
 		D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137931E5DF48100A9D87A /* Hexadecimal.swift */; };
 		D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */; };
@@ -107,7 +113,7 @@
 		D44B535A1E70AE7B005CFAE0 /* XORCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XORCipher.swift; sourceTree = "<group>"; };
 		D44E268C1E7740C0007B64CE /* PigLatinInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PigLatinInformation; sourceTree = "<group>"; };
 		D44E268E1E77A8B6007B64CE /* MorseCodeInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MorseCodeInformation; sourceTree = "<group>"; };
-		D44E26901E77AAC8007B64CE /* PigPenCipherInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PigPenCipherInformation; sourceTree = "<group>"; };
+		D44E26901E77AAC8007B64CE /* PigPenInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PigPenInformation; sourceTree = "<group>"; };
 		D44E26921E77AAE3007B64CE /* BinaryInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BinaryInformation; sourceTree = "<group>"; };
 		D44E26941E77AAF5007B64CE /* OctalInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OctalInformation; sourceTree = "<group>"; };
 		D44E26961E77AB08007B64CE /* HexadecimalInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HexadecimalInformation; sourceTree = "<group>"; };
@@ -116,6 +122,12 @@
 		D44E269E1E78D2AB007B64CE /* EnigmaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnigmaView.swift; sourceTree = "<group>"; };
 		D44E26A01E799CB9007B64CE /* EnigmaInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EnigmaInformation; sourceTree = "<group>"; };
 		D44E26A21E799E06007B64CE /* StoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreView.xib; sourceTree = "<group>"; };
+		D44E26A41E79A166007B64CE /* StoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		D44E26A71E7DD091007B64CE /* TextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		D44E26AA1E7DDBA2007B64CE /* ralogo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ralogo.PNG; sourceTree = "<group>"; };
+		D44E26AC1E7DDBB3007B64CE /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		D44E26AE1E7DDD52007B64CE /* EncryptionSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncryptionSelectionCell.xib; sourceTree = "<group>"; };
+		D44E26B01E7DDE8D007B64CE /* EncryptionSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionSelectionCell.swift; sourceTree = "<group>"; };
 		D46137911E5DED6300A9D87A /* Octal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octal.swift; sourceTree = "<group>"; };
 		D46137931E5DF48100A9D87A /* Hexadecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexadecimal.swift; sourceTree = "<group>"; };
 		D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspositionCipher.swift; sourceTree = "<group>"; };
@@ -164,6 +176,8 @@
 		D415D6AD1E58140300AE1C86 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D44E26AC1E7DDBB3007B64CE /* lock.png */,
+				D44E26AA1E7DDBA2007B64CE /* ralogo.PNG */,
 				D42AC2101E764E7C00900CA3 /* info.png */,
 				D4BB83311E4A6BF100859B1C /* share.png */,
 				D415D6AB1E5813E800AE1C86 /* close.png */,
@@ -261,7 +275,7 @@
 				D415D6AE1E58142400AE1C86 /* UserData */,
 				D4E99B841E43A0D40035A688 /* EncryptionHeader */,
 				D4E99B781E4180E00035A688 /* CustomTextView */,
-				D4E99B771E4180C10035A688 /* Borders */,
+				D4E99B771E4180C10035A688 /* Custom */,
 				D415D6AD1E58140300AE1C86 /* Resources */,
 				D442958D1E328241006EC08E /* Assets.xcassets */,
 				D442958F1E328241006EC08E /* LaunchScreen.storyboard */,
@@ -303,7 +317,7 @@
 				D44E26A01E799CB9007B64CE /* EnigmaInformation */,
 				D44E268C1E7740C0007B64CE /* PigLatinInformation */,
 				D44E268E1E77A8B6007B64CE /* MorseCodeInformation */,
-				D44E26901E77AAC8007B64CE /* PigPenCipherInformation */,
+				D44E26901E77AAC8007B64CE /* PigPenInformation */,
 				D44E26921E77AAE3007B64CE /* BinaryInformation */,
 				D44E26941E77AAF5007B64CE /* OctalInformation */,
 				D44E26961E77AB08007B64CE /* HexadecimalInformation */,
@@ -322,6 +336,7 @@
 				D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib */,
 				D44E269E1E78D2AB007B64CE /* EnigmaView.swift */,
 				D44E269C1E78D1EE007B64CE /* EnigmaView.xib */,
+				D44E26A41E79A166007B64CE /* StoreView.swift */,
 				D44E26A21E799E06007B64CE /* StoreView.xib */,
 				D44E269B1E78D1A8007B64CE /* InformationTextFiles */,
 			);
@@ -357,12 +372,13 @@
 			name = Warning;
 			sourceTree = "<group>";
 		};
-		D4E99B771E4180C10035A688 /* Borders */ = {
+		D4E99B771E4180C10035A688 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				D44E26A71E7DD091007B64CE /* TextViewExtension.swift */,
 				D4E99B751E417D720035A688 /* UIButtonBorder.swift */,
 			);
-			name = Borders;
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		D4E99B781E4180E00035A688 /* CustomTextView */ = {
@@ -380,6 +396,8 @@
 			isa = PBXGroup;
 			children = (
 				D4E99B8A1E4419610035A688 /* EncryptionSelection.swift */,
+				D44E26AE1E7DDD52007B64CE /* EncryptionSelectionCell.xib */,
+				D44E26B01E7DDE8D007B64CE /* EncryptionSelectionCell.swift */,
 				D4E99B7F1E439BF80035A688 /* EncryptionNameHeader.swift */,
 				D4E99B7C1E42467A0035A688 /* EncryptionNameHeader.xib */,
 			);
@@ -459,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44E26931E77AAE3007B64CE /* BinaryInformation in Resources */,
+				D44E26AF1E7DDD52007B64CE /* EncryptionSelectionCell.xib in Resources */,
 				D4E99B7D1E42467A0035A688 /* EncryptionNameHeader.xib in Resources */,
 				D44E26951E77AAF5007B64CE /* OctalInformation in Resources */,
 				D44295911E328241006EC08E /* LaunchScreen.storyboard in Resources */,
@@ -471,12 +490,14 @@
 				D415D6AC1E5813E800AE1C86 /* close.png in Resources */,
 				D42AC2111E764E7C00900CA3 /* info.png in Resources */,
 				D442958E1E328241006EC08E /* Assets.xcassets in Resources */,
+				D44E26AB1E7DDBA2007B64CE /* ralogo.PNG in Resources */,
 				D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */,
 				D44E26A31E799E06007B64CE /* StoreView.xib in Resources */,
 				D44E26991E77B08E007B64CE /* ROT13Information in Resources */,
 				D44E268F1E77A8B6007B64CE /* MorseCodeInformation in Resources */,
 				D4BB83321E4A6BF100859B1C /* share.png in Resources */,
-				D44E26911E77AAC8007B64CE /* PigPenCipherInformation in Resources */,
+				D44E26911E77AAC8007B64CE /* PigPenInformation in Resources */,
+				D44E26AD1E7DDBB3007B64CE /* lock.png in Resources */,
 				D40341061E5818C700FDFF7E /* WarningVC.xib in Resources */,
 				D44E26971E77AB08007B64CE /* HexadecimalInformation in Resources */,
 				D44E269D1E78D1EE007B64CE /* EnigmaView.xib in Resources */,
@@ -559,6 +580,7 @@
 				D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */,
 				D44B535B1E70AE7B005CFAE0 /* XORCipher.swift in Sources */,
 				D41294651E529990006F090B /* MorseCode.swift in Sources */,
+				D44E26A81E7DD091007B64CE /* TextViewExtension.swift in Sources */,
 				D4E99B8B1E4419610035A688 /* EncryptionSelection.swift in Sources */,
 				D4BB83301E4A3C9100859B1C /* UnKeyedEncryption.swift in Sources */,
 				D42AC20D1E763C3800900CA3 /* CurrentEncryptionInformationView.swift in Sources */,
@@ -584,6 +606,8 @@
 				D40341081E5819C300FDFF7E /* WarningVC.swift in Sources */,
 				D4E99B801E439BF80035A688 /* EncryptionNameHeader.swift in Sources */,
 				D47E5AA01E60D8B100C100D3 /* PopupAnimatorDelegate.swift in Sources */,
+				D44E26B11E7DDE8D007B64CE /* EncryptionSelectionCell.swift in Sources */,
+				D44E26A51E79A166007B64CE /* StoreView.swift in Sources */,
 				D44295871E328241006EC08E /* AppDelegate.swift in Sources */,
 				D46BB0FB1E74CDA200B87909 /* RailFenceCipher.swift in Sources */,
 				D4C0C4A91E4E32A100703241 /* PigLatin.swift in Sources */,

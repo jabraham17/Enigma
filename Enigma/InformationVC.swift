@@ -18,11 +18,10 @@ import UIKit
     
     //all information about current encryption goes here
     let currentEncryptionInformationView = CurrentEncryptionInformationView()
-    //TODO: add these classes
     //all information about the app goes here
     let enigmaView = EnigmaView()
     //the store view goes here
-    //let storeView = StoreView()
+    let storeView = StoreView()
     
     //setups up view, param is starting view index
     func setup(startingIndex: Global.SegmentedControlIndex)
@@ -69,8 +68,8 @@ import UIKit
             break
         //if its Store
         case Global.SegmentedControlIndex.Store.rawValue:
-            //TODO: add the store view as subview to conatiner view
-            //containerView.addSubview(storeView)
+            //add the store view as subview to conatiner view
+            containerView.addSubview(storeView)
             break
         default:
             //shoudlnt ever get here

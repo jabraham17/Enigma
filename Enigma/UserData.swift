@@ -55,6 +55,20 @@ class UserData {
         //write it to the plist file
         dataToSave.write(toFile: path, atomically: true)
     }
+    //get AvailableEncryptionsToUser
+    func getAvailableEncryptionsToUser() -> Dictionary<String, Bool> {
+        //get the data from the plist
+        let raw = data[AvailableEncryptionsToUser] as! Dictionary<String, Bool>
+        //return the Dictionary
+        return raw
+        
+    }
+    //set AvailableEncryptionsToUser
+    func setAvailableEncryptionsToUser(_ availableEncryptionsToUser: Dictionary<String, Bool>) {
+        //set the edited dictionary to the one in the plist
+        data[AvailableEncryptionsToUser] = availableEncryptionsToUser
+        
+    }
     //get LastUsedEncryption
     func getLastUsedEncryption() -> Global.EncryptionTypes.Encryptions {
         //last used encrytion as raw int value

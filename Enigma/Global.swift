@@ -35,6 +35,71 @@ class Global {
     //define all the vowels
     static let vowels = "AaEeIiOoUu"
     
+    
+    //if an encryption is avaiblibale
+    static func encryptionAvailable(encryption: EncryptionTypes.Encryptions) -> Bool {
+        //get the lost of available encryptions
+        let availableEncryptions = UserData.sharedInstance.getAvailableEncryptionsToUser()
+        
+        //search dict for inputed encryption and get its value
+        let index = availableEncryptions.index(forKey: encryption.shortName)
+        //return its value
+        return availableEncryptions.values[index!]
+    }
+    //make information popup
+    static func information(viewShowing: Global.SegmentedControlIndex, containerView: UIViewController) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
+        
+        let information = nib.instantiate(withOwner: containerView, options: nil)[0] as! InformationVC
+        
+        //make presentation so popup appears over container vc
+        information.modalPresentationStyle = .overCurrentContext
+        information.setup(startingIndex: viewShowing)
+        
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        information.transitioningDelegate = transDel
+        
+        //show popup
+        containerView.present(information, animated: true, completion: nil)
+    }
+    //make warning popup
+    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?, containerView: UIViewController) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: WarningVC.self), bundle: Bundle(for: WarningVC.self))
+        
+        let warning = nib.instantiate(withOwner: containerView, options: nil)[0] as! WarningVC
+        //setup with info
+        warning.setup(text: text, cancelAction: cancelAction, continueAction: continueAction)
+        
+        //make presentation so warning appears over container vc
+        warning.modalPresentationStyle = .overFullScreen
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        warning.transitioningDelegate = transDel
+        
+        //show warning
+        containerView.present(warning, animated: true, completion: nil)
+    }
+    //make warning popup
+    static func error(text: String, okAction: (() -> Void)?, containerView: UIViewController) {
+        //load vc from nib
+        let nib = UINib(nibName: String(describing: ErrorVC.self), bundle: Bundle(for: ErrorVC.self))
+        
+        let error = nib.instantiate(withOwner: containerView, options: nil)[0] as! ErrorVC
+        //setup with info
+        error.setup(text: text, okAction: okAction)
+        
+        //make presentation so error appears over container vc
+        error.modalPresentationStyle = .overFullScreen
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        error.transitioningDelegate = transDel
+        
+        //show error
+        containerView.present(error, animated: true, completion: nil)
+    }
     //enum that correlates to the segmented control
     enum SegmentedControlIndex: Int, CustomStringConvertible {
         case Current
@@ -137,6 +202,11 @@ class Global {
             var description: String {
                 let names = ["", "Pig Latin", "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return names[self.rawValue]
+            }
+            //string shortnames for all encyrptions
+            var shortName: String {
+                let shortNames = ["", "PigLatin", "MorseCode", "PigPen", "Binary", "Octal", "Hexadecimal", "ROT13", "Caesar", "XOR", "Trans", "RailFence", "Columnar", "Trithemius", "Vigenere", "RSA", "Rabin", "RC4", "DES", "TDEA1", "TDEA2", "TDEA3", "AES128", "AES192", "AES256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
+                return shortNames[self.rawValue]
             }
             static let allEncyptions = [[PigLatin, MorseCode, PigPen, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans, RailFence, Columnar], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
         }

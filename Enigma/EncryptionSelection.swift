@@ -20,6 +20,8 @@ class EncryptionSelection: UITableViewController {
     //the currently selected encryption
     var currentEncyption: Global.EncryptionTypes.Encryptions = Global.EncryptionTypes.Encryptions.None
     
+    //the view cotnroller showing this popup
+    
     //holds EncryptionSelectionDelegate object, used to call encryptionSelected for view controller
     weak var delegate: EncryptionSelectionDelegate?
     
@@ -27,7 +29,10 @@ class EncryptionSelection: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //set default cell for cell type
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EncyptionSelectionCell")
+        //tableView.register(EncryptionSelectionCell.self, forCellReuseIdentifier: "EncyptionSelectionCell")
+        tableView.register(UINib(nibName: "EncryptionSelectionCell", bundle: .main), forCellReuseIdentifier: "EncryptionSelectionCell")
+        //make seprator go all the way across tableview
+        tableView.separatorInset = .zero
         //turn off view bouncing
         tableView.bounces = false
         //turn off scroll indicators
@@ -66,7 +71,7 @@ class EncryptionSelection: UITableViewController {
     //create the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //retreieve resuable cell with identifer
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EncyptionSelectionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EncryptionSelectionCell", for: indexPath) as! EncryptionSelectionCell
         
         //get the encryption
         let encryption = Global.EncryptionTypes.Encryptions.allEncyptions[indexPath.section][indexPath.row]
@@ -77,18 +82,31 @@ class EncryptionSelection: UITableViewController {
         //if the next encryption is the same as the current encryption, mark it as blue
         if currentEncyption == encryption
         {
-            cell.textLabel?.textColor = UIColor.blue
+            cell.label.textColor = .blue
         }
         //otherwise, make text black
         else
         {
-            cell.textLabel?.textColor = UIColor.black
+            cell.label.textColor = .black
         }
         //add the text to the cell
-        cell.textLabel?.text = name
+        cell.label.text = name
         
         //set textLabel so that it auto resizes the font if the text is too big
-        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.label.adjustsFontSizeToFitWidth = true
+        
+        
+        //if the next encryption is not avaialable, mark it with a lock
+        if !(Global.encryptionAvailable(encryption: encryption))
+        {
+            cell.locked.image = UIImage(named: "lock.png")
+        }
+        //otherwise, make no image
+        else
+        {
+            cell.locked.image = nil
+        }
+
         
         return cell
     }
@@ -99,11 +117,32 @@ class EncryptionSelection: UITableViewController {
         //get the encryption of the cell that was tapped
         let encryption = Global.EncryptionTypes.Encryptions.allEncyptions[indexPath.section][indexPath.row]
         
-        //dismiss the selection
-        self.dismiss(animated: true, completion: {
-         
-            //after popup is dismissed, call the delegate
-            self.delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
-        })
+        //if the encryption is not available, inform user of this
+        if !(Global.encryptionAvailable(encryption: encryption)) {
+            
+            //deselect the cell
+            //tableView.deselectRow(at: indexPath, animated: true)
+            
+            //text to show user
+            let text = "You do not have access to this encryption. Press continue to purchase"
+            //continue action
+            let continueAction = {
+                //dismiss the selection, open information on completion
+                self.dismiss(animated: true, completion: {
+                    //open informationVC with store open
+                    Global.information(viewShowing: .Store, containerView: self.presentingViewController!)
+                })
+            }
+            Global.warning(text: text, cancelAction: nil, continueAction: nil, containerView: self)
+        }
+        else
+        {
+            //dismiss the selection
+            self.dismiss(animated: true, completion: {
+                
+                //after popup is dismissed, call the delegate
+                self.delegate?.encryptionSelected(encryptionType: type, encryption: encryption)
+            })
+        }
     }
 }

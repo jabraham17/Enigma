@@ -23,6 +23,8 @@ import UIKit
     {
         //set text
         textView.text = text
+        //adjust font size to text
+        textView.adjustFontToFitSize()
         //set the actions for the buttons
         self.cancelAction = cancelAction
         self.continueAction = continueAction
@@ -33,33 +35,23 @@ import UIKit
     }
     //cancel button action, call cancelAction and close vc
     @IBAction func cancelButton(_ sender: UIButton) {
-        //defered to ensure it is performed no matter what, dismiss vc
-        defer {
-            presentingViewController!.dismiss(animated: true, completion: nil)
-        }
         
-        //get function to call from action
-        guard let action = cancelAction else {return}
-        //call function
-        action()
+        presentingViewController!.dismiss(animated: true, completion: {
+            //get function to call from action
+            guard let action = self.cancelAction else {return}
+            //call function
+            action()
+        })
     }
     //continue button action, call continueAction and close vc
     @IBAction func continueButton(_ sender: UIButton) {
-        //defered to ensure it is performed no matter what, dismiss vc
-        defer {
-            presentingViewController!.dismiss(animated: true, completion: nil)
-        }
         
-        //get function to call from action
-        guard let action = continueAction else {return}
-        //call function
-        action()
-        /*presentingViewController!.dismiss(animated: true, completion: {
+        presentingViewController!.dismiss(animated: true, completion: {
             //get function to call from action
             guard let action = self.continueAction else {return}
             //call function
             action()
-        })*/
+        })
     }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {

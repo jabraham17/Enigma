@@ -25,9 +25,8 @@ import UIKit
             //set the title to be the encryption name
             title.text = name
             
-            //remove the spaces and dashes in name so that it can be used for reading in the text file
-            //this is done through regualr expression
-            let fileName = name.replacingOccurrences(of: "[ -]", with: "", options: .regularExpression, range: name.range(of: name)) + "Information"
+            //use short name for information file titles
+            let fileName = currentEncryption.shortName + "Information"
             //read text file, type is nothing cuz there is no file type
             let textFile = Bundle.main.path(forResource: fileName, ofType: "")
             
@@ -48,15 +47,15 @@ import UIKit
     //required inits, call setup func
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //setup the nib
+        //setup
         setupNib()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //setup the nib
+        //setup
         setupNib()
     }
-    //setup the nib
+    //setup view from nib
     func setupNib() {
         //get the nib as a view
         let bundle = Bundle(for: type(of: self))

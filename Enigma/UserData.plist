@@ -11,21 +11,21 @@
 	<key>AvailableEncryptionsToUser</key>
 	<dict>
 		<key>PigLatin</key>
-		<false/>
+		<true/>
 		<key>MorseCode</key>
-		<false/>
+		<true/>
 		<key>PigPen</key>
-		<false/>
+		<true/>
 		<key>Binary</key>
-		<false/>
+		<true/>
 		<key>Octal</key>
-		<false/>
+		<true/>
 		<key>Hexadecimal</key>
-		<false/>
+		<true/>
 		<key>ROT13</key>
-		<false/>
+		<true/>
 		<key>Caesar</key>
-		<false/>
+		<true/>
 		<key>XOR</key>
 		<false/>
 		<key>Trans</key>
