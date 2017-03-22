@@ -47,7 +47,7 @@ class Global {
         return availableEncryptions.values[index!]
     }
     //make information popup
-    static func information(viewShowing: Global.SegmentedControlIndex, containerView: UIViewController) {
+    static func information(viewShowing: Global.SegmentedControlIndex, containerView: UIViewController, animated: Bool) {
         //load vc from nib
         let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
         
@@ -62,10 +62,10 @@ class Global {
         information.transitioningDelegate = transDel
         
         //show popup
-        containerView.present(information, animated: true, completion: nil)
+        containerView.present(information, animated: animated, completion: nil)
     }
     //make warning popup
-    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?, containerView: UIViewController) {
+    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?, containerView: UIViewController, animated: Bool) {
         //load vc from nib
         let nib = UINib(nibName: String(describing: WarningVC.self), bundle: Bundle(for: WarningVC.self))
         
@@ -80,10 +80,10 @@ class Global {
         warning.transitioningDelegate = transDel
         
         //show warning
-        containerView.present(warning, animated: true, completion: nil)
+        containerView.present(warning, animated: animated, completion: nil)
     }
     //make warning popup
-    static func error(text: String, okAction: (() -> Void)?, containerView: UIViewController) {
+    static func error(text: String, okAction: (() -> Void)?, containerView: UIViewController, animated: Bool) {
         //load vc from nib
         let nib = UINib(nibName: String(describing: ErrorVC.self), bundle: Bundle(for: ErrorVC.self))
         
@@ -98,7 +98,7 @@ class Global {
         error.transitioningDelegate = transDel
         
         //show error
-        containerView.present(error, animated: true, completion: nil)
+        containerView.present(error, animated: animated, completion: nil)
     }
     //enum that correlates to the segmented control
     enum SegmentedControlIndex: Int, CustomStringConvertible {

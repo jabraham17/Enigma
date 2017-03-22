@@ -21,6 +21,7 @@ class EncryptionSelection: UITableViewController {
     var currentEncyption: Global.EncryptionTypes.Encryptions = Global.EncryptionTypes.Encryptions.None
     
     //the view cotnroller showing this popup
+    var sourceViewController: UIViewController?
     
     //holds EncryptionSelectionDelegate object, used to call encryptionSelected for view controller
     weak var delegate: EncryptionSelectionDelegate?
@@ -28,8 +29,7 @@ class EncryptionSelection: UITableViewController {
     //after screen has loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        //set default cell for cell type
-        //tableView.register(EncryptionSelectionCell.self, forCellReuseIdentifier: "EncyptionSelectionCell")
+        //set custom cell for cell type
         tableView.register(UINib(nibName: "EncryptionSelectionCell", bundle: .main), forCellReuseIdentifier: "EncryptionSelectionCell")
         //make seprator go all the way across tableview
         tableView.separatorInset = .zero
@@ -121,19 +121,20 @@ class EncryptionSelection: UITableViewController {
         if !(Global.encryptionAvailable(encryption: encryption)) {
             
             //deselect the cell
-            //tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             
             //text to show user
-            let text = "You do not have access to this encryption. Press continue to purchase"
+            let text = "You do not have access to this encryption. Press continue to purchase."
             //continue action
             let continueAction = {
+                //NO animateion so that it goes faster
                 //dismiss the selection, open information on completion
-                self.dismiss(animated: true, completion: {
+                self.dismiss(animated: false, completion: {
                     //open informationVC with store open
-                    Global.information(viewShowing: .Store, containerView: self.presentingViewController!)
+                    Global.information(viewShowing: .Store, containerView: self.sourceViewController!, animated: true)
                 })
             }
-            Global.warning(text: text, cancelAction: nil, continueAction: nil, containerView: self)
+            Global.warning(text: text, cancelAction: nil, continueAction: continueAction, containerView: self, animated: true)
         }
         else
         {

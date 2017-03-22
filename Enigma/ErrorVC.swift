@@ -32,22 +32,13 @@ import UIKit
         super.init(coder: aDecoder)
     }
     //ok button action, call okAction and close vc
-    @IBAction func continueButton(_ sender: UIButton) {
-        //defered to ensure it is performed no matter what, dismiss vc
-        defer {
-            presentingViewController!.dismiss(animated: true, completion: nil)
-        }
-        
-        //get function to call from action
-        guard let action = okAction else {return}
-        //call function
-        action()
-        /*presentingViewController!.dismiss(animated: true, completion: {
-         //get function to call from action
-         guard let action = self.okAction else {return}
-         //call function
-         action()
-         })*/
+    @IBAction func okButton(_ sender: UIButton) {
+        presentingViewController!.dismiss(animated: true, completion: {
+            //get function to call from action
+            guard let action = self.okAction else {return}
+            //call function
+            action()
+        })
     }
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PigLatin</key>
+	<real>0</real>
+	<key>MorseCode</key>
+	<integer>0</integer>
+	<key>PigPen</key>
+	<integer>0</integer>
+	<key>Binary</key>
+	<integer>0</integer>
+	<key>Octal</key>
+	<integer>0</integer>
+	<key>Hexadecimal</key>
+	<integer>0</integer>
+	<key>ROT13</key>
+	<integer>0</integer>
+	<key>Caesar</key>
+	<integer>0</integer>
+	<key>XOR</key>
+	<real>0.99</real>
+	<key>Trans</key>
+	<real>0.99</real>
+	<key>RailFence</key>
+	<real>0.99</real>
+	<key>Columnar</key>
+	<real>0.99</real>
+	<key>Trithemius</key>
+	<real>0.99</real>
+	<key>Vigenere</key>
+	<real>0.99</real>
+	<key>RSA</key>
+	<real>1.99</real>
+	<key>Rabin</key>
+	<real>1.99</real>
+	<key>RC4</key>
+	<real>1.99</real>
+	<key>DES</key>
+	<real>1.99</real>
+	<key>TDEA1</key>
+	<real>1.99</real>
+	<key>TDEA2</key>
+	<real>1.99</real>
+	<key>TDEA3</key>
+	<real>1.99</real>
+	<key>AES128</key>
+	<real>1.99</real>
+	<key>AES192</key>
+	<real>1.99</real>
+	<key>AES256</key>
+	<real>1.99</real>
+	<key>Skipjack</key>
+	<real>1.99</real>
+	<key>ChaCha20</key>
+	<real>1.99</real>
+	<key>Salsa20</key>
+	<real>1.99</real>
+	<key>Rabbit</key>
+	<real>1.99</real>
+	<key>Blowfish</key>
+	<real>1.99</real>
+	<key>Image</key>
+	<real>2.99</real>
+</dict>
+</plist>

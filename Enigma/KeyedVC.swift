@@ -179,6 +179,8 @@ import UIKit
         let selectionVC = EncryptionSelection()
         //set the delegate
         selectionVC.delegate = self
+        //set the source vc
+        selectionVC.sourceViewController = self
         //set the current encryption of the selection view controller
         selectionVC.currentEncyption = currentEncyption
         
@@ -318,7 +320,7 @@ import UIKit
     }
     //when info button clicked, show information popup with current encryption view showing
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
-        Global.information(viewShowing: .Current, containerView: self)
+        Global.information(viewShowing: .Current, containerView: self, animated: true)
     }
     //delegate function from UIPopoverControllerDelegate
     //present in popover style

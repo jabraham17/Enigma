@@ -13,13 +13,23 @@ extension UITextView {
     
     //adjust the font size to fit the text view
     func adjustFontToFitSize() {
-        //if the content size is smaller than the frame, incrment until they are the same or just under
-        while contentSize.height < frame.size.height {
-            font = UIFont.systemFont(ofSize: (font?.pointSize)! + 1)
+        
+        //get the width of the text view
+        let width = frame.size.width
+        //get the ideal size based on the current font size
+        let idealSize = sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        
+        //if the ideal size is greater than the current size, decrease the font size until it fits in the ideal size
+        if idealSize.height > frame.size.height {
+            while sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT))).height > frame.size.height {
+                font = font!.withSize(font!.pointSize - 1)
+            }
         }
-        //if the content size is bigger than the frame, decrement until they are the same or just under
-        while contentSize.height > frame.size.height {
-            font = UIFont.systemFont(ofSize: (font?.pointSize)! - 1)
+            //otherwise the ideal size is less than the current size, so increase the font size until it fits in the ideal size
+        else {
+            while sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT))).height < frame.size.height {
+                font = font!.withSize(font!.pointSize + 1)
+            }
         }
     }
 }
