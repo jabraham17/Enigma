@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+// TODO: Todo list
+//-goal for the coming week is to add In-App purchases
+//-once In-App purchases are added, need to write lots of encryptions then app is pretty much done
+//-need to create a new color scheme, current colors seem to clash. The yellow can be hard to read and the blue and green don't totally match
+//-also need to add mechanism for updates to UserData.plist
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

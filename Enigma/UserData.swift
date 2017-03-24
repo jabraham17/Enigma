@@ -67,7 +67,15 @@ class UserData {
     func setAvailableEncryptionsToUser(_ availableEncryptionsToUser: Dictionary<String, Bool>) {
         //set the edited dictionary to the one in the plist
         data[AvailableEncryptionsToUser] = availableEncryptionsToUser
-        
+    }
+    //add a new encryption to list of avaible ones
+    func addNewAvailableEncryption(_ newAvailableEncryption: Global.EncryptionTypes.Encryptions) {
+        //get dict of avaible encryptions
+        var available = data[AvailableEncryptionsToUser] as! Dictionary<String, Bool>
+        //edit avaible dict to have new encryption
+        available[newAvailableEncryption.shortName] = true
+        //set the edited list back into the plist
+        data[AvailableEncryptionsToUser] = available
     }
     //get LastUsedEncryption
     func getLastUsedEncryption() -> Global.EncryptionTypes.Encryptions {

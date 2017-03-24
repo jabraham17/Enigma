@@ -13,6 +13,7 @@ class StoreCell: UITableViewCell {
     
     //label for encryption name
     @IBOutlet var label: UILabel!
+    //TODO: add an info button and change price to an outlined box
     //price for encryption
     @IBOutlet var price: UILabel!
 }

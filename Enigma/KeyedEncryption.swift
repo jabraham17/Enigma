@@ -41,6 +41,38 @@ class KeyedEncryption {
         precondition(false, "Decrypt func must be overriden in a subclass")
         return ""
     }
+    //converts an array of strings into a string
+    func stringFromArray(array: [String]) -> String {
+        //var to hold new string
+        var newString = ""
+        //loop through all elements in array and add them to newString
+        for str in array
+        {
+            //add array element to newString
+            newString += str
+        }
+        return newString
+    }
+    //converts an array of strings into a string
+    func stringFromArrayRemoveTrailer(array: [String]) -> String {
+        //var to hold new string
+        let newString = stringFromArray(array: array)
+        //if newString is not empty, remove trailing whitespace
+        if !newString.isEmpty
+        {
+            //get the final index of the string, which is the (endIndex - 1)
+            let finalIndex = newString.index(before: newString.endIndex)
+            //remove trailing space
+            let newStringNoTrailingWhiteSpace = newString.substring(to: finalIndex)
+            //return the newString with no trailing whitespace
+            return newStringNoTrailingWhiteSpace
+        }
+            //otherwise return an empty string
+        else
+        {
+            return ""
+        }
+    }
     //convert a character to a byte
     func toByte(c: Character) -> UInt16 {
         //convert character to a string, then to a byte array, then grab the byte from the array

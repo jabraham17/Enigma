@@ -141,7 +141,6 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Global.yUnit * 1.5
     }
-    //TODO: Make custom cells with cost of encryption
     //create the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //retreieve resuable cell with identifer
@@ -159,7 +158,20 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     //when cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: When tapped buy encryption
         
+        //deselect the cell
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //get the encryption that was tapped
+        let encryptionTapped = purchaseableEncryptions![indexPath.section][indexPath.row]
+        //TODO: Add inapp confirmation code here
+        
+        //add encryptionTapped to users encryptions
+        UserData.sharedInstance.addNewAvailableEncryption(encryptionTapped)
+        
+        //update the stores local copy of the availle encryptions
+        generateEncryptionsToBeDisplayed()
+        //reload the table view
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
