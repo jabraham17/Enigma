@@ -54,9 +54,9 @@ class TranspositionCipher: KeyedEncryption {
         didSet {
             //get lowercase alphabet
             let lower = Global.lowercase
-            //appended the key to the front of the alphabet, this will be the shifted alphabet
+            //appended the lowercased key to the front of the alphabet, this will be the shifted alphabet
             //make it an array at same time
-            var shifted = Array((key + lower).characters)
+            var shifted = Array((key.lowercased() + lower).characters)
             //filter the shifted alpahbet for duplicates, remove all duplicates leaving first occurance there
             var shiftedStr = shifted.reduce("", {(total, next) in
                 //convert next to a string
@@ -72,6 +72,8 @@ class TranspositionCipher: KeyedEncryption {
                     return total + nextStr
                 }
             })
+            //convert the string back to an array
+            shifted = Array(shiftedStr.characters)
             //create new alphabet dict
             var newDict: [String : String] = [:]
             //current index for array
@@ -83,6 +85,7 @@ class TranspositionCipher: KeyedEncryption {
             }
             //set newDict to the alphabet
             alphabet = newDict
+            print(alphabet)
         }
     }
     
@@ -144,7 +147,7 @@ class TranspositionCipher: KeyedEncryption {
                 //convert to transposed, pass as a string
                 let transposedChar = convertToTransposed(c: String(c))
                 //add transposedChar to pigpenWord with one space after each letter
-                transposedWord += transposedChar + " "
+                transposedWord += transposedChar
             }
             //add additonal space for word
             transposedWord += " "
@@ -152,32 +155,9 @@ class TranspositionCipher: KeyedEncryption {
             //add the word to the word array
             transposed.append(transposedWord)
         }
-        //check if its ok to do finalWord removal, if word count = 0, return empty string, otherwise do nothing
-        if transposed.count == 0
-        {
-            return ""
-        }
         
-        //remove trailing two spaces from end of last word
-        //remove the final word, recovering the word in the process
-        let finalWord = transposed.remove(at: transposed.count - 1)
-        
-        //var to hold word with no trailing whitespace
-        var finalWordNoWhiteSpace = finalWord
-        //if there is trailing whitespace, ie there are two spaces
-        if finalWord.contains("  ")
-        {
-            //remove trailing whitespace from word
-            //get the index of the first whitespace, which is the (endIndex - 2)
-            let finalIndex = finalWord.index(finalWord.endIndex, offsetBy: -2)
-            //remove the two trailing white space
-            finalWordNoWhiteSpace = finalWord.substring(to: finalIndex)
-        }
-        //add final word with no white space to array
-        transposed.append(finalWordNoWhiteSpace)
-        
-        //convert the transposed words array to a string
-        let transposedStringForm = stringFromArray(array: transposed)
+        //convert the transposed words array to a string with no trailer
+        let transposedStringForm = stringFromArrayRemoveTrailer(array: transposed)
         //return the morse code
         return transposedStringForm
     }
@@ -193,12 +173,12 @@ class TranspositionCipher: KeyedEncryption {
             //var to hold english word
             var englishWord = ""
             //split the word into characters
-            let characters = w.components(separatedBy: " ")
+            let characters = Array(w.characters)
             //loop through characters
             for c in characters
             {
                 //convert to english and add to english word string
-                let e = convertToEnglish(t: c)
+                let e = convertToEnglish(t: String(c))
                 //add to englishWord
                 englishWord.append(e)
             }
@@ -212,7 +192,6 @@ class TranspositionCipher: KeyedEncryption {
         //return the english
         return englishStringForm
     }
-    
     //convert character to transposed character, return string value
     func convertToTransposed(c: String) -> String {
         
@@ -235,6 +214,7 @@ class TranspositionCipher: KeyedEncryption {
         
         //search the dictinary for the first occurance of the key and return it
         let english = alphabet.first(where: {$1 == lowerTrans})!.key
+        
         //if t was uppercase, make english uppercase, then return that value
         return isUpperCase ? english.uppercased() : english
 
