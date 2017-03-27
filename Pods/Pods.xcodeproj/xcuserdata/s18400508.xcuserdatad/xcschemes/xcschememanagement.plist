@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyStoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>23B9ABC379E459D85CA8E4B41772CEFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6BB1C1403B2419F911818DA8413FDA07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A67BAC6C0FC10CC8B63F7A709B59010E</key>
+		<key>8C7BBDF8509BF0079383D05BA246BA58</key>
 		<dict>
 			<key>primary</key>
 			<true/>

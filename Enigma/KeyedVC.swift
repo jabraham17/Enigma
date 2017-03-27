@@ -204,22 +204,6 @@ import UIKit
         //dismiss keyboard
         textView.resignFirstResponder()
         
-        //show warning
-        /*warning(text: "warning message", cancelAction: {
-         //cancel action
-         
-         },
-         continueAction: {
-         //continue action
-         
-         })
-         
-         //show error
-         error(text: "error message", okAction: {
-         //ok action
-         
-         })*/
-        
         //update the key, incase user did not press enter when entering key
         //this will also update the text views so there is no need to do it again
         key = keyField.field.text!

@@ -10,5 +10,6 @@ target 'Enigma' do
 
   # Pods for Enigma
     pod 'CryptoSwift'
+    pod 'SwiftyStoreKit'
 
 end
