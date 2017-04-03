@@ -30,6 +30,8 @@ import UIKit
         segmentedControl.selectedSegmentIndex = startingIndex.rawValue
         
         //TODO: do other setup of the other views
+        //setup storeViews view controller
+        storeView.presentingVC = self
         
         //update view
         updateContainerView()

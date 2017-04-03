@@ -51,13 +51,54 @@ import UIKit
             //get textFile content
             let textContent = try String(contentsOfFile: textFile!, encoding: .ascii)
             
+            //search throught the text for any links that are denotated by #start#link#end#, then apply the link within to the previous word, then remove the special markings from the text file
+            let pattern = try NSRegularExpression(pattern: "\\s((\\S+)#start#([^#]+)#end#)")
+            
+            //get all occurences of the match
+            let matches = pattern.matches(in: textContent, range: NSRange(location: 0, length: (textContent.characters.count - 1)))
+            
+            //convert text to attributed text
+            let attributedText = NSMutableAttributedString(string: textContent)
+            
+            //go through all the matchs and add links to them
+            for match in matches.reversed() {
+                
+                //get the text, this is the second group
+                let text = attributedText.attributedSubstring(from: match.rangeAt(2)).string
+                //get the link, this is the third group
+                let link = attributedText.attributedSubstring(from: match.rangeAt(3)).string
+                
+                //add a link attribute to each text
+                attributedText.addAttribute(NSLinkAttributeName, value: link, range: match.rangeAt(1))
+                //add an underline to each attribute that is matched
+                attributedText.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: match.rangeAt(1))
+                
+                //replace whats been linked with the text only
+                attributedText.replaceCharacters(in: match.rangeAt(1), with: text)
+            }
+            
+            //set the font for the text
+            attributedText.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14), range: NSRange(location: 0, length: (attributedText.length - 1)))
+            
             //put it as the text of the view
-            text.text = textContent
+            text.attributedText = attributedText
         }
         catch {
             //TODO: Show an error view.
         }
 
+    }
+    //get all taps by user on this view
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        //if the point is contained in the textView, retunr the textView
+        if text.frame.contains(point) {
+            return text
+        }
+            //otherwise, return the contsiner
+        else {
+            return contentView
+        }
+        
     }
 }
 

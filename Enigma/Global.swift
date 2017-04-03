@@ -36,6 +36,7 @@ class Global {
     static let vowels = "AaEeIiOoUu"
     
     
+    
     //if an encryption is avaiblibale
     static func encryptionAvailable(encryption: EncryptionTypes.Encryptions) -> Bool {
         //get the lost of available encryptions
@@ -127,6 +128,7 @@ class Global {
         }
         static let allTypes = [Unencrypted, Encrypted]
     }
+
     
     //encryption vars
     struct EncryptionTypes {

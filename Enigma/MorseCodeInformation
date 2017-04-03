@@ -1,0 +1,5 @@
+    Morse Code was originally designed for use with a telegraph. It allowed for transmission of messages at speed through a single wire with an electric pulse.
+
+    Morse Code constitutes of short and long signals, called dots and dashes respectively. Each letter is made up of a unique combination of these dots and dashes. Each dot is one unit long and each dash is three units long. The space between dots and dashes within words is one unit, the space between letters is three units, and the space between words is seven units long.
+
+    However, in type space this system is impractical, so it has been shortened. Each dot is a '.' and each dash is a '-'. As the dots and dashes are separate characters, there is no need for a intra-letter separator. The inter-letter separator is a single space and the word separator is a double space.
