@@ -65,6 +65,9 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     //the presenting view contorller that contains this view
     var presentingVC: UIViewController?
     
+    //wether or not all data has loaded
+    var dataHasLoaded: Bool?
+    
     
     //required inits, call setup func
     required init?(coder aDecoder: NSCoder) {
@@ -153,35 +156,65 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         purchaseableEncryptions = encryptions
         purchaseableTypes = types
         
-        //init with blank arrays
+        
+        //all the prucashable encryptions flattend
+        let purchaseableEncryptionsFlat = Array(purchaseableEncryptions!.joined())
+        
+        //init the prices with blanks
         pricesForPurchaseableEncryptions = Array.init(repeating: [String](), count: purchaseableEncryptions!.count)
+        //go thrrough blank arrays and add blank values
+        for (index, _) in pricesForPurchaseableEncryptions!.enumerated() {
+            //temp array
+            let tempArray = Array.init(repeating: "$0.00", count: purchaseableEncryptions![index].count)
+            //reset the array to be the new one
+            pricesForPurchaseableEncryptions![index] = tempArray
+        }
         
-        //start network activity
+        //get bundleIDS
+        let bundleIDs = Set(purchaseableEncryptionsFlat.map({(element) in "\(bundleID).\(element.shortName)"}))
+        
+        //start netwrok activity
         NetworkActivityIndicatorManager.networkOperationStarted()
-        //go through the purchasable encryptions and generate the prices in the pricesForPurchaseableEncryptions
-        for (arrayIndex, array) in purchaseableEncryptions!.enumerated()
-        {
-            var tempArray = Array.init(repeating: "$0.00", count: array.count)
-            for (elementIndex, element) in array.enumerated()
-            {
-                //continue the network activity
-                NetworkActivityIndicatorManager.networkOperationStarted()
-                
-                SwiftyStoreKit.retrieveProductsInfo(["\(bundleID).\(element.shortName)"], completion: { result in
-                    //when its done, the network actvivty is over
-                    NetworkActivityIndicatorManager.networkOperationFinished()
-                    
-                    //add the price to the next place in the temp array
-                    tempArray[elementIndex] = result.retrievedProducts.first!.localizedPrice!
-                })
+        //get all the products
+        SwiftyStoreKit.retrieveProductsInfo(bundleIDs, completion: { result in
+            //when its done, the network actvivty is over
+            NetworkActivityIndicatorManager.networkOperationFinished()
+            
+            //array to hold the ordered products
+            var orderedProducts = Array.init(repeating: SKProduct(), count: result.retrievedProducts.count)
+            
+            //go through each proudct and place them in order in orderedProducts
+            for product in result.retrievedProducts {
+                //get the producst shortName, this is the last part of the bundleID
+                let productShortName = product.productIdentifier.components(separatedBy: ".").last
+                //get the index of the product from the flat arra of encryptions
+                let productIndex = purchaseableEncryptionsFlat.index(of: Global.EncryptionTypes.Encryptions.init(shortName: productShortName!))
+                //place product at appriate place
+                orderedProducts[productIndex!] = product
             }
-            //add place holder array to the pricesForPurchaseableEncryptions
-            pricesForPurchaseableEncryptions![arrayIndex] = tempArray
-         }
-        //end the netweork activuty
-        NetworkActivityIndicatorManager.networkOperationFinished()
+            
+            //go through the blank pricesForPurchaseableEncryptions and set values
+            //index for orderedProducts
+            var indexOrderedProducts = 0
+            for (arrayIndex, array) in self.pricesForPurchaseableEncryptions!.enumerated()
+            {
+                //make a tempArray to set new values to
+                var tempArray = array
+                for (elementIndex, _) in array.enumerated()
+                {
+                    //set the price for the next element into the temp array
+                    tempArray[elementIndex] = orderedProducts[indexOrderedProducts].localizedPrice!
+                    //increment indexOrderedProducts
+                    indexOrderedProducts += 1
+                }
+                //add place holder array to the pricesForPurchaseableEncryptions
+                self.pricesForPurchaseableEncryptions![arrayIndex] = tempArray
+            }
+            
+            //data has now finished loading
+            self.dataHasLoaded = true
+        })
         
-
     }
     //get all taps by user on this view
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -241,6 +274,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         //set the price of the cell to the encryptions price at the path
         cell.price.text = pricesForPurchaseableEncryptions![indexPath.section][indexPath.row]
+        print(cell.price.text)
         
         return cell
     }
@@ -253,7 +287,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     //puchase encryption
     func purchase(cell: StoreCell, at index: IndexPath, from table: UITableView) {
         //create an alert telling the user what they are buying and if they are sure they want to buy it
-        let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(getPrice(cell.encryption!))", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(pricesForPurchaseableEncryptions![index.section][index.row])", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
             //deselect the row
             table.deselectRow(at: index, animated: true)

@@ -203,6 +203,56 @@ class Global {
             
             case Image*/
 
+            init(shortName: String) {
+                switch shortName {
+                case "PigLatin":
+                    self = .PigLatin
+                    break
+                case "MorseCode":
+                    self = .MorseCode
+                    break
+                case "PigPen":
+                    self = .PigPen
+                    break
+                case "Binary":
+                    self = .Binary
+                    break
+                case "Octal":
+                    self = .Octal
+                    break
+                case "Hexadecimal":
+                    self = .Hexadecimal
+                    break
+                case "ROT13":
+                    self = .ROT13
+                    break
+                case "Caesar":
+                    self = .Caesar
+                    break
+                case "XOR":
+                    self = .XOR
+                    break
+                case "Trans":
+                    self = .Trans
+                    break
+                case "RailFence":
+                    self = .RailFence
+                    break
+                case "Columnar":
+                    self = .Columnar
+                    break
+                case "Trithemius":
+                    self = .Trithemius
+                    break
+                case "Vigenere":
+                    self = .Vigenere
+                    break
+                default:
+                    self = .None
+                    break
+                }
+            }
+            
             //string versions of the encryptions
             var description: String {
                 let names = ["", "Pig Latin", "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Trithemius Cipher", "Vigenère Cipher"]//, "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
