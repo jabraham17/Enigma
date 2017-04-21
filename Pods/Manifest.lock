@@ -1,5 +1,5 @@
 PODS:
-  - CryptoSwift (0.6.7)
+  - CryptoSwift (0.6.8)
   - SwiftyStoreKit (0.8.4)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  CryptoSwift: 685ae257941e5447474348a2b545583e1a16b573
+  CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
   SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
 
 PODFILE CHECKSUM: 0baaf949277a226daee5ed50df8593d76580a665

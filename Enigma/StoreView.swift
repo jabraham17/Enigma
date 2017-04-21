@@ -17,18 +17,7 @@ var sharedSecret = "c75a530619e54b889c39ebe5d5c3a105"
 //bundle id
 let bundleID = "com.RabinApps.EnigmaMessageEncryption"
 
-//enum for all inapp purchase registered in itunesconnect
-enum RegisteredPurchases: Int, CustomStringConvertible {
-    
-    case XORCipher
-    
-    //string versions of the types
-    var description: String {
-        let names = ["XORCipher"]
-        return names[self.rawValue]
-    }
-    static let allTypes = [XORCipher]
-}
+//test acc: enigmatest@gmail.com TestTest1!
 
 //class for detremining that we have a internet connection
 class NetworkActivityIndicatorManager {
@@ -108,6 +97,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         //register cell for reuse
         tableView.register(UINib(nibName: "StoreCell", bundle: .main), forCellReuseIdentifier: "EncryptionStoreCell")
+        //tableView.register(StoreCell.self, forCellReuseIdentifier: "EncryptionStoreCell")
         //make seprator go all the way across tableview
         tableView.separatorInset = .zero
         
@@ -116,6 +106,8 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     //var to hold all encryptions that are avaiable for purchase
     var purchaseableEncryptions: [[Global.EncryptionTypes.Encryptions]]?
+    //var to hold all of the prices that are avaible
+    var pricesForPurchaseableEncryptions: [[String]]?
     //var to hold all encryption types that are avaiable for purchase
     var purchaseableTypes: [Global.EncryptionTypes.Types]?
     
@@ -160,6 +152,36 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         purchaseableEncryptions = encryptions
         purchaseableTypes = types
+        
+        //init with blank arrays
+        pricesForPurchaseableEncryptions = Array.init(repeating: [String](), count: purchaseableEncryptions!.count)
+        
+        //start network activity
+        NetworkActivityIndicatorManager.networkOperationStarted()
+        //go through the purchasable encryptions and generate the prices in the pricesForPurchaseableEncryptions
+        for (arrayIndex, array) in purchaseableEncryptions!.enumerated()
+        {
+            var tempArray = Array.init(repeating: "$0.00", count: array.count)
+            for (elementIndex, element) in array.enumerated()
+            {
+                //continue the network activity
+                NetworkActivityIndicatorManager.networkOperationStarted()
+                
+                SwiftyStoreKit.retrieveProductsInfo(["\(bundleID).\(element.shortName)"], completion: { result in
+                    //when its done, the network actvivty is over
+                    NetworkActivityIndicatorManager.networkOperationFinished()
+                    
+                    //add the price to the next place in the temp array
+                    tempArray[elementIndex] = result.retrievedProducts.first!.localizedPrice!
+                })
+            }
+            //add place holder array to the pricesForPurchaseableEncryptions
+            pricesForPurchaseableEncryptions![arrayIndex] = tempArray
+         }
+        //end the netweork activuty
+        NetworkActivityIndicatorManager.networkOperationFinished()
+        
+
     }
     //get all taps by user on this view
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -208,47 +230,44 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         //retreieve resuable cell with identifer
         let cell = tableView.dequeueReusableCell(withIdentifier: "EncryptionStoreCell", for: indexPath) as! StoreCell
         
-        //set the title of the cell to the encryption at the path
-        cell.label.text = purchaseableEncryptions![indexPath.section][indexPath.row].description
+        //set the ecnrytion for the cell
+        cell.encryption = purchaseableEncryptions![indexPath.section][indexPath.row]
+        
+        //set the title of the cell to the encryption
+        cell.label.text = cell.encryption?.description
+        
         //set label so that it auto resizes the font if the text is too big
         cell.label.adjustsFontSizeToFitWidth = true
         
-        //TODO: set the price of the cell to the encryptions price at the path
-        cell.price.text = "0.00$"
+        //set the price of the cell to the encryptions price at the path
+        cell.price.text = pricesForPurchaseableEncryptions![indexPath.section][indexPath.row]
         
         return cell
     }
-    //when cell is tapped
+    //when cell is tapped, attempt to purchase encryption
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //deselect the cell
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        //get the encryption that was tapped
-        let encryptionTapped = purchaseableEncryptions![indexPath.section][indexPath.row]
-        //TODO: Add inapp confirmation code here
-        
-        //purchasd the inapp purchase
-        purchaseProduct(.XORCipher)
-        
-        
-        //add encryptionTapped to users encryptions
-        UserData.sharedInstance.addNewAvailableEncryption(encryptionTapped)
-        
-        //update the stores local copy of the availle encryptions
-        generateEncryptionsToBeDisplayed()
-        //reload the table view
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        //go through purchase process
+        purchase(cell: tableView.cellForRow(at: indexPath) as! StoreCell, at: indexPath, from: tableView)
     }
-    
+    //puchase encryption
+    func purchase(cell: StoreCell, at index: IndexPath, from table: UITableView) {
+        //create an alert telling the user what they are buying and if they are sure they want to buy it
+        let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(getPrice(cell.encryption!))", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+            //deselect the row
+            table.deselectRow(at: index, animated: true)
+        }))
+        presentingVC?.present(alert, animated: true, completion: nil)
+    }
     
     //inapp purchases
     //get info for purchase
-    func getProductInfo(_ purchase: RegisteredPurchases) {
+    func getProductInfo(_ purchase: Global.EncryptionTypes.Encryptions) {
         //start network activity
         NetworkActivityIndicatorManager.networkOperationStarted()
         //get products info, this is the bundleID with the purchase descriptio added to it
-        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.description], completion: { result in
+        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.shortName], completion: { result in
             //when its done, the network actvivty is over
             NetworkActivityIndicatorManager.networkOperationFinished()
             
@@ -256,21 +275,46 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             self.presentingVC?.present(self.alert(withRetrieveResult: result), animated: true, completion: nil)
         })
     }
-    //purchase a product
-    func purchaseProduct(_ purchase: RegisteredPurchases) {
+    //get product price
+    func getPrice(_ purchase: Global.EncryptionTypes.Encryptions) -> String {
         //start network activity
         NetworkActivityIndicatorManager.networkOperationStarted()
-        //purchase the product
-        SwiftyStoreKit.purchaseProduct(bundleID + "." + purchase.description, completion: { result in
+        //var to hold the price
+        var price = "$0.00"
+        
+        //get products info, this is the bundleID with the purchase descriptio added to it
+        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.shortName], completion: { result in
             //when its done, the network actvivty is over
             NetworkActivityIndicatorManager.networkOperationFinished()
             
-            print(result)
+            //set the price
+            price = (result.retrievedProducts.first?.localizedPrice)!
+        })
+        //return the price
+        return price
+
+    }
+    //purchase a product
+    func purchaseProduct(_ purchase: Global.EncryptionTypes.Encryptions) {
+        //start network activity
+        NetworkActivityIndicatorManager.networkOperationStarted()
+        //purchase the product
+        SwiftyStoreKit.purchaseProduct(bundleID + "." + purchase.shortName, completion: { result in
+            //when its done, the network actvivty is over
+            NetworkActivityIndicatorManager.networkOperationFinished()
             
             //if succesful and its the result
             if case .success(let product) = result {
                 
                 //TODO: Add code to add encryption to list, possible completion
+                //add encryptionTapped to users encryptions
+                UserData.sharedInstance.addNewAvailableEncryption(purchase)
+                
+                //update the stores local copy of the availle encryptions
+                self.generateEncryptionsToBeDisplayed()
+                //reload the table view
+                //tableView.deleteRows(at: [], with: .automatic)
+                self.tableView.reloadData()
                 
                 //if product needs to finish
                 if product.needsFinishTransaction {
@@ -329,7 +373,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         })
     }
     //verify that a purchase is valid
-    func verifyPurchase(product: RegisteredPurchases) {
+    func verifyPurchase(product: Global.EncryptionTypes.Encryptions) {
         //start network activity
         NetworkActivityIndicatorManager.networkOperationStarted()
         //verify purchase, password is the sharedSecret
@@ -342,7 +386,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             //if succseful
             case .success(let receipt):
                 //verify purchase
-                let purchaseResult = SwiftyStoreKit.verifyPurchase(productId: bundleID + "." + product.description, inReceipt: receipt)
+                let purchaseResult = SwiftyStoreKit.verifyPurchase(productId: bundleID + "." + product.shortName, inReceipt: receipt)
                 //show alert
                 self.presentingVC?.present(self.alert(withVerifyProductResult: purchaseResult), animated: true, completion: nil)
                 break

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 
 
 // TODO: Todo list
@@ -23,6 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //register transtaction observer
+        //start actvitiy
+        /*NetworkActivityIndicatorManager.networkOperationStarted()
+        //regsuter products
+        SwiftyStoreKit.completeTransactions(atomically: true, completion: { products in
+            //for each product
+            for product in products {
+                print(product)
+                //complete each products transaction if they are not yet complete
+                if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+                    
+                    if product.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(product.transaction)
+                    }
+                    print("purchased: \(product)")
+                }
+            }
+            //finish operation
+            NetworkActivityIndicatorManager.networkOperationFinished()
+        })*/
+        
         
         return true
     }

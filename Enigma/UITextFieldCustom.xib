@@ -44,7 +44,7 @@
                     <state key="normal" image="share.png" backgroundImage="share.png"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
-                            <color key="value" red="0.72156862749999995" green="0.99607843139999996" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -73,6 +73,6 @@
         </view>
     </objects>
     <resources>
-        <image name="share.png" width="128" height="128"/>
+        <image name="share.png" width="64" height="64"/>
     </resources>
 </document>

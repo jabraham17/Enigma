@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,19 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCU-bi-MQc">
-                        <rect key="frame" x="8" y="4" width="305" height="36"/>
+                        <rect key="frame" x="8" y="4" width="299" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtT-u3-mdT">
-                        <rect key="frame" x="321" y="4" width="46" height="36"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-FU-T0h">
+                        <rect key="frame" x="315" y="12" width="55" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="Ove-cd-cEz"/>
+                            <constraint firstAttribute="width" constant="55" id="DDp-gK-3kt"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,19 +36,19 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RCU-bi-MQc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="02I-IO-mBZ"/>
-                    <constraint firstItem="RCU-bi-MQc" firstAttribute="baseline" secondItem="jtT-u3-mdT" secondAttribute="baseline" id="8gJ-es-qXf"/>
-                    <constraint firstItem="RCU-bi-MQc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="ASr-15-Tjh"/>
-                    <constraint firstItem="RCU-bi-MQc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kcm-F1-1Ed"/>
-                    <constraint firstItem="RCU-bi-MQc" firstAttribute="firstBaseline" secondItem="jtT-u3-mdT" secondAttribute="firstBaseline" id="L56-kk-kA5"/>
-                    <constraint firstItem="jtT-u3-mdT" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MIb-vt-GnN"/>
-                    <constraint firstItem="jtT-u3-mdT" firstAttribute="leading" secondItem="RCU-bi-MQc" secondAttribute="trailing" constant="8" symbolic="YES" id="i1w-7P-8zr"/>
+                    <constraint firstItem="RCU-bi-MQc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B0U-VX-FE4"/>
+                    <constraint firstItem="RCU-bi-MQc" firstAttribute="centerY" secondItem="4V7-FU-T0h" secondAttribute="centerY" id="DbX-C4-lkg"/>
+                    <constraint firstItem="4V7-FU-T0h" firstAttribute="leading" secondItem="RCU-bi-MQc" secondAttribute="trailing" constant="8" symbolic="YES" id="KI4-oX-EHc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4V7-FU-T0h" secondAttribute="trailing" constant="-3" id="UAA-do-qW0"/>
+                    <constraint firstItem="RCU-bi-MQc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ia4-yV-knS"/>
+                    <constraint firstItem="RCU-bi-MQc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="uH8-Rp-ZWL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="label" destination="RCU-bi-MQc" id="idb-Iw-MIJ"/>
-                <outlet property="price" destination="jtT-u3-mdT" id="dgL-2M-09r"/>
+                <outlet property="price" destination="4V7-FU-T0h" id="b6H-6Q-ib0"/>
             </connections>
+            <point key="canvasLocation" x="33.5" y="55"/>
         </tableViewCell>
     </objects>
 </document>

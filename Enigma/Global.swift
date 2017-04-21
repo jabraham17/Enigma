@@ -12,7 +12,8 @@ import UIKit
 class Global {
     
     //app color theme
-    static let appColorTheme = UIColor(red: 184/255, green: 254/255, blue: 158/255, alpha: 1)
+    //static let appColorTheme = UIColor(red: 184/255, green: 254/255, blue: 158/255, alpha: 1)
+    static let appColorTheme = UIColor(red: 58/255, green: 162/255, blue: 70/255, alpha: 1)
     //error color
     static let errorColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     //warning color
@@ -139,15 +140,16 @@ class Global {
             case UnKeyed
             case Keyed
             case Poly
-            case HighLevel
-            case Image
+            //MARK: these will be added later
+            //case HighLevel
+            //case Image
 
             //string versions of the types
             var description: String {
-                let names = ["", "UnKeyed", "Keyed", "Polyalphabetic", "High Level", "Image"]
+                let names = ["", "UnKeyed", "Keyed", "Polyalphabetic"]//, "High Level", "Image"]
                 return names[self.rawValue]
             }
-            static let allTypes = [UnKeyed, Keyed, Poly, HighLevel, Image]
+            static let allTypes = [UnKeyed, Keyed, Poly]//, HighLevel, Image]
         }
         //enums for all the encryptions
         enum Encryptions: Int, CustomStringConvertible {
@@ -182,7 +184,8 @@ class Global {
             case Vigenere
             //high level
             // MARK: Split high level up into something more descriptive
-            case RSA
+            //MARK: these will be added later
+            /*case RSA
             case Rabin
             case RC4
             case DES
@@ -198,19 +201,19 @@ class Global {
             case Rabbit
             case Blowfish
             
-            case Image
+            case Image*/
 
             //string versions of the encryptions
             var description: String {
-                let names = ["", "Pig Latin", "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Trithemius Cipher", "Vigenère Cipher", "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
+                let names = ["", "Pig Latin", "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Trithemius Cipher", "Vigenère Cipher"]//, "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return names[self.rawValue]
             }
             //string shortnames for all encyrptions
             var shortName: String {
-                let shortNames = ["", "PigLatin", "MorseCode", "PigPen", "Binary", "Octal", "Hexadecimal", "ROT13", "Caesar", "XOR", "Trans", "RailFence", "Columnar", "Trithemius", "Vigenere", "RSA", "Rabin", "RC4", "DES", "TDEA1", "TDEA2", "TDEA3", "AES128", "AES192", "AES256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
+                let shortNames = ["", "PigLatin", "MorseCode", "PigPen", "Binary", "Octal", "Hexadecimal", "ROT13", "Caesar", "XOR", "Trans", "RailFence", "Columnar", "Trithemius", "Vigenere"]//, "RSA", "Rabin", "RC4", "DES", "TDEA1", "TDEA2", "TDEA3", "AES128", "AES192", "AES256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return shortNames[self.rawValue]
             }
-            static let allEncyptions = [[PigLatin, MorseCode, PigPen, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans, RailFence, Columnar], [Trithemius, Vigenere], [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
+            static let allEncyptions = [[PigLatin, MorseCode, PigPen, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans, RailFence, Columnar], [Trithemius, Vigenere]]//, [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
         }
     }
 }

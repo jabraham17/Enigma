@@ -78,6 +78,7 @@ import UIKit
             break
         }
     }
+    
     //field for border width of view
     @IBInspectable var borderWidth: CGFloat {
         get {

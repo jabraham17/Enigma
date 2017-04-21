@@ -11,9 +11,11 @@ import UIKit
 //class for StoreCell
 class StoreCell: UITableViewCell {
     
+    //encryption beng displayed in this cell
+    var encryption: Global.EncryptionTypes.Encryptions?
+    
     //label for encryption name
     @IBOutlet var label: UILabel!
-    //TODO: add an info button and change price to an outlined box
-    //price for encryption
+    //label for price
     @IBOutlet var price: UILabel!
 }
