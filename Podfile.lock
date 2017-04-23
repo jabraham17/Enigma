@@ -1,15 +1,18 @@
 PODS:
   - CryptoSwift (0.6.8)
-  - SwiftyStoreKit (0.8.4)
+  - NVActivityIndicatorView (3.6.1)
+  - SwiftyStoreKit (0.8.5)
 
 DEPENDENCIES:
   - CryptoSwift
+  - NVActivityIndicatorView
   - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
-  SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
+  SwiftyStoreKit: 6d10d776a445df8916f469a61209f14a0e1c030c
 
-PODFILE CHECKSUM: 0baaf949277a226daee5ed50df8593d76580a665
+PODFILE CHECKSUM: 6e28028c71a643f4603aa6caf9bc273d36f4411f
 
 COCOAPODS: 1.2.0

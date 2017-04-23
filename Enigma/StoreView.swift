@@ -9,6 +9,7 @@
 import UIKit
 import StoreKit
 import SwiftyStoreKit
+import NVActivityIndicatorView
 
 
 //inapp purchases
@@ -65,9 +66,6 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     //the presenting view contorller that contains this view
     var presentingVC: UIViewController?
     
-    //wether or not all data has loaded
-    var dataHasLoaded: Bool?
-    
     
     //required inits, call setup func
     required init?(coder aDecoder: NSCoder) {
@@ -94,18 +92,36 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         self.addSubview(contentView)
         
-        //set deleagte methods
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        //FIXME: loading hud does not  currently work
+        //do not set delagtes until loading is done
+        //show progress hud on view
+        //create progress view
+        let activityViewWidth = (contentView.frame.width / 3)
+        let activityViewHeight = (contentView.frame.height / 3)
+        //let activityView = NVActivityIndicatorView(frame: CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight), type: .ballBeat, color: .white, padding: 0)
+        //let activityView = NVActivityIndicatorView(frame: CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight))
+
+        let frame = CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight)
+        let activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                                                            type: NVActivityIndicatorType(rawValue: 3)!)
+        DispatchQueue.main.async(execute: {
+        //add it to the frame and start animatng it
+        self.contentView.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+            print(activityIndicatorView.isAnimating)
+            print(activityIndicatorView.type)
+            
+        })
+        
+        //genrate encryptions and prices
+        self.generateEncryptionsToBeDisplayed()
         
         //register cell for reuse
         tableView.register(UINib(nibName: "StoreCell", bundle: .main), forCellReuseIdentifier: "EncryptionStoreCell")
         //tableView.register(StoreCell.self, forCellReuseIdentifier: "EncryptionStoreCell")
         //make seprator go all the way across tableview
         tableView.separatorInset = .zero
-        
-        //setup purchsbale encryptions
-        generateEncryptionsToBeDisplayed()
     }
     //var to hold all encryptions that are avaiable for purchase
     var purchaseableEncryptions: [[Global.EncryptionTypes.Encryptions]]?
@@ -211,8 +227,12 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                 self.pricesForPurchaseableEncryptions![arrayIndex] = tempArray
             }
             
-            //data has now finished loading
-            self.dataHasLoaded = true
+            //set the delagtes, then reload data
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.reloadData()
+            //TODO: hide porgress view
+                
         })
         
     }
@@ -274,7 +294,6 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         //set the price of the cell to the encryptions price at the path
         cell.price.text = pricesForPurchaseableEncryptions![indexPath.section][indexPath.row]
-        print(cell.price.text)
         
         return cell
     }
@@ -288,9 +307,15 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     func purchase(cell: StoreCell, at index: IndexPath, from table: UITableView) {
         //create an alert telling the user what they are buying and if they are sure they want to buy it
         let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(pricesForPurchaseableEncryptions![index.section][index.row])", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
             //deselect the row
             table.deselectRow(at: index, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            //deselect the row
+            table.deselectRow(at: index, animated: true)
+            //buy the encryption
+            self.purchaseProduct(cell.encryption!)
         }))
         presentingVC?.present(alert, animated: true, completion: nil)
     }
@@ -309,29 +334,10 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             self.presentingVC?.present(self.alert(withRetrieveResult: result), animated: true, completion: nil)
         })
     }
-    //get product price
-    func getPrice(_ purchase: Global.EncryptionTypes.Encryptions) -> String {
-        //start network activity
-        NetworkActivityIndicatorManager.networkOperationStarted()
-        //var to hold the price
-        var price = "$0.00"
-        
-        //get products info, this is the bundleID with the purchase descriptio added to it
-        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.shortName], completion: { result in
-            //when its done, the network actvivty is over
-            NetworkActivityIndicatorManager.networkOperationFinished()
-            
-            //set the price
-            price = (result.retrievedProducts.first?.localizedPrice)!
-        })
-        //return the price
-        return price
-
-    }
     //purchase a product
     func purchaseProduct(_ purchase: Global.EncryptionTypes.Encryptions) {
         //start network activity
-        NetworkActivityIndicatorManager.networkOperationStarted()
+        /*NetworkActivityIndicatorManager.networkOperationStarted()
         //purchase the product
         SwiftyStoreKit.purchaseProduct(bundleID + "." + purchase.shortName, completion: { result in
             //when its done, the network actvivty is over
@@ -339,8 +345,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             
             //if succesful and its the result
             if case .success(let product) = result {
-                
-                //TODO: Add code to add encryption to list, possible completion
+         
                 //add encryptionTapped to users encryptions
                 UserData.sharedInstance.addNewAvailableEncryption(purchase)
                 
@@ -360,7 +365,20 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                 self.presentingVC?.present(self.alert(withPurchaseResult: result), animated: true, completion: nil)
             }
             
-        })
+            
+        })*/
+        
+        //temp purchase code
+        //add encryptionTapped to users encryptions
+        UserData.sharedInstance.addNewAvailableEncryption(purchase)
+        
+        //update the stores local copy of the availle encryptions
+        self.generateEncryptionsToBeDisplayed()
+        //reload the table view
+        //tableView.deleteRows(at: [], with: .automatic)
+        self.tableView.reloadData()
+        
+        
     }
     //restore all purchases
     func restorePurchases() {
