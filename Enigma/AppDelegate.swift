@@ -17,6 +17,7 @@ import SwiftyStoreKit
 //-need to add information text for each of these encryption
 //-need to create a new color scheme, current colors seem to clash. The yellow can be hard to read and the blue and green don't totally match
 //-also need to add mechanism for updates to UserData.plist
+//-add custom keyboards for every encryption to help prevent errors and help users
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

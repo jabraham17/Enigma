@@ -296,6 +296,10 @@ import UIKit
         case .Columnar:
             encryptor = ColumnarCipher(key: key)
             break
+        //if Vigenere, make VigenereCipher encryption
+        case .Vigenere:
+            encryptor = VigenereCipher(key: key)
+            break
         default:
             //shouldnt ever get here
             break
