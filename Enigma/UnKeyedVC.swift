@@ -242,30 +242,59 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         //if pig latin, make pig latin encryption
         case .PigLatin:
             encryptor = PigLatin()
+            //set the special keyboards for pig latin
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if morse code, make morse code encryption
         case .MorseCode:
             encryptor = MorseCode()
+            //FEAT: need special keyoards for morse code and pig pen
+            //set the special keyboards for morse code
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if pigpen, make PigPenCipher
         case .PigPen:
             encryptor = PigPenCipher()
+            //set the special keyboards for pig pen
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if binary, make binary encryption
         case .Binary:
             encryptor = Binary()
+            //set the special keyboards for binary
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Octal, make Octal encryption
         case .Octal:
             encryptor = Octal()
+            //set the special keyboards for octal
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Hexadecimal, make Hexadecimal encryption
         case .Hexadecimal:
             encryptor = Hexadecimal()
+            //set the special keyboards for hexadecimal
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if rot13, make rot13 encryption
         case .ROT13:
             encryptor = ROT13()
+            //set the special keyboards for rot13
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         default:
             //shouldnt ever get here
@@ -281,6 +310,9 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
     //present in popover style
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

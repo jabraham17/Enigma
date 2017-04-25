@@ -82,7 +82,7 @@ class EncryptionSelection: UITableViewController {
         //if the next encryption is the same as the current encryption, mark it as blue
         if currentEncyption == encryption
         {
-            cell.label.textColor = .blue
+            cell.label.textColor = Global.informationColor
         }
         //otherwise, make text black
         else
@@ -124,17 +124,20 @@ class EncryptionSelection: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             
             //text to show user
-            let text = "You do not have access to this encryption. Press continue to purchase."
-            //continue action
-            let continueAction = {
+            let text = "You do not have access to this encryption. Press purchase to go to store."
+            let alert = UIAlertController(title: "Purchase?", message: text, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Purchase", style: .destructive, handler:
+                {(alert) in
                 //NO animateion so that it goes faster
                 //dismiss the selection, open information on completion
                 self.dismiss(animated: false, completion: {
                     //open informationVC with store open
                     Global.information(viewShowing: .Store, containerView: self.sourceViewController!, animated: true)
                 })
-            }
-            Global.warning(text: text, cancelAction: nil, continueAction: continueAction, containerView: self, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            //Global.warning(text: text, cancelAction: nil, continueAction: continueAction, containerView: self, animated: true)
         }
         else
         {

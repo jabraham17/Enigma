@@ -268,6 +268,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         label.textAlignment = .center
         //header is encryption type
         label.text = purchaseableTypes?[section].description
+        label.textColor = .white
         
         //add the label to the view
         header.addSubview(label)

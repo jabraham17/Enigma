@@ -23,13 +23,19 @@ import UIKit
     //the store view goes here
     let storeView = StoreView()
     
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     //setups up view, param is starting view index
     func setup(startingIndex: Global.SegmentedControlIndex)
     {
         //set the index for the segemented controller
         segmentedControl.selectedSegmentIndex = startingIndex.rawValue
         
-        //TODO: do other setup of the other views
         //setup storeViews view controller
         storeView.presentingVC = self
         

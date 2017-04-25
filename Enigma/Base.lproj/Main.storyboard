@@ -113,7 +113,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Oaf-eQ-UJ5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HDD-hh-NDr"/>
                             <constraint firstItem="Oaf-eQ-UJ5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OJb-yM-wjJ"/>
@@ -124,18 +124,18 @@
                     <navigationItem key="navigationItem" id="VqJ-fJ-mgL">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="info.png" id="XOv-4i-OqP">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoButton:" destination="BYZ-38-t0r" id="zdR-Gh-UBd"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="w9c-0O-sTr" customClass="EncryptionNameHeader" customModule="Enigma" customModuleProvider="target">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="background">
-                                    <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
@@ -155,10 +155,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UeG-HJ-gAO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2E5-m3-KSt">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2E5-m3-KSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.22745098039215686" green="0.63604493601131717" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.21176470589999999" green="0.38823529410000002" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="tlf-MI-0Yo">
@@ -286,18 +287,18 @@
                     <navigationItem key="navigationItem" id="bNQ-ec-Mha">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="info.png" id="YUn-qy-jtR">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoButton:" destination="EAj-Tp-G0s" id="yFe-4P-hQT"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="Hsg-6b-BBM" customClass="EncryptionNameHeader" customModule="Enigma" customModuleProvider="target">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="background">
-                                    <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>

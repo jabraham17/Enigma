@@ -606,7 +606,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:|MARK:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}/Enigma\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+			shellScript = "TAGS=\"TODO:|FIXME:|MARK:|FEAT:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}/Enigma\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

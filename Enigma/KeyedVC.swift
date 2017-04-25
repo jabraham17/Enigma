@@ -283,22 +283,57 @@ import UIKit
         //if XOR, make XORCipher encryption
         case .XOR:
             encryptor = XORCipher(key: key)
+            //set the special keyboards for xor cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .numberPad
+            //unhide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = false
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Trans, make TranspositionCipher encryption
         case .Trans:
             encryptor = TranspositionCipher(key: key)
+            //set the special keyboards for trans cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .asciiCapable
+            //hide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = true
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if RailFence, make RailFenceCipher encryption
         case .RailFence:
             encryptor = RailFenceCipher(key: key)
+            //set the special keyboards for rail fence cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .asciiCapable
+            //hide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = true
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Columnar, make ColumnarCipher encryption
         case .Columnar:
             encryptor = ColumnarCipher(key: key)
+            //set the special keyboards for columnar cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .asciiCapable
+            //hide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = true
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Vigenere, make VigenereCipher encryption
         case .Vigenere:
             encryptor = VigenereCipher(key: key)
+            //set the special keyboards for vigenere cipher
+            //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
+            keyField?.field.keyboardType = .asciiCapable
+            //hide the toolbar on the keyboard
+            keyField?.keyboardToolBarHidden = true
+            unencryptedField?.text.keyboardType = .asciiCapable
+            encryptedField?.text.keyboardType = .asciiCapable
             break
         default:
             //shouldnt ever get here
@@ -314,6 +349,9 @@ import UIKit
     //present in popover style
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

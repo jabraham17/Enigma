@@ -68,4 +68,7 @@ class StarterVC: UIViewController {
             break
         }
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

@@ -21,62 +21,62 @@
                 <rect key="frame" x="0.0" y="0.0" width="370" height="600"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLD-zm-7Qj" customClass="InformationView" customModule="Enigma" customModuleProvider="target">
+                        <rect key="frame" x="10" y="73" width="350" height="519"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4pW-hZ-OSX">
+                        <rect key="frame" x="27" y="48" width="317" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="mqX-1c-G16"/>
+                        </constraints>
+                        <segments>
+                            <segment title="Current"/>
+                            <segment title="About"/>
+                            <segment title="Store"/>
+                        </segments>
+                        <color key="tintColor" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="segmentedControlChanged:" destination="Zk0-3I-hxR" eventType="valueChanged" id="Aee-dY-Sn8"/>
+                        </connections>
+                    </segmentedControl>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-N5-Hy6" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
-                        <rect key="frame" x="331" y="8" width="29" height="29"/>
+                        <rect key="frame" x="10" y="8" width="29" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="50c-Ay-Bbm"/>
                         </constraints>
                         <state key="normal" title="Button" image="close.png"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="close:" destination="Zk0-3I-hxR" eventType="touchUpInside" id="MBC-7s-dtc"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLD-zm-7Qj" customClass="InformationView" customModule="Enigma" customModuleProvider="target">
-                        <rect key="frame" x="10" y="44" width="350" height="548"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="6"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4pW-hZ-OSX">
-                        <rect key="frame" x="10" y="8" width="317" height="29"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="28" id="mqX-1c-G16"/>
-                        </constraints>
-                        <segments>
-                            <segment title="Current"/>
-                            <segment title="Enigma"/>
-                            <segment title="Store"/>
-                        </segments>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <connections>
-                            <action selector="segmentedControlChanged:" destination="Zk0-3I-hxR" eventType="valueChanged" id="Aee-dY-Sn8"/>
-                        </connections>
-                    </segmentedControl>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="-6" id="B2f-Fe-MzX"/>
-                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="trailing" secondItem="WLD-zm-7Qj" secondAttribute="trailing" id="B8w-9Y-yVW"/>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="WLD-zm-7Qj" secondAttribute="leading" id="Gbp-sM-pZB"/>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="vCM-N5-Hy6" secondAttribute="top" id="Jte-P4-YvX"/>
-                    <constraint firstItem="WLD-zm-7Qj" firstAttribute="top" secondItem="4pW-hZ-OSX" secondAttribute="bottom" constant="8" symbolic="YES" id="WD9-4l-ePG"/>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="centerY" secondItem="vCM-N5-Hy6" secondAttribute="centerY" id="jQB-Ui-NhP"/>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="8" symbolic="YES" id="mH8-5B-Ss6"/>
-                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="leading" secondItem="4pW-hZ-OSX" secondAttribute="trailing" constant="4" id="t7E-N5-93Z"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="11" id="B2f-Fe-MzX"/>
+                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="trailing" secondItem="WLD-zm-7Qj" secondAttribute="trailing" constant="-321" id="B8w-9Y-yVW"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="WLD-zm-7Qj" secondAttribute="leading" constant="17" id="Gbp-sM-pZB"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="vCM-N5-Hy6" secondAttribute="top" constant="40" id="Jte-P4-YvX"/>
+                    <constraint firstItem="WLD-zm-7Qj" firstAttribute="top" secondItem="4pW-hZ-OSX" secondAttribute="bottom" constant="-3" id="WD9-4l-ePG"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="centerY" secondItem="vCM-N5-Hy6" secondAttribute="centerY" constant="40" id="jQB-Ui-NhP"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="48" id="mH8-5B-Ss6"/>
+                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="leading" secondItem="4pW-hZ-OSX" secondAttribute="trailing" constant="-334" id="t7E-N5-93Z"/>
                     <constraint firstItem="a2s-m7-Iwk" firstAttribute="top" secondItem="WLD-zm-7Qj" secondAttribute="bottom" constant="8" symbolic="YES" id="wlz-F4-qhc"/>
                     <constraint firstItem="WLD-zm-7Qj" firstAttribute="centerX" secondItem="6An-gC-LWp" secondAttribute="centerX" id="zE9-XM-caH"/>
                 </constraints>
@@ -91,7 +91,7 @@
                     <real key="value" value="3"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <real key="value" value="6"/>

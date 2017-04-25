@@ -16,6 +16,17 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     //wether or not its presenting
     var presenting = true
     
+    private var visualEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = (UIApplication.shared.keyWindow?.bounds)!
+        return blurredEffectView
+    }()
+    private lazy var effect:UIVisualEffect = {
+        let effect = self.visualEffectView.effect
+        return effect!
+    }()
+    
     //animation time
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -39,8 +50,16 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         {
             //set alpha to 0 so that iew is invisible
             toView.alpha = 0
+            
+            self.effect = self.visualEffectView.effect!
+            self.visualEffectView.effect = nil
+            
+            containerView.insertSubview(self.visualEffectView, belowSubview: toView)
+            
             //animate view
             UIView.animate(withDuration: duration, animations: {
+                
+                self.visualEffectView.effect = self.effect
                 //fade from nothng to something
                 toView.alpha = 1
             },
@@ -55,10 +74,12 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView.alpha = 1
             //animate view
             UIView.animate(withDuration: duration, animations: {
+                self.visualEffectView.effect = nil
                 //fade from full to nothing
                 toView.alpha = 0
             },
             completion: {_ in
+                self.visualEffectView.removeFromSuperview()
                 //completion, complete the transituon
                 transitionContext.completeTransition(true)
             })

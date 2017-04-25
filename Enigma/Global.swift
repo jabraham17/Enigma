@@ -19,8 +19,9 @@ class Global {
     //warning color
     static let warningColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
     //information color
-    static let informationColor = UIColor(red: 0, green: 122/255, blue: 255, alpha: 1)
-    
+    //static let informationColor = UIColor(red: 0, green: 122/255, blue: 255, alpha: 1)
+    static let informationColor = UIColor(red: 54/255, green: 99/255, blue: 134/255, alpha: 1)
+
     //varibles for setting up view in corridinate grid
     static var xUnit = UIScreen.main.bounds.width / 20
     static var yUnit = UIScreen.main.bounds.height / 30
@@ -139,7 +140,7 @@ class Global {
             
             case UnKeyed
             case Keyed
-            //MARK: these will be added later
+            //FEAT: these will be added later
             //case HighLevel
             //case Image
 
@@ -170,8 +171,8 @@ class Global {
             case Columnar
             case Vigenere
             
-            //MARK: Possibly add double columnar cipher
-            //MARK: Possinly add repeating modular arthimetic cipher
+            //FEAT: Possibly add double columnar cipher
+            //FEAT: Possinly add repeating modular arthimetic cipher
             /* NOTE From WIKIpeida: https://en.wikipedia.org/wiki/VIC_cipher#Straddling_checkerboard
  As a simple example, we will add a secret key number (say, 0452) using modular (non-carrying) arithmetic:
  
@@ -181,8 +182,8 @@ class Global {
 */
 
             //high level
-            // MARK: Split high level up into something more descriptive
-            //MARK: these will be added later
+            // FEAT: Split high level up into something more descriptive
+            //FEAT: these will be added later
             /*case RSA
             case Rabin
             case RC4
