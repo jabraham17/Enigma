@@ -19,10 +19,6 @@ class CaesarCipher: KeyedEncryption {
      If key is creater than 26, take the remandier of (key / 26) and that is the key
      */
     
-    //define byte value  of 'a' and 'A'
-    let byteValue_A = [UInt16]("A".utf16)[0]
-    let byteValue_a = [UInt16]("a".utf16)[0]
-    
     //init with encryption type, will always be Caesar
     //init inputed key value
     init(key: String) {

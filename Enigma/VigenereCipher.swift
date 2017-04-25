@@ -13,58 +13,75 @@ class VigenereCipher: KeyedEncryption {
     
     /*
      Rules for a Vigenere Cipher
-     text is encrypted using a tabula recta
+     text is encrypted using a rotating caesar cipher
+     through each iteration of the encryption on each caharcter, the key is rotated
+     
      */
-    //the tabula recta, this is craeted at init
-    var tabulaRecta: Dictionary<RowColPair, String>?
     
     //init with encryption type, will always be Vigenere
     //init inputed key value
     init(key: String) {
         super.init(encryption: .Vigenere)
         self.key = key
-        //make tabula recta
-        tabulaRecta = createTabulaRecta()
     }
-    //create the tabula recta for encryption and decryption
-    func createTabulaRecta() -> Dictionary<RowColPair, String> {
-        //hold the tabula recta, it will be the size of a 26x26 square
-        var tabulaRecta = Dictionary<RowColPair, String>()
-        //hold the alpahbet, will get shifted
-        var alphabet = Array(Global.uppercase.characters)
-        //go through each row and put the letter at each col into the tabulaRecta
-        for row in 0...25 {
-            for col in 0...25 {
-                //create the row col pair
-                let rowColPair = RowColPair(row: row, col: col)
-                //get the letter at the col
-                let letter = String(alphabet[col])
-                //add a new entry the dict
-                tabulaRecta[rowColPair] = letter
-            }
-            //shift the alphabet over one to the left
-            //get the first char and remove it
-            let firstChar = alphabet.removeFirst()
-            //add the first char to the end of the array
-            alphabet.append(firstChar)
-        }
-        
-        return tabulaRecta
-    }
-    //MARK: Encrption Code for Vigenere
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
+        
         //get a array of all of the characters
         let unencryptedText = Array(toBeEncrypted.characters)
+        
+        //synthses the key, repeat it until run out of chars in unencryted
+        //if the key is blank, then simply return the text to be encrypted so no divide by zero results
+        if key.isEmpty
+        {
+            return toBeEncrypted
+        }
+        //num of keys that will fit in the text
+        let keysInText = Int(unencryptedText.count / key.characters.count)
+        //get remainder of space in text that a whole key phrase will jot fit in
+        let extraSpaceInText = Int(unencryptedText.count % key.characters.count)
+        //extended key, not includogn the extra space yet
+        var extendedKey = String(repeating: key, count: keysInText)
+        //get part of the key to take up the fractional area left over, defiend as extraSpaceInText
+        let keyPart = (Array(key.characters)[0..<extraSpaceInText]).reduce("", {(total, next) in total + String(next)})
+        //add keypart to the extened key so they are equal
+        extendedKey += keyPart
+        //uppercase the extended key
+        extendedKey = extendedKey.uppercased()
+        //convert the key to numbers
+        let extendedKeyNumber = Array(extendedKey.characters).map({(next) in UInt16(toByte(c: next) + byteValue_A)})
+        
         //array to hold the encrypted text
         var encryptedText = [Character]()
+        //index for the extendedKeyNumner
+        var keyIndex = 0
         //loop through all the characters
         for var c in unencryptedText
         {
-            //MARK: convert the c to a number and based on the key find its place in the tabula recta
+            //convert the character to a byte
+            var b = toByte(c: c)
             
+            //if c is an uppercase letter
+            if Global.uppercase.contains(String(c))
+            {
+                //shorten range to just 0-25, apply the shift, add modular to make it cycle
+                b = ((b - byteValue_A) + extendedKeyNumber[keyIndex]) % 26
+                b += byteValue_A
+            }
+            //if c is a lowercase letter
+            else if Global.lowercase.contains(String(c))
+            {
+                //shorten range to just 0-25, apply the shift, add modular to make it cycle
+                b = ((b - byteValue_a) + extendedKeyNumber[keyIndex]) % 26
+                b += byteValue_a
+            }
+            //otherwise dont encrypt
+            
+            //convert the shifted byte to character
+            c = toCharacter(b: b)
             //add the encrypted character to the array of ecncrypted text
             encryptedText.append(c)
+            keyIndex += 1
         }
         //convert the encrypted array to a string
         let encryptedString = String(encryptedText)
@@ -72,58 +89,68 @@ class VigenereCipher: KeyedEncryption {
         return encryptedString
 
     }
-    //MARK: Decrption Code for Vigenere
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
-        return toBeDecrypted
+        //get a array of all of the characters
+        let encryptedText = Array(toBeDecrypted.characters)
+        
+        //synthses the key, repeat it until run out of chars in unencryted
+        //if the key is blank, then simply return the text to be encrypted so no divide by zero results
+        if key.isEmpty
+        {
+            return toBeDecrypted
+        }
+        //num of keys that will fit in the text
+        let keysInText = Int(encryptedText.count / key.characters.count)
+        //get remainder of space in text that a whole key phrase will jot fit in
+        let extraSpaceInText = Int(encryptedText.count % key.characters.count)
+        //extended key, not includogn the extra space yet
+        var extendedKey = String(repeating: key, count: keysInText)
+        //get part of the key to take up the fractional area left over, defiend as extraSpaceInText
+        let keyPart = (Array(key.characters)[0..<extraSpaceInText]).reduce("", {(total, next) in total + String(next)})
+        //add keypart to the extened key so they are equal
+        extendedKey += keyPart
+        //uppercase the extended key
+        extendedKey = extendedKey.uppercased()
+        //convert the key to numbers
+        let extendedKeyNumber = Array(extendedKey.characters).map({(next) in UInt16(toByte(c: next) + byteValue_A)})
+        
+        //array to hold the unencrypted text
+        var unencryptedText = [Character]()
+        //index for the extendedKeyNumner
+        var keyIndex = 0
+        //loop through all the characters
+        for var c in encryptedText
+        {
+            //convert the character to a byte
+            var b = toByte(c: c)
+            
+            //if c is an uppercase letter
+            if Global.uppercase.contains(String(c))
+            {
+                //shorten range to just 0-25, apply the shift, add modular to make it cycle
+                b = ((b - byteValue_A) - extendedKeyNumber[keyIndex]) % 26
+                b += byteValue_A
+            }
+                //if c is a lowercase letter
+            else if Global.lowercase.contains(String(c))
+            {
+                //shorten range to just 0-25, apply the shift, add modular to make it cycle
+                b = ((b - byteValue_a) - extendedKeyNumber[keyIndex]) % 26
+                b += byteValue_a
+            }
+            //otherwise dont decrypt
+            
+            //convert the shifted byte to character
+            c = toCharacter(b: b)
+            //add the unencrypted character to the array of unecncrypted text
+            unencryptedText.append(c)
+            keyIndex += 1
+        }
+        //convert the unencrypted array to a string
+        let unencryptedString = String(unencryptedText)
+        //return the unecrypted text
+        return unencryptedString
+
     }
-}
-//struct to take place of a tuple as a row/col pair for defining the tabula recta
-struct RowColPair {
-    //row
-    var row: Int
-    //column
-    var col: Int
-    //string row
-    var strRow: String
-    //string col
-    var strCol: String
-    
-    //init
-    init(row: Int, col: Int) {
-        self.row = row
-        self.col = col
-        //get string value at the row and col
-        self.strRow = String(Array(Global.uppercase.characters)[row])
-        self.strCol = String(Array(Global.uppercase.characters)[col])
-    }
-    //init
-    init(row: Int, col: Int, strRow: String, strCol: String) {
-        self.row = row
-        self.col = col
-        self.strRow = strRow
-        self.strCol = strCol
-    }
-}
-//make struct equabtable and hashable
-extension RowColPair: Hashable {
-    
-    //detrrmine if two rowcolpairs are equal
-    public static func == (one: RowColPair, two: RowColPair) -> Bool {
-        //if row and col are the same, it is equal
-        return one.row == two.row && one.col == two.col
-    }
-    //compute hashvalue for rowcolPair
-    var hashValue: Int {
-        //get the hashvalues and perform bitwise operation
-        return row.hashValue ^ col.hashValue
-    }
-}
-//make printable
-extension RowColPair: CustomStringConvertible {
-    //destriction for pair
-    var description: String {
-        return "Number: (\(row), \(col)) Letter: (\(strRow), \(strCol))"
-    }
-    
 }

@@ -16,6 +16,10 @@ class KeyedEncryption {
     //the specific encryption the subclass will set
     var encryption = Global.EncryptionTypes.Encryptions.None
     
+    //define byte value  of 'a' and 'A'
+    let byteValue_A = [UInt16]("A".utf16)[0]
+    let byteValue_a = [UInt16]("a".utf16)[0]
+    
     //encryption key
     var key: String
     

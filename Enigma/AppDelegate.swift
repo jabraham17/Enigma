@@ -13,7 +13,7 @@ import SwiftyStoreKit
 // TODO: Todo list
 //-bug fix inapp purchases
 //-bug fix the crnyptions
-//-need to write columnar, railfence, and Vigenere
+//-need to write columnar and railfence
 //-need to add information text for each of these encryption
 //-need to create a new color scheme, current colors seem to clash. The yellow can be hard to read and the blue and green don't totally match
 //-also need to add mechanism for updates to UserData.plist
