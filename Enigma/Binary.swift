@@ -33,7 +33,6 @@ class Binary: UnKeyedEncryption {
         {
             //convert the character to a byte
             let by = toByte(c: c)
-            print(by)
             //convert the byte to binary
             let bi = String(by, radix: 2)
             //add the binary to the array with a space

@@ -11,6 +11,6 @@ target 'Enigma' do
   # Pods for Enigma
     pod 'CryptoSwift'
     pod 'SwiftyStoreKit'
-    pod 'NVActivityIndicatorView'
+    pod 'PKHUD'
 
 end

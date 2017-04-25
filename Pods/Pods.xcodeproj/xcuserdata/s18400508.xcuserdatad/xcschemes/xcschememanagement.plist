@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NVActivityIndicatorView.xcscheme</key>
+		<key>PKHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +27,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5FEF6E8E590FFB466961251026594C28</key>
+		<key>502C7A52EFC8DFC43CEBA7023E01E0BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0468D1F991BA1954074FAF3B0C163AB</key>
+		<key>A5C2A68E8C4D59C0FF4EE62256CB393B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7A75F149082140741FC1E0B5B2863C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

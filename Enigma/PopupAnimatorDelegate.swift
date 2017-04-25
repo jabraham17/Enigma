@@ -21,7 +21,6 @@ class PopupAnimatorDelegate: NSObject, UIViewControllerTransitioningDelegate {
     }
     //get cnyroller for dismissal
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("DISMISS")
         //get controller
         let controller = PopupAnimator()
         //set presenting to true

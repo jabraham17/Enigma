@@ -23,13 +23,6 @@ import UIKit
     //the store view goes here
     let storeView = StoreView()
     
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     //setups up view, param is starting view index
     func setup(startingIndex: Global.SegmentedControlIndex)
     {
@@ -48,8 +41,11 @@ import UIKit
     }
     //button action to close this popup
     @IBAction func close(_ sender: UIButtonBorder) {
+        //set delaget for custom presentation
+        let transDel = PopupAnimatorDelegate()
+        self.transitioningDelegate = transDel
         //dismiss the view controler
-        presentingViewController!.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     //when the segemented controller changes, change what is contained in the container view
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {

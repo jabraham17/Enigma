@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 import SwiftyStoreKit
-import NVActivityIndicatorView
+import PKHUD
 
 
 //inapp purchases
@@ -93,26 +93,11 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.addSubview(contentView)
         
         
-        //FIXME: loading hud does not  currently work
         //do not set delagtes until loading is done
         //show progress hud on view
-        //create progress view
-        let activityViewWidth = (contentView.frame.width / 3)
-        let activityViewHeight = (contentView.frame.height / 3)
-        //let activityView = NVActivityIndicatorView(frame: CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight), type: .ballBeat, color: .white, padding: 0)
-        //let activityView = NVActivityIndicatorView(frame: CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight))
-
-        let frame = CGRect(x: (contentView.frame.width / 2) - (activityViewWidth / 2), y: (contentView.frame.height / 2) - (activityViewHeight / 2), width: activityViewWidth, height: activityViewHeight)
-        let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                                                            type: NVActivityIndicatorType(rawValue: 3)!)
-        DispatchQueue.main.async(execute: {
-        //add it to the frame and start animatng it
-        self.contentView.addSubview(activityIndicatorView)
-        activityIndicatorView.startAnimating()
-            print(activityIndicatorView.isAnimating)
-            print(activityIndicatorView.type)
-            
-        })
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        PKHUD.sharedHUD.show()
+        
         
         //genrate encryptions and prices
         self.generateEncryptionsToBeDisplayed()
@@ -231,7 +216,8 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             self.tableView.delegate = self
             self.tableView.dataSource = self
             self.tableView.reloadData()
-            //TODO: hide porgress view
+            //hide porgress view
+            PKHUD.sharedHUD.hide()
                 
         })
         
