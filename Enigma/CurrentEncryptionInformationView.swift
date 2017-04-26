@@ -33,7 +33,7 @@ import UIKit
             //since reading text throws an error, must be in a do-catch
             do {
                 //get textFile content
-                let textContent = try String(contentsOfFile: textFile!, encoding: .ascii)
+                let textContent = try String(contentsOfFile: textFile!, encoding: .utf8)
                 
                 //put it as the text of the view
                 text.text = textContent

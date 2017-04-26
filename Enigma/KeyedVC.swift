@@ -174,6 +174,8 @@ import UIKit
             //close ecrntpted fields keyboard
             encryptedField.text.resignFirstResponder()
         }
+        //resign the keyboard on the key field
+        keyField.field.resignFirstResponder()
         
         //get the view controller
         let selectionVC = EncryptionSelection()
@@ -307,7 +309,7 @@ import UIKit
             encryptor = RailFenceCipher(key: key)
             //set the special keyboards for rail fence cipher
             //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
-            keyField?.field.keyboardType = .asciiCapable
+            keyField?.field.keyboardType = .numberPad
             //hide the toolbar on the keyboard
             keyField?.keyboardToolBarHidden = true
             unencryptedField?.text.keyboardType = .asciiCapable

@@ -95,7 +95,11 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         //do not set delagtes until loading is done
         //show progress hud on view
+        //FIXME: fix so that only the stor view has the loading thingy on it
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        //PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
+        //PKHUD.sharedHUD.show(onView: self)
+        //PKHUD.sharedHUD.viewToPresentOn = self
         PKHUD.sharedHUD.show()
         
         
