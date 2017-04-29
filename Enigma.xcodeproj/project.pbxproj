@@ -456,6 +456,7 @@
 				D422C38B1E71D77600279126 /* Mark Todo and Fixme with Warnings */,
 				7AA77B7F51F55B4CB9CEEE0E /* [CP] Embed Pods Frameworks */,
 				04CDBB108FDDFB2A6FF80684 /* [CP] Copy Pods Resources */,
+				D4362A271EB15D9300C90B89 /* FEAT markings */,
 			);
 			buildRules = (
 			);
@@ -606,7 +607,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:|MARK:|FEAT:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}/Enigma\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+			shellScript = "TAGS=\"TODO:|FIXME:|MARK:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}/Enigma\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
+		D4362A271EB15D9300C90B89 /* FEAT markings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "FEAT markings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#TAGS=\"FEAT:\"\n#find \"${SRCROOT}/Enigma\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

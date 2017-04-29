@@ -166,13 +166,40 @@ class Global {
             //keyed
             case Caesar
             case XOR
+            //MARK: Change name of this to keyword cipher
             case Trans
             case RailFence
             case Columnar
             case Vigenere
             
+            //FEAT: Possibly add bifid cipher
+            //FEAT: Possibly add trifid cipher
+            //FEAT: Fractionation ciphers
+            //FEAT: Fractionation and transposition with pigpen, morsecode, polybius square, strddling checkerboard
             //FEAT: Possibly add double columnar cipher
             //FEAT: Possinly add repeating modular arthimetic cipher
+            //FEAT: One time Pad
+            //FEAT: Enigma Machine
+            //FEAT: HILL Cipher
+            //FEAT: Beaufort cipher
+            //FEAT: Autokey cipher
+            //FEAT: Running key cipher
+            //FEAT: Playfair cipher
+            //FEAT: Solitaire (cipher)
+            //FEAT: Grille (cryptography)
+            //FEAT: Bacon's cipher
+            //FEAT: Dvorak encoding
+            //FEAT: Chaocipher cipher
+            //FEAT: Four-square cipher
+            //FEAT: Two-square cipher
+            //FEAT: Nihilist cipher
+            //FEAT: Tap code
+            //FEAT: Book cipher
+            //FEAT: Null cipher
+            //FEAT: Affine cipher
+            //FEAT: other transposiiotn ciphers
+            //FEAT: other subsitiution ciphers
+            //FEAT: other polyalphabetc ciphers
             /* NOTE From WIKIpeida: https://en.wikipedia.org/wiki/VIC_cipher#Straddling_checkerboard
  As a simple example, we will add a secret key number (say, 0452) using modular (non-carrying) arithmetic:
  

@@ -13,7 +13,7 @@ import SwiftyStoreKit
 // TODO: Todo list
 //-bug fix inapp purchases
 //-bug fix the crnyptions
-//-need to write columnar and railfence
+//-need to write columnar
 //-add decryption to pig latin
 //-need to add information text for each of these encryption
 //-also need to add mechanism for updates to UserData.plist
