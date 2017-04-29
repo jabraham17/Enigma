@@ -16,7 +16,6 @@ import SwiftyStoreKit
 //-need to write columnar
 //-add decryption to pig latin
 //-need to add information text for each of these encryption
-//-also need to add mechanism for updates to UserData.plist
 //-Fix all FIXME, MARK, and TODO
 
 @UIApplicationMain

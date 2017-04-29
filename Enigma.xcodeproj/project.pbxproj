@@ -28,7 +28,6 @@
 		D44295B71E3285BA006EC08E /* UITextViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295B61E3285BA006EC08E /* UITextViewCustom.swift */; };
 		D44725711E81FB0F00E6D881 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447256F1E81FB0F00E6D881 /* StoreCell.swift */; };
 		D44725721E81FB0F00E6D881 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44725701E81FB0F00E6D881 /* StoreCell.xib */; };
-		D44725741E8225E800E6D881 /* EncryptionCost.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44725731E8225E800E6D881 /* EncryptionCost.plist */; };
 		D44B534B1E65FDDF005CFAE0 /* ErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44B534A1E65FDDF005CFAE0 /* ErrorVC.xib */; };
 		D44B534D1E65FE9E005CFAE0 /* ErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B534C1E65FE9E005CFAE0 /* ErrorVC.swift */; };
 		D44B53501E6612E4005CFAE0 /* KeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B534F1E6612E4005CFAE0 /* KeyedVC.swift */; };
@@ -115,7 +114,6 @@
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
 		D447256F1E81FB0F00E6D881 /* StoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		D44725701E81FB0F00E6D881 /* StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
-		D44725731E8225E800E6D881 /* EncryptionCost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EncryptionCost.plist; sourceTree = "<group>"; };
 		D44B534A1E65FDDF005CFAE0 /* ErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorVC.xib; sourceTree = "<group>"; };
 		D44B534C1E65FE9E005CFAE0 /* ErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorVC.swift; sourceTree = "<group>"; };
 		D44B534F1E6612E4005CFAE0 /* KeyedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedVC.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		D415D6AE1E58142400AE1C86 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
-				D44725731E8225E800E6D881 /* EncryptionCost.plist */,
 				D41294661E52B573006F090B /* UserData.plist */,
 				D41294681E52BEA6006F090B /* UserData.swift */,
 			);
@@ -517,7 +514,6 @@
 				D4B53D431EAD4FE700BBAEFF /* RailFenceInformation in Resources */,
 				D44E26A11E799CB9007B64CE /* EnigmaInformation in Resources */,
 				D41294671E52B573006F090B /* UserData.plist in Resources */,
-				D44725741E8225E800E6D881 /* EncryptionCost.plist in Resources */,
 				D415D6B21E58156E00AE1C86 /* Error.png in Resources */,
 				D46BB1021E75B71200B87909 /* InformationVC.xib in Resources */,
 				D44E268D1E7740C0007B64CE /* PigLatinInformation in Resources */,

@@ -40,14 +40,49 @@ class UserData {
             //attempt to move plist to proper path, should work
             do {
                 try FileManager.default.copyItem(atPath: pathInBundle, toPath: path)
-            }catch{
+            }catch {
                 print("Error occurred while copying file to document \(error)")
             }
+            //get the actual data from the plist and store it locally
+            data = NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>
         }
-        //get the actual data from the plist and store it locally
-        data = NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>
-        
+        else {
+            //get the one from resource
+            let resourcePath = Bundle.main.path(forResource: "UserData", ofType: "plist")! as String
+            var resourceDict = NSDictionary(contentsOfFile: resourcePath) as! Dictionary<String, Any>
+            
+            //get the one from docs
+            let docsDict = NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>
+            
+            //check if the plist in rsource and the one stored in docs are the same, if they are, no need to do anything, if they are not, then the one in the app needs to be updated
+            //if they are different
+            if !resourceDict.hasSameStructure(as: docsDict) {
+                //copy the data from the docsDict to the resourceDict
+                resourceDict.copyValues(from: docsDict)
+                
+                //remove the docs dict
+                do {
+                    try FileManager.default.removeItem(atPath: path)
+                }catch {
+                    print("Error occurred while removing file \(error)")
+                }
+                //copy the resource plist to the file, then when save is called the data will be written to the newly formatted plist
+                do {
+                    try FileManager.default.copyItem(atPath: resourcePath, toPath: path)
+                }catch {
+                    print("Error occurred while copying file to document \(error)")
+                }
+                //resource dict now contains all pertainet data and structrue, assign it to the data var
+                data = resourceDict
+            }
+            //if they ae the same
+            else {
+                //if they are the same, no modifying needs to be done, simpky copy the data from the current file
+                data = NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>
+            }
+        }
     }
+    
     //save all the data that has been edited in the local var
     func save() {
         //get a NSDictionary object from the Dictionary object
@@ -112,5 +147,79 @@ class UserData {
     func setLastUsedField(_ lastUsedField: Global.TypesOfField) {
         //set the raw value to the dictionary
         data[LastUsedField] = lastUsedField.rawValue
+    }
+}
+
+
+
+extension Dictionary {
+    
+    //detremine if two dicts have the same structure
+    func hasSameStructure(as other: Dictionary) -> Bool {
+        
+        //if the dicts do not conatin equl amounts of keys, return false
+        if self.count != other.count {
+            return false
+        }
+        
+        //go trhough each key, if the keys match then keep going until the end or a key is found that does not match, if a key does not match then return fasle
+        for (key, value) in self {
+            //if the other dict does not have the same key, they do not have same struct so return false
+            if !other.keys.contains(key) {
+                return false
+            }
+            
+            //if the type of the value is not the same, they do not have the swme structure so return false
+            /*if type(of: value) != type(of: other[key]) {
+                return false
+            }*/
+            
+            
+            //if the value is of type Dictioanry, then detremine if the value dict are the same
+            if value is Dictionary || value is NSDictionary {
+                //convert generic value to dictioanry
+                let subDict = value as! Dictionary
+                //get the other sub dict
+                let otherSubDict = other[key] as! Dictionary
+                
+                //if they dont have the same structure, return false
+                if !subDict.hasSameStructure(as: otherSubDict) {
+                    return false
+                }
+            }
+        }
+        
+        //if the func hasnt exited befoe this, then the stucters are the same
+        return true
+    }
+    
+    //copy values of input dict to the current one
+    mutating func copyValues(from dictToCopyFrom: Dictionary) {
+        
+        //go through the dictToCopyFrom, for each entry determine if the key exists in the dict, if it does copy the data over, if not do nothing
+        for (key, value) in dictToCopyFrom {
+            //if the key is also in the dict
+            if self.keys.contains(key) {
+                
+                //if the value is of type Dictianry, then call copyValues on the subDict
+                if value is Dictionary || value is NSDictionary {
+                    //convert generic value to dictioanry
+                    let subDictToCopyFrom = value as! Dictionary
+                    //get the sub dict
+                    var subDict = self[key] as! Dictionary
+                    
+                    //copy the subDictToCopyFrom to the subDict
+                    subDict.copyValues(from: subDictToCopyFrom)
+                    
+                    //set the subdict into the place in the dict for the key
+                    self[key] = subDict as? Value
+                }
+                else {
+                    //set the value from the dictToCopyFrom into the dict
+                    self[key] = value
+                }
+            }
+            //if the key is not in the dict, skip it
+        }
     }
 }
