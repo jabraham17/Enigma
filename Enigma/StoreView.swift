@@ -185,8 +185,9 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             //when its done, the network actvivty is over
             NetworkActivityIndicatorManager.networkOperationFinished()
             
-            //array to hold the ordered products
-            var orderedProducts = Array.init(repeating: SKProduct(), count: result.retrievedProducts.count)
+            //array to hold the ordered products, include the invalid ones, simply a precaution
+            //make it optinal so thatif there is a invalid one it wont work
+            var orderedProducts = Array<SKProduct?>(repeating: nil, count: result.retrievedProducts.count + result.invalidProductIDs.count)
             
             //go through each proudct and place them in order in orderedProducts
             for product in result.retrievedProducts {
@@ -207,8 +208,11 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                 var tempArray = array
                 for (elementIndex, _) in array.enumerated()
                 {
+                    //if ordered products is nil at the index, make the price "Not Available"
+                    //the product
+                    let product = orderedProducts[indexOrderedProducts]
                     //set the price for the next element into the temp array
-                    tempArray[elementIndex] = orderedProducts[indexOrderedProducts].localizedPrice!
+                    tempArray[elementIndex] = product?.localizedPrice ?? "N/A"
                     //increment indexOrderedProducts
                     indexOrderedProducts += 1
                 }

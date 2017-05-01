@@ -10,8 +10,6 @@
 	<integer>0</integer>
 	<key>AvailableEncryptionsToUser</key>
 	<dict>
-		<key>PigLatin</key>
-		<true/>
 		<key>MorseCode</key>
 		<true/>
 		<key>PigPen</key>
@@ -28,45 +26,13 @@
 		<true/>
 		<key>XOR</key>
 		<false/>
-		<key>Trans</key>
+		<key>Keyword</key>
 		<false/>
 		<key>RailFence</key>
 		<false/>
 		<key>Columnar</key>
 		<false/>
 		<key>Vigenere</key>
-		<false/>
-		<key>RSA</key>
-		<false/>
-		<key>Rabin</key>
-		<false/>
-		<key>RC4</key>
-		<false/>
-		<key>DES</key>
-		<false/>
-		<key>TDEA1</key>
-		<false/>
-		<key>TDEA2</key>
-		<false/>
-		<key>TDEA3</key>
-		<false/>
-		<key>AES128</key>
-		<false/>
-		<key>AES192</key>
-		<false/>
-		<key>AES256</key>
-		<false/>
-		<key>Skipjack</key>
-		<false/>
-		<key>ChaCha20</key>
-		<false/>
-		<key>Salsa20</key>
-		<false/>
-		<key>Rabbit</key>
-		<false/>
-		<key>Blowfish</key>
-		<false/>
-		<key>Image</key>
 		<false/>
 	</dict>
 </dict>
