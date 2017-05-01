@@ -29,7 +29,8 @@ class StarterVC: UIViewController {
         lastUsedEncryption = UserData.sharedInstance.getLastUsedEncryption()
         //if the last used encryption is .None, ie first time app is run, set it to PigLatin
         if lastUsedEncryption == .None {
-            lastUsedEncryption = .PigLatin
+            //lastUsedEncryption = .PigLatin
+            lastUsedEncryption = .MorseCode
         }
         //load in the last used field
         lastUsedField = UserData.sharedInstance.getLastUsedField()

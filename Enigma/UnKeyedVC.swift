@@ -240,13 +240,13 @@ class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelec
         
         switch currentEncyption {
         //if pig latin, make pig latin encryption
-        case .PigLatin:
+        /*case .PigLatin:
             encryptor = PigLatin()
             //set the special keyboards for pig latin
             //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
             unencryptedField?.text.keyboardType = .asciiCapable
             encryptedField?.text.keyboardType = .asciiCapable
-            break
+            break*/
         //if morse code, make morse code encryption
         case .MorseCode:
             encryptor = MorseCode()

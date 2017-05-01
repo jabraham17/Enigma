@@ -6,7 +6,7 @@
 //  Copyright © 2017 Jacob R. Abraham. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 //encrypts and decrypts text using pig latin
 class PigLatin: UnKeyedEncryption {
@@ -136,5 +136,5 @@ class PigLatin: UnKeyedEncryption {
         //return the english
         return englishStringForm
     }
-}
+}*/
 

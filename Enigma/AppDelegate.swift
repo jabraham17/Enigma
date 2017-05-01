@@ -14,7 +14,6 @@ import SwiftyStoreKit
 //-bug fix inapp purchases
 //-bug fix the crnyptions
 //-need to write columnar
-//-add decryption to pig latin
 //-need to add information text for each of these encryption
 //-Fix all FIXME, MARK, and TODO
 

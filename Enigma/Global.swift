@@ -156,7 +156,7 @@ class Global {
             case None
             
             //unkeyed
-            case PigLatin
+            //case PigLatin
             case MorseCode
             case PigPen
             case Binary
@@ -231,9 +231,9 @@ class Global {
 
             init(shortName: String) {
                 switch shortName {
-                case "PigLatin":
+                /*case "PigLatin":
                     self = .PigLatin
-                    break
+                    break*/
                 case "MorseCode":
                     self = .MorseCode
                     break
@@ -278,15 +278,15 @@ class Global {
             
             //string versions of the encryptions
             var description: String {
-                let names = ["", "Pig Latin", "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Vigenère Cipher"]//, "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
+                let names = ["", /*"Pig Latin",*/ "Morse Code", "PigPen Cipher", "Binary", "Octal", "Hexadecimal", "ROT-13", "Caesar Cipher", "XOR Cipher", "Transposition Cipher", "Rail Fence Cipher", "Columnar Cipher", "Vigenère Cipher"]//, "RSA", "Rabin Cryptosystem", "Rivest Cipher 4", "Data Encryption Standard", "Triple Data Encryption Algorithm - 1 Key", "Triple Data Encryption Algorithm - 2 Key", "Triple Data Encryption Algorithm - 3 Key", "Advanced Encryption Standard - 128", "Advanced Encryption Standard - 192", "Advanced Encryption Standard - 256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return names[self.rawValue]
             }
             //string shortnames for all encyrptions
             var shortName: String {
-                let shortNames = ["", "PigLatin", "MorseCode", "PigPen", "Binary", "Octal", "Hexadecimal", "ROT13", "Caesar", "XOR", "Trans", "RailFence", "Columnar", "Vigenere"]//, "RSA", "Rabin", "RC4", "DES", "TDEA1", "TDEA2", "TDEA3", "AES128", "AES192", "AES256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
+                let shortNames = ["", /*"PigLatin",*/ "MorseCode", "PigPen", "Binary", "Octal", "Hexadecimal", "ROT13", "Caesar", "XOR", "Trans", "RailFence", "Columnar", "Vigenere"]//, "RSA", "Rabin", "RC4", "DES", "TDEA1", "TDEA2", "TDEA3", "AES128", "AES192", "AES256", "Skipjack", "ChaCha20", "Salsa20", "Rabbit", "Blowfish", "Image"]
                 return shortNames[self.rawValue]
             }
-            static let allEncyptions = [[PigLatin, MorseCode, PigPen, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans, RailFence, Columnar, Vigenere]]//, [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
+            static let allEncyptions = [[/*PigLatin,*/ MorseCode, PigPen, Binary, Octal, Hexadecimal, ROT13], [Caesar, XOR, Trans, RailFence, Columnar, Vigenere]]//, [RSA, Rabin, RC4, DES, TDEA1, TDEA2, TDEA3, AES128, AES192, AES256, Skipjack, ChaCha20, Salsa20, Rabbit, Blowfish], [Image]]
         }
     }
 }
