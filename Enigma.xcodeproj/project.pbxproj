@@ -55,7 +55,7 @@
 		D44E26B11E7DDE8D007B64CE /* EncryptionSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26B01E7DDE8D007B64CE /* EncryptionSelectionCell.swift */; };
 		D46137921E5DED6300A9D87A /* Octal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137911E5DED6300A9D87A /* Octal.swift */; };
 		D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46137931E5DF48100A9D87A /* Hexadecimal.swift */; };
-		D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */; };
+		D46BB0F91E74CD8900B87909 /* KeywordCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0F81E74CD8900B87909 /* KeywordCipher.swift */; };
 		D46BB0FB1E74CDA200B87909 /* RailFenceCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FA1E74CDA200B87909 /* RailFenceCipher.swift */; };
 		D46BB0FD1E74CDAF00B87909 /* ColumnarCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FC1E74CDAF00B87909 /* ColumnarCipher.swift */; };
 		D46BB0FF1E74D0A600B87909 /* PigPenCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BB0FE1E74D0A600B87909 /* PigPenCipher.swift */; };
@@ -141,7 +141,7 @@
 		D44E26B01E7DDE8D007B64CE /* EncryptionSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionSelectionCell.swift; sourceTree = "<group>"; };
 		D46137911E5DED6300A9D87A /* Octal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octal.swift; sourceTree = "<group>"; };
 		D46137931E5DF48100A9D87A /* Hexadecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexadecimal.swift; sourceTree = "<group>"; };
-		D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspositionCipher.swift; sourceTree = "<group>"; };
+		D46BB0F81E74CD8900B87909 /* KeywordCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCipher.swift; sourceTree = "<group>"; };
 		D46BB0FA1E74CDA200B87909 /* RailFenceCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RailFenceCipher.swift; sourceTree = "<group>"; };
 		D46BB0FC1E74CDAF00B87909 /* ColumnarCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnarCipher.swift; sourceTree = "<group>"; };
 		D46BB0FE1E74D0A600B87909 /* PigPenCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PigPenCipher.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				D44B53521E6727FF005CFAE0 /* KeyedEncryption.swift */,
 				D44B53581E6DD91D005CFAE0 /* CaesarCipher.swift */,
 				D44B535A1E70AE7B005CFAE0 /* XORCipher.swift */,
-				D46BB0F81E74CD8900B87909 /* TranspositionCipher.swift */,
+				D46BB0F81E74CD8900B87909 /* KeywordCipher.swift */,
 				D46BB0FA1E74CDA200B87909 /* RailFenceCipher.swift */,
 				D46BB0FC1E74CDAF00B87909 /* ColumnarCipher.swift */,
 				D4B53D3A1EAD4F1C00BBAEFF /* VigenereCipher.swift */,
@@ -648,7 +648,7 @@
 				D46BB0FD1E74CDAF00B87909 /* ColumnarCipher.swift in Sources */,
 				D44B534D1E65FE9E005CFAE0 /* ErrorVC.swift in Sources */,
 				D44725711E81FB0F00E6D881 /* StoreCell.swift in Sources */,
-				D46BB0F91E74CD8900B87909 /* TranspositionCipher.swift in Sources */,
+				D46BB0F91E74CD8900B87909 /* KeywordCipher.swift in Sources */,
 				D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */,
 				D4E99B7B1E4240420035A688 /* Global.swift in Sources */,
 				D46BB0FF1E74D0A600B87909 /* PigPenCipher.swift in Sources */,

@@ -8,11 +8,11 @@
 
 import Foundation
 
-//encrypts and decrypts text using a transposition cipher
-class TranspositionCipher: KeyedEncryption {
+//encrypts and decrypts text using a keyword cipher
+class KeywordCipher: KeyedEncryption {
     
     /*
-     Rules for a Transposition Cipher
+     Rules for a Keyword Cipher
      A simple shift cipher
      A key word is appended to the beginning of the alphabet, then all duplicate letters are removed
      Then a simple substituion is applied between the regualr alphabet and the new cipher alphabet
@@ -93,7 +93,7 @@ class TranspositionCipher: KeyedEncryption {
     //init with encryption type, will always be Trans
     //init inputed key value
     init(key: String) {
-        super.init(encryption: .Trans)
+        super.init(encryption: .Keyword)
         self.key = key
     }
     //encrypt the text

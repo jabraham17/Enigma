@@ -294,8 +294,8 @@ import UIKit
             encryptedField?.text.keyboardType = .asciiCapable
             break
         //if Trans, make TranspositionCipher encryption
-        case .Trans:
-            encryptor = TranspositionCipher(key: key)
+        case .Keyword:
+            encryptor = KeywordCipher(key: key)
             //set the special keyboards for trans cipher
             //MUST BE OPTIONAL: otherwise fields may not be initilized yet so code will crash
             keyField?.field.keyboardType = .asciiCapable
