@@ -148,6 +148,7 @@ class MorseCode: UnKeyedEncryption {
         //return the morse code
         return morseStringForm
     }
+    //FIXME: when text is not in right format the app crashes
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
         //split text into words

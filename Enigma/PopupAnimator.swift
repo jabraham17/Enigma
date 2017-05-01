@@ -58,6 +58,8 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             //set alpha to 0 so that iew is invisible
             toView!.alpha = 0
             
+            //FIXME: fix the blur
+            
             //create the visiual effeect
             self.effect = self.visualEffectView.effect!
             self.visualEffectView.effect = nil
