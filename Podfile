@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.1'
+ platform :ios, '10.0'
 
 #specifiy the workspace name
 workspace 'Enigma'

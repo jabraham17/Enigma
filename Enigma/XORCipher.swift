@@ -36,6 +36,7 @@ class XORCipher: KeyedEncryption {
     }
     //applies bitwise xor shift
     func bitwiseShift(s: String) -> String {
+        //MARK: show view saying key out of range
         //specific key for encryption, this is simply the key from the super class in int form
         var specificKey = Int(key)
         //if its nil, set it to 0

@@ -28,6 +28,7 @@ class RailFenceCipher: KeyedEncryption {
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) -> String {
         //specific key for encrytpion, this is simply the key from the super class in int form
+        //MARK: show view saying key out of range
         var specificKey = Int(key)
         //if its nil, set it to 0, then return the original text since no encrypting needs to be done
         if specificKey == nil {

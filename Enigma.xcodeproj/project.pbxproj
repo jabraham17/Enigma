@@ -68,7 +68,7 @@
 		D4B53D3B1EAD4F1C00BBAEFF /* VigenereCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B53D3A1EAD4F1C00BBAEFF /* VigenereCipher.swift */; };
 		D4B53D3D1EAD4FAE00BBAEFF /* CaesarInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D3C1EAD4FAE00BBAEFF /* CaesarInformation */; };
 		D4B53D3F1EAD4FBB00BBAEFF /* XORInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D3E1EAD4FBB00BBAEFF /* XORInformation */; };
-		D4B53D411EAD4FCB00BBAEFF /* TransInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D401EAD4FCB00BBAEFF /* TransInformation */; };
+		D4B53D411EAD4FCB00BBAEFF /* KeywordInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D401EAD4FCB00BBAEFF /* KeywordInformation */; };
 		D4B53D431EAD4FE700BBAEFF /* RailFenceInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D421EAD4FE700BBAEFF /* RailFenceInformation */; };
 		D4B53D451EAD500E00BBAEFF /* ColumnarInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D441EAD500E00BBAEFF /* ColumnarInformation */; };
 		D4B53D471EAD502500BBAEFF /* VigenereInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D461EAD502500BBAEFF /* VigenereInformation */; };
@@ -154,7 +154,7 @@
 		D4B53D3A1EAD4F1C00BBAEFF /* VigenereCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VigenereCipher.swift; sourceTree = "<group>"; };
 		D4B53D3C1EAD4FAE00BBAEFF /* CaesarInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaesarInformation; sourceTree = "<group>"; };
 		D4B53D3E1EAD4FBB00BBAEFF /* XORInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XORInformation; sourceTree = "<group>"; };
-		D4B53D401EAD4FCB00BBAEFF /* TransInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TransInformation; sourceTree = "<group>"; };
+		D4B53D401EAD4FCB00BBAEFF /* KeywordInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeywordInformation; sourceTree = "<group>"; };
 		D4B53D421EAD4FE700BBAEFF /* RailFenceInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RailFenceInformation; sourceTree = "<group>"; };
 		D4B53D441EAD500E00BBAEFF /* ColumnarInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColumnarInformation; sourceTree = "<group>"; };
 		D4B53D461EAD502500BBAEFF /* VigenereInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VigenereInformation; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				D44E26981E77B08E007B64CE /* ROT13Information */,
 				D4B53D3C1EAD4FAE00BBAEFF /* CaesarInformation */,
 				D4B53D3E1EAD4FBB00BBAEFF /* XORInformation */,
-				D4B53D401EAD4FCB00BBAEFF /* TransInformation */,
+				D4B53D401EAD4FCB00BBAEFF /* KeywordInformation */,
 				D4B53D421EAD4FE700BBAEFF /* RailFenceInformation */,
 				D4B53D441EAD500E00BBAEFF /* ColumnarInformation */,
 				D4B53D461EAD502500BBAEFF /* VigenereInformation */,
@@ -533,7 +533,7 @@
 				D44E26971E77AB08007B64CE /* HexadecimalInformation in Resources */,
 				D44E269D1E78D1EE007B64CE /* EnigmaView.xib in Resources */,
 				D44725721E81FB0F00E6D881 /* StoreCell.xib in Resources */,
-				D4B53D411EAD4FCB00BBAEFF /* TransInformation in Resources */,
+				D4B53D411EAD4FCB00BBAEFF /* KeywordInformation in Resources */,
 				D4B53D451EAD500E00BBAEFF /* ColumnarInformation in Resources */,
 				D4B53D3F1EAD4FBB00BBAEFF /* XORInformation in Resources */,
 				D44B53551E6729D6005CFAE0 /* UITextFieldCustom.xib in Resources */,
@@ -731,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -776,7 +776,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -792,7 +792,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KX43SXV662;
 				INFOPLIST_FILE = Enigma/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -809,7 +809,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KX43SXV662;
 				INFOPLIST_FILE = Enigma/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
 				PRODUCT_NAME = "$(TARGET_NAME)";

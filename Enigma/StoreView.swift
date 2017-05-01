@@ -373,6 +373,8 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         //tableView.deleteRows(at: [], with: .automatic)
         self.tableView.reloadData()
         
+        //MARK: call save function
+        
         
     }
     //restore all purchases
