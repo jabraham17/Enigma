@@ -36,7 +36,7 @@ class PigLatin: UnKeyedEncryption {
         }
         //get a array of all of the words, using split function to split string by spaces
         let english = toBeEncrypted.components(separatedBy: " ")
-        // FIXME: Need to add better filter for creating the words in the unecrypted text, currently only removes whitespace, but punctuation which will confuse encryption technique are not removed/dealt with in encryption
+        // : Need to add better filter for creating the words in the unecrypted text, currently only removes whitespace, but punctuation which will confuse encryption technique are not removed/dealt with in encryption
         
         //array to hold the pig latin
         var pigLatin = [String]()
@@ -95,7 +95,7 @@ class PigLatin: UnKeyedEncryption {
                 {
                     isThereCapitol = true
                 }
-                //TODO: if there is punctuation, remove it and add it to the punctuation to be added at the end of the word
+                //: if there is punctuation, remove it and add it to the punctuation to be added at the end of the word
                 
             }
             //if there was a capitol, make all letters lowercase except the first letter
@@ -115,19 +115,19 @@ class PigLatin: UnKeyedEncryption {
         //return the pig latin
         return pigLatinStringForm
     }
-    // TODO: Decrypt function
+    // : Decrypt function
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) -> String {
         //get a array of all of the words, using split function to split string by spaces
         let pigLatin = toBeDecrypted.components(separatedBy: " ")
-        // FIXME: Need to add better filter for creating the words in the unecrypted text, currently only removes whitespace, but punctuation which will confuse encryption technique are not removed/dealt with in encryption
+        // : Need to add better filter for creating the words in the unecrypted text, currently only removes whitespace, but punctuation which will confuse encryption technique are not removed/dealt with in encryption
         
         //array to hold the english
         var english = [String]()
         //loop through all the characters
         for var w in pigLatin
         {
-            // FIXME: Add decryption logic
+            // : Add decryption logic
             //add the english character to the array of english
             english.append(w)
         }

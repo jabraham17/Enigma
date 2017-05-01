@@ -16,6 +16,9 @@ import UIKit
     @IBOutlet var text: UITextView!
     var contentView: UIView!
     
+    //the presenting view contorller that contains this view
+    var presentingVC: UIViewController?
+    
     //required inits, call setup func
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -45,11 +48,13 @@ import UIKit
         let fileName = "EnigmaInformation"
         //read text file, type is nothing cuz there is no file type
         let textFile = Bundle.main.path(forResource: fileName, ofType: "")
+        //error text file
+        let errorTextFile = Bundle.main.path(forResource: "ErrorInformation", ofType: "")
         
         //since reading text throws an error, must be in a do-catch
         do {
             //get textFile content
-            let textContent = try String(contentsOfFile: textFile!, encoding: .ascii)
+            let textContent = try String(contentsOfFile: textFile ?? errorTextFile!, encoding: .ascii)
             
             //search throught the text for any links that are denotated by #start#link#end#, then apply the link within to the previous word, then remove the special markings from the text file
             let pattern = try NSRegularExpression(pattern: "\\s((\\S+)#start#([^#]+)#end#)")
@@ -84,7 +89,6 @@ import UIKit
             text.attributedText = attributedText
         }
         catch {
-            //TODO: Show an error view.
         }
 
     }

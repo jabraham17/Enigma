@@ -16,6 +16,9 @@ import UIKit
     @IBOutlet var text: UITextView!
     var contentView: UIView!
     
+    //the presenting view contorller that contains this view
+    var presentingVC: UIViewController?
+    
     //the current encryption thats being displayed
     var currentEncryption: Global.EncryptionTypes.Encryptions = .None {
         //when the encryption has been set
@@ -29,17 +32,18 @@ import UIKit
             let fileName = currentEncryption.shortName + "Information"
             //read text file, type is nothing cuz there is no file type
             let textFile = Bundle.main.path(forResource: fileName, ofType: "")
+            //error text file
+            let errorTextFile = Bundle.main.path(forResource: "ErrorInformation", ofType: "")
             
             //since reading text throws an error, must be in a do-catch
             do {
                 //get textFile content
-                let textContent = try String(contentsOfFile: textFile!, encoding: .utf8)
+                let textContent = try String(contentsOfFile: textFile ?? errorTextFile!, encoding: .utf8)
                 
                 //put it as the text of the view
                 text.text = textContent
             }
             catch {
-                //TODO: Show an error view
             }
         }
     }

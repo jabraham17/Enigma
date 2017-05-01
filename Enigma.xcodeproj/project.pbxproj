@@ -64,6 +64,7 @@
 		D46CAADD1E4AB273001B32A5 /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CAADC1E4AB273001B32A5 /* ROT13.swift */; };
 		D47E5A9E1E60CDCA00C100D3 /* PopupAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E5A9D1E60CDCA00C100D3 /* PopupAnimator.swift */; };
 		D47E5AA01E60D8B100C100D3 /* PopupAnimatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E5A9F1E60D8B000C100D3 /* PopupAnimatorDelegate.swift */; };
+		D4B238B61EB7DAB4008CB70A /* ErrorInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B238B51EB7DAB4008CB70A /* ErrorInformation */; };
 		D4B3D95F1E5793F500C8A75D /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3D95E1E5793F500C8A75D /* Binary.swift */; };
 		D4B53D3B1EAD4F1C00BBAEFF /* VigenereCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B53D3A1EAD4F1C00BBAEFF /* VigenereCipher.swift */; };
 		D4B53D3D1EAD4FAE00BBAEFF /* CaesarInformation in Resources */ = {isa = PBXBuildFile; fileRef = D4B53D3C1EAD4FAE00BBAEFF /* CaesarInformation */; };
@@ -150,6 +151,7 @@
 		D46CAADC1E4AB273001B32A5 /* ROT13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROT13.swift; sourceTree = "<group>"; };
 		D47E5A9D1E60CDCA00C100D3 /* PopupAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnimator.swift; sourceTree = "<group>"; };
 		D47E5A9F1E60D8B000C100D3 /* PopupAnimatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnimatorDelegate.swift; sourceTree = "<group>"; };
+		D4B238B51EB7DAB4008CB70A /* ErrorInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ErrorInformation; sourceTree = "<group>"; };
 		D4B3D95E1E5793F500C8A75D /* Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		D4B53D3A1EAD4F1C00BBAEFF /* VigenereCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VigenereCipher.swift; sourceTree = "<group>"; };
 		D4B53D3C1EAD4FAE00BBAEFF /* CaesarInformation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CaesarInformation; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		D44E269B1E78D1A8007B64CE /* InformationTextFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D4B238B51EB7DAB4008CB70A /* ErrorInformation */,
 				D44E26A01E799CB9007B64CE /* EnigmaInformation */,
 				D44E268C1E7740C0007B64CE /* PigLatinInformation */,
 				D44E268E1E77A8B6007B64CE /* MorseCodeInformation */,
@@ -533,6 +536,7 @@
 				D44E26971E77AB08007B64CE /* HexadecimalInformation in Resources */,
 				D44E269D1E78D1EE007B64CE /* EnigmaView.xib in Resources */,
 				D44725721E81FB0F00E6D881 /* StoreCell.xib in Resources */,
+				D4B238B61EB7DAB4008CB70A /* ErrorInformation in Resources */,
 				D4B53D411EAD4FCB00BBAEFF /* KeywordInformation in Resources */,
 				D4B53D451EAD500E00BBAEFF /* ColumnarInformation in Resources */,
 				D4B53D3F1EAD4FBB00BBAEFF /* XORInformation in Resources */,

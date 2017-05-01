@@ -29,8 +29,11 @@ import UIKit
         //set the index for the segemented controller
         segmentedControl.selectedSegmentIndex = startingIndex.rawValue
         
-        //setup storeViews view controller
+        //setup views view controller
+        currentEncryptionInformationView.presentingVC = self
+        enigmaView.presentingVC = self
         storeView.presentingVC = self
+        
         
         //update view
         updateContainerView()

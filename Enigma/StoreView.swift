@@ -373,7 +373,8 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         //tableView.deleteRows(at: [], with: .automatic)
         self.tableView.reloadData()
         
-        //MARK: call save function
+        //call save function
+        UserData.sharedInstance.save()
         
         
     }
@@ -463,7 +464,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    //FIXME: will fix this with own custom alerts later
+    //will fix this with own custom alerts later
     //alerts
     //show simple message alert
     func alert(withTitle title: String, message: String?) -> UIAlertController {
@@ -499,7 +500,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             return alert(withTitle: "Thank You", message: "You have succsefully purchased " + product.productId)
             //if unsuccseful
             case .error(let error):
-                //TODO: Be more descriptive of the errors, look at video 42:00
+                // Be more descriptive of the errors, look at video 42:00
                 return alert(withTitle: "Error", message: "\(error)")
         }
     }
@@ -533,7 +534,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             return alert(withTitle: "Verified Succsefully", message: "Receipt \(receipt)")
         //if unsuccseful
         case .error(let error):
-            //TODO: Be more descriptive of the errors, look at video 50:00
+            // Be more descriptive of the errors, look at video 50:00
             return alert(withTitle: "Error", message: "\(error)")
         }
     }

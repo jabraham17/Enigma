@@ -49,6 +49,19 @@ class Global {
         //return its value
         return availableEncryptions.values[index!]
     }
+    //make popup
+    static func popup(withTitle text: String, message: String? = nil, buttons: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)], presentOn container: UIViewController) {
+        
+        
+        //create an alert with inited info
+        let alert = UIAlertController(title: text, message: message, preferredStyle: .alert)
+        //add the buttons
+        for button in buttons {
+            alert.addAction(button)
+        }
+        
+        container.present(alert, animated: true, completion: nil)
+    }
     //make information popup
     static func information(viewShowing: Global.SegmentedControlIndex, containerView: UIViewController, animated: Bool) {
         //load vc from nib
@@ -68,7 +81,7 @@ class Global {
         containerView.present(information, animated: animated, completion: nil)
     }
     //make warning popup
-    static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?, containerView: UIViewController, animated: Bool) {
+    /*static func warning(text: String, cancelAction: (() -> Void)?, continueAction: (() -> Void)?, containerView: UIViewController, animated: Bool) {
         //load vc from nib
         let nib = UINib(nibName: String(describing: WarningVC.self), bundle: Bundle(for: WarningVC.self))
         
@@ -102,7 +115,7 @@ class Global {
         
         //show error
         containerView.present(error, animated: animated, completion: nil)
-    }
+    }*/
     //enum that correlates to the segmented control
     enum SegmentedControlIndex: Int, CustomStringConvertible {
         case Current
