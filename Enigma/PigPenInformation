@@ -1,1 +1,3 @@
-Pig pen
+    The Pig Pen Cipher is a simple substitution  cipher. This means that each letter matches another letter and during encryption the letters are swapped with each other. In this case, the letters are symbols created by making several grids and then filling them in with letters.
+
+    Since displaying these kinds of custom characters is not feasible on a standard device, modifications were made to this cipher for Enigma. Each letter is replaced with a series of letters that somewhat resembles the original grids. Then each letter is differentiated by a space, and each word is differentiated by a double space.

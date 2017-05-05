@@ -51,7 +51,7 @@ class PigPenCipher: UnKeyedEncryption {
         super.init(encryption: .PigPen)
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //if the input is empty return empty string
         if toBeEncrypted == ""
         {
@@ -138,7 +138,7 @@ class PigPenCipher: UnKeyedEncryption {
         return pigpenStringForm
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //split text into words
         let words = toBeDecrypted.components(separatedBy: "  ")
         //var to hold decrypted text

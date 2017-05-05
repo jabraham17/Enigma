@@ -116,6 +116,22 @@ class Global {
         //show error
         containerView.present(error, animated: animated, completion: nil)
     }*/
+    
+    //enum with different errors that could occur during encryption
+    enum EncryptionErrors: Error {
+        
+        //if the user inuted an invalid key
+        case InvalidKey(key: String, message: String?)
+        //if the user inputed a key out of range
+        case KeyOutOfRange(key: String, message: String?)
+        //if the user inputed an invalid character
+        case InvalidCharacter(character: String, message: String?)
+        //if the user inputed invalid text
+        case InvalidText(message: String?)
+        
+        //the difference between charscter and text is that chaarcter is a single isnatnce with a specific case, the text is if the whole thing is invalid
+    }
+    
     //enum that correlates to the segmented control
     enum SegmentedControlIndex: Int, CustomStringConvertible {
         case Current

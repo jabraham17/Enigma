@@ -306,7 +306,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             //deselect the row
             table.deselectRow(at: index, animated: true)
         }))
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
             //deselect the row
             table.deselectRow(at: index, animated: true)
             //buy the encryption

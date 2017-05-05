@@ -34,6 +34,9 @@ class XORCipher: KeyedEncryption {
         //apply shift and return
         return bitwiseShift(s: toBeDecrypted)
     }
+    
+    //FIXME: fix XOR with this alogirth, http://stackoverflow.com/questions/28144796/swift-simple-xor-encryption
+    
     //applies bitwise xor shift
     func bitwiseShift(s: String) -> String {
         //MARK: show view saying key out of range
@@ -56,6 +59,8 @@ class XORCipher: KeyedEncryption {
             
             //perform bitwise shift, convert key to UInt16 to allow bitwise shift
             b = b ^ UInt8(exactly: specificKey!)!
+            
+            print(b)
             
             //convert the shifted byte to character
             c = toCharacter(b: UInt16(b))

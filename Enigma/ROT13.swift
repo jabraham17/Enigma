@@ -31,12 +31,12 @@ class ROT13: UnKeyedEncryption {
         super.init(encryption: .ROT13)
     }
     //put ecnryptin code here
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //apply shift and return
         return shift(s: toBeEncrypted)
     }
     //put decryption code here
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //apply shift and return
         return shift(s: toBeDecrypted)
     }

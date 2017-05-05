@@ -23,7 +23,7 @@ class Binary: UnKeyedEncryption {
         super.init(encryption: .Binary)
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //get a array of all of the characters
         let regularText = Array(toBeEncrypted.characters)
         //array to hold the binary
@@ -44,7 +44,7 @@ class Binary: UnKeyedEncryption {
         return binaryString
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //split text into sperate letters
         let letters = toBeDecrypted.components(separatedBy: " ")
         //var to hold decrypted text
