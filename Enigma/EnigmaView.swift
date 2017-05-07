@@ -57,7 +57,7 @@ import UIKit
             let textContent = try String(contentsOfFile: textFile ?? errorTextFile!, encoding: .ascii)
             
             //search throught the text for any links that are denotated by #start#link#end#, then apply the link within to the previous word, then remove the special markings from the text file
-            let pattern = try NSRegularExpression(pattern: "\\s((\\S+)#start#([^#]+)#end#)")
+            let pattern = try NSRegularExpression(pattern: "((\\S+)#start#([^#]+)#end#)")
             
             //get all occurences of the match
             let matches = pattern.matches(in: textContent, range: NSRange(location: 0, length: (textContent.characters.count - 1)))

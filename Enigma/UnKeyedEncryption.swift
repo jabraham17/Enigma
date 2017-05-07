@@ -69,13 +69,19 @@ class UnKeyedEncryption {
         }
     }
     //convert a character to a byte
-    func toByte(c: Character) -> UInt16{
+    func toByte(c: Character) -> UInt16 {
         //convert character to a string, then to a byte array, then grab the byte from the array
-        return [UInt16](String(c).utf16)[0]
+        return [UInt16](String(c).utf16).first!
     }
     //convert a byte to a character
-    func toCharacter(b: UInt16) -> Character {
-        //convert byte back into a character
-        return Character(UnicodeScalar(b)!)
+    func toCharacter(b: UInt16) throws -> Character {
+        //get the unicde scalar
+        let scalar = UnicodeScalar(b)
+        //if no scalar was returned, throw an exception
+        if scalar == nil {
+            throw Global.EncryptionErrors.InvalidCharacter(character: "\(b)", message: "'\(b)' does not convert into a valid character")
+        }
+        
+        return Character(scalar!)
     }
 }

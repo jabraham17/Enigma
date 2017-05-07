@@ -54,8 +54,12 @@ class Hexadecimal: UnKeyedEncryption {
         {
             //convert hexadecimal letter to byte
             let by = UInt16(l, radix: 16)
+            //if no byte is returned, thrwo exception
+            if by == nil {
+                throw Global.EncryptionErrors.InvalidCharacter(character: l, message: "'\(l)' could not be parsed into valid text")
+            }
             //convert byte to character
-            let c = toCharacter(b: by!)
+            let c = try toCharacter(b: by!)
             //add add character to array
             englishText.append(String(c))
         }

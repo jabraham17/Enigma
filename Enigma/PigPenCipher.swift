@@ -98,7 +98,7 @@ class PigPenCipher: UnKeyedEncryption {
             for c in charactersInWord
             {
                 //convert to pigpen, pass as a string
-                let pigpenChar = convertToPigPen(c: String(c))
+                let pigpenChar = try convertToPigPen(c: String(c))
                 //add pigpenChar to pigpenWord with one space after each letter
                 pigpenWord += pigpenChar + " "
             }
@@ -154,7 +154,7 @@ class PigPenCipher: UnKeyedEncryption {
             for c in characters
             {
                 //convert to english and add to english word string
-                let e = convertToEnglish(p: c)
+                let e = try convertToEnglish(p: c)
                 //add to englishWord
                 englishWord.append(e)
             }
@@ -168,16 +168,25 @@ class PigPenCipher: UnKeyedEncryption {
         //return the english
         return englishStringForm
     }
-
     //convert character to pigpen symbol, return string value
-    func convertToPigPen(c: String) -> String {
+    func convertToPigPen(c: String) throws -> String {
         //get the index of the character and return the value at that index
         let index = pigpenDict.index(forKey: c)
+        //if the input is not in the dict, send warning
+        if index == nil {
+            throw Global.EncryptionErrors.InvalidCharacter(character: c, message: "'\(c)' is not parseable into Pig Pen")
+        }
         return pigpenDict.values[index!]
     }
     //convert pigpen symbol to englih chararcter, return string value
-    func convertToEnglish(p: String) -> String {
+    func convertToEnglish(p: String) throws -> String {
         //search the dictinary for the first occurance of the key and return it
-        return pigpenDict.first(where: {$1 == p})!.key
+        let eng = pigpenDict.first(where: {$1 == p})
+        //if character does not exist, send warning
+        if eng == nil {
+            throw Global.EncryptionErrors.InvalidCharacter(character: p, message: "'\(p)' is not valid Pig Pen")
+        }
+        
+        return eng!.key
     }
 }

@@ -1,1 +1,9 @@
-binary
+    The binary number system, also called base-2, is a way of representing numbers using 1's and 0's. This may seem strange to most people. Most people are used to the decimal numbering system, also called base-10, which represents numbers with the numbers 0-9.
+
+    A binary number is expressed solely through 1's and 0's. Each 1 or 0 is called a bit. Each bit on its own is simply an expression of whether something is on (the bit has a value of 1) or is off (the bit has a value of 0). This can also be thought of in terms of true (bit = 1) or false (bit = 0).
+
+    When you combine bits together, you can represent any number. Each bit in a string of bits represents a power of 2, starting with the number 1, then 2, 4, 8, 16, and so on. This is more commonly represented as #start#2^0#end#, #start#2^1#end#, #start#2^2#end#, and so on. Reading from right to left and starting at 0, the position of the bit in the number determines its exponent. If the bit has a value of 0, that power is not factored into the final value.
+
+    For example, the number 1011 in base-2 is 11 in base-10. The first, second, and fourth bits all have values, so you take their values and add them together. #start#2^0#end# + #start#2^1#end# + #start#2^3#end# = 11.
+
+    To encode text for Enigma, each character is converted to its decimal value. Then the decimal value is converted to binary. This is why the number 5 does not translate to 101, but rather to 110101. And why the number 17 is translated to 2 separate binary values, algorithm is interpreting 17 as 2 separate characters.

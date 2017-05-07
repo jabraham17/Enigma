@@ -33,15 +33,15 @@ class ROT13: UnKeyedEncryption {
     //put ecnryptin code here
     override func encrypt(_ toBeEncrypted: String) throws -> String {
         //apply shift and return
-        return shift(s: toBeEncrypted)
+        return try shift(s: toBeEncrypted)
     }
     //put decryption code here
     override func decrypt(_ toBeDecrypted: String) throws -> String {
         //apply shift and return
-        return shift(s: toBeDecrypted)
+        return try shift(s: toBeDecrypted)
     }
     //function to apply caesar cipher with a shift of 13, since 13 is half of 16 the same method encrypts and decrypts
-    func shift(s: String) -> String {
+    func shift(s: String) throws -> String {
         //get a array of all of the characters
         let regularText = Array(s.characters)
         //array to hold the shifted text
@@ -69,7 +69,7 @@ class ROT13: UnKeyedEncryption {
             //otherwise dont encrypt
             
             //convert the shifted byte to character
-            c = toCharacter(b: b)
+            c = try toCharacter(b: b)
             //add the shifted character to the array of shifted text
             shiftedText.append(c)
         }

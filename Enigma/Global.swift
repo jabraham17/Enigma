@@ -188,6 +188,7 @@ class Global {
             //case PigLatin
             case MorseCode
             case PigPen
+            //FEAT: Decimal, convert each char into a byte
             case Binary
             case Octal
             case Hexadecimal

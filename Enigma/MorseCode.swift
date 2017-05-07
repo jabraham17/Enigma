@@ -17,7 +17,6 @@ class MorseCode: UnKeyedEncryption {
      One space between each letter, two spaces between each word
      All punctuation is removed
      */
-    // FIXME: Currently only removes all puncutation instead of dealing with it
 
     let morseCodeDict = Dictionary(dictionaryLiteral:
         ("a", ".-"),
@@ -124,7 +123,6 @@ class MorseCode: UnKeyedEncryption {
         //return the morse code
         return morseStringForm
     }
-    //FIXME: when text is not in right format the app crashes
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) throws -> String {
         
