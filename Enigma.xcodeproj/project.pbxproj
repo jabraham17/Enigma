@@ -487,7 +487,7 @@
 				TargetAttributes = {
 					D44295821E328241006EC08E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = F5CJM79424;
+						DevelopmentTeam = KX43SXV662;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -802,7 +802,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F5CJM79424;
+				DEVELOPMENT_TEAM = KX43SXV662;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -819,7 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F5CJM79424;
+				DEVELOPMENT_TEAM = KX43SXV662;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
