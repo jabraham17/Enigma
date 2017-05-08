@@ -10,6 +10,7 @@ import UIKit
 import StoreKit
 import SwiftyStoreKit
 import PKHUD
+import MessageUI
 
 
 //inapp purchases
@@ -211,8 +212,17 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                     //if ordered products is nil at the index, make the price "Not Available"
                     //the product
                     let product = orderedProducts[indexOrderedProducts]
-                    //set the price for the next element into the temp array
-                    tempArray[elementIndex] = product?.localizedPrice ?? "N/A"
+                    
+                    //if its caesar cipher, change price to "????"
+                    if product?.productIdentifier == "\(bundleID).Caesar" {
+                        tempArray[elementIndex] = "Free"
+                    }
+                    else {
+                        //set the price for the next element into the temp array
+                        tempArray[elementIndex] = product?.localizedPrice ?? "N/A"
+                    }
+
+                    
                     //increment indexOrderedProducts
                     indexOrderedProducts += 1
                 }
@@ -298,21 +308,109 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         //go through purchase process
         purchase(cell: tableView.cellForRow(at: indexPath) as! StoreCell, at: indexPath, from: tableView)
     }
+    //genric save code
+    func saveEncryption(_ encryption: Global.EncryptionTypes.Encryptions) {
+        
+        //add encryptionTapped to users encryptions
+        UserData.sharedInstance.addNewAvailableEncryption(encryption)
+        
+        //update the stores local copy of the availle encryptions
+        self.generateEncryptionsToBeDisplayed()
+        //reload the table view
+        self.tableView.reloadData()
+        
+        //call save function
+        UserData.sharedInstance.save()
+
+    }
     //puchase encryption
     func purchase(cell: StoreCell, at index: IndexPath, from table: UITableView) {
-        //create an alert telling the user what they are buying and if they are sure they want to buy it
-        let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(pricesForPurchaseableEncryptions![index.section][index.row])", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
-            //deselect the row
-            table.deselectRow(at: index, animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
-            //deselect the row
-            table.deselectRow(at: index, animated: true)
-            //buy the encryption
-            self.purchaseProduct(cell.encryption!)
-        }))
-        presentingVC?.present(alert, animated: true, completion: nil)
+        
+        
+        //if the encryption they are trying to buy is caesar, show a popup asking the user how they would like to spread the app
+        if cell.encryption == .Caesar {
+            
+            //buttons for popup
+            let text = UIAlertAction(title: "Send a friend a text about Enigma", style: .default, handler: {(alert) in
+                
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+                
+                //show a loader
+                HUD.show(.progress)
+                
+                //send txt message
+                let messageVC = MFMessageComposeViewController()
+                //message body
+                messageVC.body = "Check out this cool app Enigma\n\nhttps://itunes.apple.com/us/app/change-secret-photo-vault/id1175842519?ls=1&mt=8";
+                messageVC.messageComposeDelegate = self
+                
+                //dismiss popup, then present message popup
+                /*self.presentingVC?.dismiss(animated: true, completion: {
+                    
+                })*/
+                //present message sender
+                self.presentingVC?.present(messageVC, animated: true, completion: {
+                    //when done, hide hud
+                    HUD.hide()
+                })
+            })
+            let twitter = UIAlertAction(title: "Post a Tweet on Twitter about Enigma", style: .default, handler: {(alert) in
+                print("tweet")
+                //MARK: tweet
+                
+                //MARK: on compeltion of rate
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+                //save
+                self.saveEncryption(cell.encryption!)
+            })
+            let facebook = UIAlertAction(title: "Make a Facebook post about Enigma", style: .default, handler: {(alert) in
+                print("tweet")
+                //MARK: facebook
+                
+                //MARK: on compeltion of rate
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+                //save
+                self.saveEncryption(cell.encryption!)
+            })
+            let rate = UIAlertAction(title: "Give us a rating on the App Store", style: .default, handler: {(alert) in
+                print("rate")
+                //MARK: rate
+                
+                //MARK: on compeltion of rate
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+                //save
+                self.saveEncryption(cell.encryption!)
+            })
+            let cancel = UIAlertAction(title: "Not Right Now", style: .cancel, handler: {(alert) in
+            
+                //deslect the cell
+                self.tableView.deselectRow(at: index, animated: true)
+            })
+            
+            //popup
+            Global.popup(message: "You can have free access to the Caesar Cipher if you do one of the following", buttons: [text, twitter, facebook, rate, cancel], style: .alert, presentOn: presentingVC!)
+        }
+        //otherwise, do normal purchasing
+        else {
+        
+            //create an alert telling the user what they are buying and if they are sure they want to buy it
+            let alert = UIAlertController(title: "Are You Sure?", message: "Are you sure you want to purchase \(cell.encryption!) for \(pricesForPurchaseableEncryptions![index.section][index.row])", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                //deselect the row
+                table.deselectRow(at: index, animated: true)
+                //buy the encryption
+                self.purchaseProduct(cell.encryption!)
+            }))
+            presentingVC?.present(alert, animated: true, completion: nil)
+        }
     }
     
     //inapp purchases
@@ -331,6 +429,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     //purchase a product
     func purchaseProduct(_ purchase: Global.EncryptionTypes.Encryptions) {
+        
         //start network activity
         /*NetworkActivityIndicatorManager.networkOperationStarted()
         //purchase the product
@@ -362,8 +461,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             
             
         })*/
-        
-        //temp purchase code
+        //MARK: pusedo temp save code
         //add encryptionTapped to users encryptions
         UserData.sharedInstance.addNewAvailableEncryption(purchase)
         
@@ -563,4 +661,57 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             return alert(withTitle: "Error", message: "\(error)")
         }
     }
+}
+
+
+
+//add delegates for text messaging
+extension StoreView: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        
+        //dismiss the controler
+        controller.dismiss(animated: true, completion: nil)
+        
+        
+        //set delaget for custom presentation
+        //let transDel = PopupAnimatorDelegate()
+        //presentingVC?.transitioningDelegate = transDel
+        
+        //get the view controller that is presenting the presentingVC
+        //let presentingPresentingVC = presentingVC?.presentingViewController
+        //print(presentingPresentingVC)
+        //dismiss the presentingVC, then re present it
+        //presentingVC?.dismiss(animated: false, completion: {
+            
+            //Global.information(viewShowing: .Store, containerView: presentingPresentingVC!, animated: false)
+        
+        //})
+        
+        //dismmis message controller
+        //controller.dismiss(animated: true, completion: nil)
+        //then dismiss the presenting view controller as well
+        //presentingVC?.dismiss(animated: false, completion: nil)
+        
+        //check the result
+        switch result {
+            //if it was succsefull, give the encryption to the user
+            //encryption should always be caesar, so no need for variable to pass it
+            case .sent:
+                //MARK: commented out for testing purposes
+                print("sent")
+                self.saveEncryption(.Caesar)
+            break
+            //if the user hit cancel, do nothing
+            case .cancelled:
+                print("cancel")
+            break
+            //if the messag failed, tell user
+            case .failed:
+                Global.popup(withTitle: "Failure", message: "There was a problem with the message. Try again", presentOn: self.presentingVC!)
+            break
+            }
+    }
+    
 }

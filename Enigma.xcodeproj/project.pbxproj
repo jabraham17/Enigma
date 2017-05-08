@@ -264,6 +264,17 @@
 			name = Keyed;
 			sourceTree = "<group>";
 		};
+		D43E9F271EBEC581003EF8BD /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				D44E26A41E79A166007B64CE /* StoreView.swift */,
+				D44E26A21E799E06007B64CE /* StoreView.xib */,
+				D447256F1E81FB0F00E6D881 /* StoreCell.swift */,
+				D44725701E81FB0F00E6D881 /* StoreCell.xib */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		D442957A1E328241006EC08E = {
 			isa = PBXGroup;
 			children = (
@@ -364,10 +375,7 @@
 				D42AC20A1E75CFC900900CA3 /* CurrentEncryptionInformationView.xib */,
 				D44E269E1E78D2AB007B64CE /* EnigmaView.swift */,
 				D44E269C1E78D1EE007B64CE /* EnigmaView.xib */,
-				D44E26A41E79A166007B64CE /* StoreView.swift */,
-				D44E26A21E799E06007B64CE /* StoreView.xib */,
-				D447256F1E81FB0F00E6D881 /* StoreCell.swift */,
-				D44725701E81FB0F00E6D881 /* StoreCell.xib */,
+				D43E9F271EBEC581003EF8BD /* Store */,
 				D44E269B1E78D1A8007B64CE /* InformationTextFiles */,
 			);
 			name = Information;
@@ -479,7 +487,7 @@
 				TargetAttributes = {
 					D44295821E328241006EC08E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = KX43SXV662;
+						DevelopmentTeam = F5CJM79424;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -794,11 +802,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KX43SXV662;
+				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -811,11 +819,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KX43SXV662;
+				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

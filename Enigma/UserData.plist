@@ -23,7 +23,7 @@
 		<key>ROT13</key>
 		<true/>
 		<key>Caesar</key>
-		<true/>
+		<false/>
 		<key>XOR</key>
 		<false/>
 		<key>Keyword</key>

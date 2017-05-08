@@ -50,11 +50,11 @@ class Global {
         return availableEncryptions.values[index!]
     }
     //make popup
-    static func popup(withTitle text: String, message: String? = nil, buttons: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)], presentOn container: UIViewController) {
+    static func popup(withTitle text: String? = nil, message: String? = nil, buttons: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)], style: UIAlertControllerStyle = .alert, presentOn container: UIViewController) {
         
         
         //create an alert with inited info
-        let alert = UIAlertController(title: text, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: text, message: message, preferredStyle: style)
         //add the buttons
         for button in buttons {
             alert.addAction(button)
