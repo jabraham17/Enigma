@@ -67,7 +67,7 @@ class Global {
         //load vc from nib
         let nib = UINib(nibName: String(describing: InformationVC.self), bundle: Bundle(for: InformationVC.self))
         
-        let information = nib.instantiate(withOwner: containerView, options: nil)[0] as! InformationVC
+        let information = nib.instantiate(withOwner: containerView, options: nil).first! as! InformationVC
         
         //make presentation so popup appears over container vc
         information.modalPresentationStyle = .overCurrentContext

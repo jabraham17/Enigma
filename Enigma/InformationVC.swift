@@ -17,27 +17,33 @@ import UIKit
     //the refrence to the segemtned control
     @IBOutlet var segmentedControl: UISegmentedControl!
     
-    //all information about current encryption goes here
-    let currentEncryptionInformationView = CurrentEncryptionInformationView()
-    //all information about the app goes here
-    let enigmaView = EnigmaView()
-    //the store view goes here
-    let storeView = StoreView()
+    //the subviews
+    var currentEncryptionInformationView: CurrentEncryptionInformationView?
+    var enigmaView: EnigmaView?
+    var storeView: StoreView?
     
     //setups up view, param is starting view index
     func setup(startingIndex: Global.SegmentedControlIndex)
     {
-        //set the index for the segemented controller
         segmentedControl.selectedSegmentIndex = startingIndex.rawValue
-        
-        //setup views view controller
-        currentEncryptionInformationView.presentingVC = self
-        enigmaView.presentingVC = self
-        storeView.presentingVC = self
-        
-        
-        //update view
-        updateContainerView()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //all information about current encryption goes here
+         currentEncryptionInformationView = CurrentEncryptionInformationView(frame: containerView.bounds)
+         //all information about the app goes here
+         enigmaView = EnigmaView(frame: containerView.bounds)
+         //the store view goes here
+         storeView = StoreView(frame: containerView.bounds)
+         
+         //setup views view controller
+         currentEncryptionInformationView?.presentingVC = self
+         enigmaView?.presentingVC = self
+         storeView?.presentingVC = self
+         
+         
+         //update view
+         updateContainerView()
     }
     //required init
     required init?(coder aDecoder: NSCoder) {
@@ -67,17 +73,17 @@ import UIKit
         //if its CurrentEncryption
         case Global.SegmentedControlIndex.Current.rawValue:
             //add current encryption view as subview to conatiner view
-            containerView.addSubview(currentEncryptionInformationView)
+            containerView.addSubview(currentEncryptionInformationView!)
             break
         //if its Enigma
         case Global.SegmentedControlIndex.Enigma.rawValue:
             //add app information view as subview to conatiner view
-            containerView.addSubview(enigmaView)
+            containerView.addSubview(enigmaView!)
             break
         //if its Store
         case Global.SegmentedControlIndex.Store.rawValue:
             //add the store view as subview to conatiner view
-            containerView.addSubview(storeView)
+            containerView.addSubview(storeView!)
             break
         default:
             //shoudlnt ever get here

@@ -18,7 +18,7 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     
     //blur effect for the background
-    private var visualEffectView: UIVisualEffectView = {
+    /*private var visualEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         blurredEffectView.frame = (UIApplication.shared.keyWindow?.bounds)!
@@ -27,7 +27,7 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private lazy var effect:UIVisualEffect = {
         let effect = self.visualEffectView.effect
         return effect!
-    }()
+    }()*/
     
     //animation time
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -61,17 +61,17 @@ class PopupAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             //FIXME: fix the blur
             
             //create the visiual effeect
-            self.effect = self.visualEffectView.effect!
-            self.visualEffectView.effect = nil
+            //self.effect = self.visualEffectView.effect!
+            //self.visualEffectView.effect = nil
             
             //add the visual effect
-            containerView.insertSubview(self.visualEffectView, belowSubview: toView!)
+            //containerView.insertSubview(self.visualEffectView, belowSubview: toView!)
             
             //animate view
             UIView.animate(withDuration: duration, animations: {
                 
                 //animate the visual effect
-                self.visualEffectView.effect = self.effect
+                //self.visualEffectView.effect = self.effect
                 //fade from nothng to something
                 toView!.alpha = 1
             },

@@ -77,6 +77,8 @@ import UIKit
                 }
                 //put it as the text of the view
                 text.attributedText = attributedText
+                //set text view to the top
+                text.contentInset = UIEdgeInsets.zero
             }
             catch {
             }
@@ -110,6 +112,7 @@ import UIKit
         
         //set the current encyrption to the curent one one
         self.currentEncryption = UserData.sharedInstance.getLastUsedEncryption()
+        
     }
     //get all taps by user on this view
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

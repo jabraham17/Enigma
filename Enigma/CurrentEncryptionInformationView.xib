@@ -17,20 +17,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="zbb-Ix-b8f">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="519"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="499"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Encryption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y3-qk-9ZA">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Encryption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y3-qk-9ZA">
                     <rect key="frame" x="16" y="9" width="318" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="IgT-aA-rkb"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="37"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-k5-X9i">
-                    <rect key="frame" x="16" y="63" width="318" height="446"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-k5-X9i">
+                    <rect key="frame" x="16" y="63" width="318" height="424"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <attributedString key="attributedText">
                         <fragment content="Information about encryption">
                             <attributes>
@@ -41,7 +42,16 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="7Y3-qk-9ZA" firstAttribute="leading" secondItem="ogS-k5-X9i" secondAttribute="leading" id="RG8-MI-OyC"/>
+                <constraint firstItem="ogS-k5-X9i" firstAttribute="top" secondItem="7Y3-qk-9ZA" secondAttribute="bottom" id="SH5-8R-aXH"/>
+                <constraint firstItem="7Y3-qk-9ZA" firstAttribute="trailing" secondItem="ogS-k5-X9i" secondAttribute="trailing" id="TQn-nG-Vjs"/>
+                <constraint firstItem="7Y3-qk-9ZA" firstAttribute="leading" secondItem="zbb-Ix-b8f" secondAttribute="leading" constant="16" id="aPJ-DF-iBp"/>
+                <constraint firstAttribute="bottom" secondItem="ogS-k5-X9i" secondAttribute="bottom" constant="12" id="wM0-kH-kvN"/>
+                <constraint firstItem="7Y3-qk-9ZA" firstAttribute="centerX" secondItem="zbb-Ix-b8f" secondAttribute="centerX" id="yhe-hT-QXj"/>
+                <constraint firstItem="7Y3-qk-9ZA" firstAttribute="top" secondItem="zbb-Ix-b8f" secondAttribute="top" constant="9" id="zww-Ku-klv"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

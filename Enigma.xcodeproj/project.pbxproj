@@ -20,6 +20,7 @@
 		D42AC20D1E763C3800900CA3 /* CurrentEncryptionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AC20C1E763C3800900CA3 /* CurrentEncryptionInformationView.swift */; };
 		D42AC20F1E763D0400900CA3 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AC20E1E763D0400900CA3 /* InformationView.swift */; };
 		D42AC2111E764E7C00900CA3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D42AC2101E764E7C00900CA3 /* info.png */; };
+		D43E9F2B1EC10F3D003EF8BD /* UIViewBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E9F2A1EC10F3D003EF8BD /* UIViewBorder.swift */; };
 		D44295871E328241006EC08E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295861E328241006EC08E /* AppDelegate.swift */; };
 		D44295891E328241006EC08E /* UnKeyedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44295881E328241006EC08E /* UnKeyedVC.swift */; };
 		D442958C1E328241006EC08E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442958A1E328241006EC08E /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		D42AC20C1E763C3800900CA3 /* CurrentEncryptionInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentEncryptionInformationView.swift; sourceTree = "<group>"; };
 		D42AC20E1E763D0400900CA3 /* InformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		D42AC2101E764E7C00900CA3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		D43E9F2A1EC10F3D003EF8BD /* UIViewBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewBorder.swift; sourceTree = "<group>"; };
 		D44295831E328241006EC08E /* Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44295861E328241006EC08E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44295881E328241006EC08E /* UnKeyedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnKeyedVC.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 			children = (
 				D44E26A71E7DD091007B64CE /* TextViewExtension.swift */,
 				D4E99B751E417D720035A688 /* UIButtonBorder.swift */,
+				D43E9F2A1EC10F3D003EF8BD /* UIViewBorder.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				D412946B1E53D576006F090B /* StarterVC.swift in Sources */,
 				D4B3D95F1E5793F500C8A75D /* Binary.swift in Sources */,
 				D46BB1041E75C49100B87909 /* InformationVC.swift in Sources */,
+				D43E9F2B1EC10F3D003EF8BD /* UIViewBorder.swift in Sources */,
 				D46137941E5DF48100A9D87A /* Hexadecimal.swift in Sources */,
 				D46137921E5DED6300A9D87A /* Octal.swift in Sources */,
 				D42AC20F1E763D0400900CA3 /* InformationView.swift in Sources */,
@@ -806,7 +810,7 @@
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -823,7 +827,7 @@
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
