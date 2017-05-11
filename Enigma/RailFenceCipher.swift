@@ -26,7 +26,7 @@ class RailFenceCipher: KeyedEncryption {
         self.key = key
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //specific key for encrytpion, this is simply the key from the super class in int form
         //MARK: show view saying key out of range
         var specificKey = Int(key)
@@ -87,7 +87,7 @@ class RailFenceCipher: KeyedEncryption {
         return encryptedText
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         
         //specific key for decrytion, this is simply the key from the super class in int form
         var specificKey = Int(key)

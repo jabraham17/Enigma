@@ -25,20 +25,20 @@ class XORCipher: KeyedEncryption {
         self.key = key
     }
     //put ecnryptin code here
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //apply shift and return
-        return bitwiseShift(s: toBeEncrypted)
+        return try bitwiseShift(s: toBeEncrypted)
     }
     //put decryption code here
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //apply shift and return
-        return bitwiseShift(s: toBeDecrypted)
+        return try bitwiseShift(s: toBeDecrypted)
     }
     
     //FIXME: fix XOR with this alogirth, http://stackoverflow.com/questions/28144796/swift-simple-xor-encryption
     
     //applies bitwise xor shift
-    func bitwiseShift(s: String) -> String {
+    func bitwiseShift(s: String) throws -> String {
         //MARK: show view saying key out of range
         //specific key for encryption, this is simply the key from the super class in int form
         var specificKey = Int(key)

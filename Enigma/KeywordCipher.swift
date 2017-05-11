@@ -90,14 +90,14 @@ class KeywordCipher: KeyedEncryption {
     }
     
     
-    //init with encryption type, will always be Trans
+    //init with encryption type, will always be Keyword
     //init inputed key value
     init(key: String) {
         super.init(encryption: .Keyword)
         self.key = key
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //if the input is empty return empty string
         if toBeEncrypted == ""
         {
@@ -162,7 +162,7 @@ class KeywordCipher: KeyedEncryption {
         return transposedStringForm
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //split text into words
         let words = toBeDecrypted.components(separatedBy: "  ")
         //var to hold decrypted text

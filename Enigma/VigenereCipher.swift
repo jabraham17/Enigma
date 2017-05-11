@@ -25,7 +25,7 @@ class VigenereCipher: KeyedEncryption {
         self.key = key
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         
         //get a array of all of the characters
         let unencryptedText = Array(toBeEncrypted.characters)
@@ -90,7 +90,7 @@ class VigenereCipher: KeyedEncryption {
 
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //get a array of all of the characters
         let encryptedText = Array(toBeDecrypted.characters)
         

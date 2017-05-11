@@ -34,13 +34,13 @@ class KeyedEncryption {
         key = ""
     }
     //encrypt function, MUST BE OVERRIDEN
-    func encrypt(_ toBeEncrypted: String) -> String {
+    func encrypt(_ toBeEncrypted: String) throws -> String {
         //tell user that this function cannot be used until overriden
         precondition(false, "Encrypt func must be overriden in a subclass")
         return ""
     }
     //decrypt function, MUST BE OVERRIDEN
-    func decrypt(_ toBeDecrypted: String) -> String {
+    func decrypt(_ toBeDecrypted: String) throws -> String {
         //tell user that this function cannot be used until overriden
         precondition(false, "Decrypt func must be overriden in a subclass")
         return ""

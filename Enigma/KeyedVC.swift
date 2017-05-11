@@ -46,17 +46,11 @@ import UIKit
     func updateText() {
         //if current field is unencrypted, encrypt the text with the new key
         if currentField == .Unencrypted {
-            //get the current decypted text and ecnrypt it
-            let encryptedText = encryptor.encrypt(unencryptedField.text.text)
-            //set the new encrypted text
-            encryptedField.text.text = encryptedText
+            encryptText(unencryptedField.text.text)
         }
             //if current field is encrypted, decrypt the text with the new key
         else if currentField == .Encrypted {
-            //get the current encypted text and decrypt it
-            let decryptedText = encryptor.decrypt(encryptedField.text.text)
-            //set the new unencrypted text
-            unencryptedField.text.text = decryptedText
+            decryptText(encryptedField.text.text)
         }
     }
     
@@ -354,6 +348,142 @@ import UIKit
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    
+    
+    //encrypt the text
+    func encryptText(_ text: String) {
+        
+        do {
+            //encrypt the text and output it
+            let encryptedText = try encryptor.encrypt(text)
+            encryptedField.text.text = encryptedText
+        }
+            //if there is an invaild character, tell the user
+        catch Global.EncryptionErrors.InvalidCharacter(_, let message) {
+            Global.popup(withTitle: "Invalid Character", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the unecryptex text field
+                    self.unencryptedField.text.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Text", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the text, do so
+                    self.unencryptedField.text.text = ""
+                    self.encryptedField.text.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the text is invaild, tell the user
+        catch Global.EncryptionErrors.InvalidText(let message) {
+            Global.popup(withTitle: "Invalid Text", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the unecryptex text field
+                    self.unencryptedField.text.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Text", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the text, do so
+                    self.unencryptedField.text.text = ""
+                    self.encryptedField.text.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the key is invalid
+        catch Global.EncryptionErrors.InvalidKey(_, let message) {
+            Global.popup(withTitle: "Invalid Key", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the key text field
+                    self.keyField.field.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Key", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the key, do so
+                    self.keyField.field.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the key is
+        catch Global.EncryptionErrors.KeyOutOfRange(_, let message) {
+            Global.popup(withTitle: "Key out of Range", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the key text field
+                    self.keyField.field.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Key", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the key, do so
+                    self.keyField.field.text = ""
+                    
+                })], presentOn: self)
+        }
+        catch {
+            //shoudlnt get here
+        }
+
+    }
+    //decrypt the text
+    func decryptText(_ text: String) {
+        do {
+            //decrypt the text and output it
+            let unencryptedText = try encryptor.decrypt(text)
+            unencryptedField.text.text = unencryptedText
+        }
+            //if there is an invaild character, tell the user
+        catch Global.EncryptionErrors.InvalidCharacter(_, let message) {
+            Global.popup(withTitle: "Invalid Character", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the ecryptex text field
+                    self.encryptedField.text.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Text", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the text, do so
+                    self.encryptedField.text.text = ""
+                    self.unencryptedField.text.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the text is invaild, tell the user
+        catch Global.EncryptionErrors.InvalidText(let message) {
+            Global.popup(withTitle: "Invalid Text", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the ecryptex text field
+                    self.encryptedField.text.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Text", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the text, do so
+                    self.encryptedField.text.text = ""
+                    self.unencryptedField.text.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the key is invalid
+        catch Global.EncryptionErrors.InvalidKey(_, let message) {
+            Global.popup(withTitle: "Invalid Key", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the key text field
+                    self.keyField.field.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Key", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the key, do so
+                    self.keyField.field.text = ""
+                    
+                })], presentOn: self)
+        }
+            //if the key is
+        catch Global.EncryptionErrors.KeyOutOfRange(_, let message) {
+            Global.popup(withTitle: "Key out of Range", message: message, buttons: [
+                UIAlertAction(title: "Ok", style: .default, handler: {(alert) in
+                    //if the user wants to do nothing, open up the keyboard on the key text field
+                    self.keyField.field.becomeFirstResponder()
+                }),
+                UIAlertAction(title: "Clear Key", style: .destructive, handler: { (alert) in
+                    //if the user wants to clear the key, do so
+                    self.keyField.field.text = ""
+                    
+                })], presentOn: self)
+        }
+        catch {
+            //shoudlnt get here
+        }
     }
 }
 

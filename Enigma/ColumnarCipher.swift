@@ -26,7 +26,7 @@ class ColumnarCipher: KeyedEncryption {
     }
     //MARK: Encrption Code for columnar
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         return toBeEncrypted
     }
     //MARK: Decrption Code for columnar

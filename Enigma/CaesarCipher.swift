@@ -26,7 +26,7 @@ class CaesarCipher: KeyedEncryption {
         self.key = key
     }
     //encrypt the text
-    override func encrypt(_ toBeEncrypted: String) -> String {
+    override func encrypt(_ toBeEncrypted: String) throws -> String {
         //MARK: show view saying key out of range
         //specific key for encryption, this is simply the key from the super class in int form
         var specificKey = Int(key)
@@ -72,7 +72,7 @@ class CaesarCipher: KeyedEncryption {
         return encryptedString
     }
     //decrypt the text
-    override func decrypt(_ toBeDecrypted: String) -> String {
+    override func decrypt(_ toBeDecrypted: String) throws -> String {
         //specific key for decrytion, this is simply the key from the super class in int form
         var specificKey = Int(key)
         //if its nil, set it to 0
