@@ -17,6 +17,7 @@ import UIKit
     //the refrence to the segemtned control
     @IBOutlet var segmentedControl: UISegmentedControl!
     
+    
     //the subviews
     var currentEncryptionInformationView: CurrentEncryptionInformationView?
     var enigmaView: EnigmaView?
@@ -30,20 +31,19 @@ import UIKit
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //all information about current encryption goes here
-         currentEncryptionInformationView = CurrentEncryptionInformationView(frame: containerView.bounds)
-         //all information about the app goes here
-         enigmaView = EnigmaView(frame: containerView.bounds)
-         //the store view goes here
-         storeView = StoreView(frame: containerView.bounds)
+        currentEncryptionInformationView = CurrentEncryptionInformationView(frame: containerView.bounds)
+        //all information about the app goes here
+        enigmaView = EnigmaView(frame: containerView.bounds)
+        //the store view goes here
+        storeView = StoreView(frame: containerView.bounds)
          
-         //setup views view controller
-         currentEncryptionInformationView?.presentingVC = self
-         enigmaView?.presentingVC = self
-         storeView?.presentingVC = self
-         
-         
-         //update view
-         updateContainerView()
+        //setup views view controller
+        currentEncryptionInformationView?.presentingVC = self
+        enigmaView?.presentingVC = self
+        storeView?.presentingVC = self
+        
+        //update view
+        updateContainerView()
     }
     //required init
     required init?(coder aDecoder: NSCoder) {

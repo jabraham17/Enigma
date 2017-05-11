@@ -6,8 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,38 +72,43 @@
                             <action selector="segmentedControlChanged:" destination="Zk0-3I-hxR" eventType="valueChanged" id="Aee-dY-Sn8"/>
                         </connections>
                     </segmentedControl>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-N5-Hy6" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vck-Ob-Qod">
                         <rect key="frame" x="15" y="55" width="29" height="28"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="28" id="K0P-UH-Cup"/>
-                            <constraint firstAttribute="width" constant="29" id="pSm-Fh-xXL"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="close.png"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
-                                <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="close:" destination="Zk0-3I-hxR" eventType="touchUpInside" id="MBC-7s-dtc"/>
-                        </connections>
-                    </button>
+                        <subviews>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-N5-Hy6" customClass="UIButtonBorder" customModule="Enigma" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="29" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vCM-N5-Hy6" secondAttribute="height" multiplier="29:28" id="IAe-2d-Ejg"/>
+                                    <constraint firstAttribute="height" constant="28" id="K0P-UH-Cup"/>
+                                    <constraint firstAttribute="width" constant="29" id="pSm-Fh-xXL"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="close.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="imageColor">
+                                        <color key="value" red="0.2274509804" green="0.63604493600000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="close:" destination="Zk0-3I-hxR" eventType="touchUpInside" id="MBC-7s-dtc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="35" id="0xw-Dh-DCd"/>
+                    <constraint firstItem="vck-Ob-Qod" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="-1" id="2Jm-V9-j2w"/>
                     <constraint firstItem="a2s-m7-Iwk" firstAttribute="top" secondItem="5zH-bM-0Ds" secondAttribute="bottom" constant="42" id="2Nw-wi-8RP"/>
                     <constraint firstItem="5zH-bM-0Ds" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="-9" id="8ag-mV-KfL"/>
                     <constraint firstItem="5zH-bM-0Ds" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="27" id="BKo-c4-pgX"/>
                     <constraint firstItem="ubI-s3-RYq" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leading" id="GOz-48-vLI"/>
                     <constraint firstItem="ubI-s3-RYq" firstAttribute="bottom" secondItem="a2s-m7-Iwk" secondAttribute="top" id="I6I-2g-Ze5"/>
                     <constraint firstItem="5zH-bM-0Ds" firstAttribute="centerX" secondItem="WLD-zm-7Qj" secondAttribute="centerX" id="IJT-nv-hfS"/>
-                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="vCM-N5-Hy6" secondAttribute="bottom" constant="1" id="L5r-6a-upS"/>
                     <constraint firstItem="WLD-zm-7Qj" firstAttribute="top" secondItem="4pW-hZ-OSX" secondAttribute="bottom" constant="3" id="Msj-Su-Plw"/>
+                    <constraint firstItem="vck-Ob-Qod" firstAttribute="top" secondItem="dHR-KZ-DdP" secondAttribute="bottom" constant="35" id="OR9-oL-3tz"/>
                     <constraint firstItem="a2s-m7-Iwk" firstAttribute="top" secondItem="WLD-zm-7Qj" secondAttribute="bottom" constant="53" id="QhM-TN-zTp"/>
+                    <constraint firstItem="4pW-hZ-OSX" firstAttribute="top" secondItem="vck-Ob-Qod" secondAttribute="bottom" constant="1" id="TDD-RR-ftQ"/>
                     <constraint firstItem="ubI-s3-RYq" firstAttribute="centerX" secondItem="WLD-zm-7Qj" secondAttribute="centerX" id="dAr-49-L1Q"/>
-                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="baseline" secondItem="5zH-bM-0Ds" secondAttribute="firstBaseline" id="dXr-BP-yOT"/>
-                    <constraint firstItem="vCM-N5-Hy6" firstAttribute="leading" secondItem="6An-gC-LWp" secondAttribute="leadingMargin" constant="-1" id="g13-bN-M86"/>
                     <constraint firstItem="ubI-s3-RYq" firstAttribute="top" secondItem="6An-gC-LWp" secondAttribute="top" id="gvI-FR-Het"/>
                     <constraint firstAttribute="trailing" secondItem="ubI-s3-RYq" secondAttribute="trailing" id="r6d-MF-osR"/>
                     <constraint firstItem="4pW-hZ-OSX" firstAttribute="leading" secondItem="WLD-zm-7Qj" secondAttribute="leading" id="rdK-6E-zpz"/>
