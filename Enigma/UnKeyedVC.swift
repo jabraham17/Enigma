@@ -9,8 +9,6 @@
 import UIKit
 import PKHUD
 
-//TODO: Generate error messages and warnings for user
-
 //view controller for unkeyed encryptions
 class UnKeyedVC: UIViewController, EncryptionNameHeaderDelegate, EncryptionSelectionDelegate, UITextViewCustomDelegate, UIPopoverPresentationControllerDelegate {
     

@@ -8,7 +8,6 @@
 
 import UIKit
 
-//FIXME: add constrainsts so view is same size on all devices
 //controller object for all information views
 @IBDesignable class InformationVC: UIViewController, UIViewControllerTransitioningDelegate {
     
