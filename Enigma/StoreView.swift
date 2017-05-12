@@ -96,12 +96,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         //do not set delagtes until loading is done
         //show progress hud on view
-        //FIXME: fix so that only the stor view has the loading thingy on it
-        PKHUD.sharedHUD.contentView = PKHUDProgressView()
-        //PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
-        //PKHUD.sharedHUD.show(onView: self)
-        //PKHUD.sharedHUD.viewToPresentOn = self
-        PKHUD.sharedHUD.show()
+        HUD.show(.progress, onView: self)
         
         
         //genrate encryptions and prices
@@ -221,8 +216,6 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                         //set the price for the next element into the temp array
                         tempArray[elementIndex] = product?.localizedPrice ?? "N/A"
                     }
-
-                    
                     //increment indexOrderedProducts
                     indexOrderedProducts += 1
                 }
@@ -235,7 +228,8 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             self.tableView.dataSource = self
             self.tableView.reloadData()
             //hide porgress view
-            PKHUD.sharedHUD.hide()
+            //PKHUD.sharedHUD.hide()
+            HUD.hide()
                 
         })
         
@@ -342,13 +336,10 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
                 //send txt message
                 let messageVC = MFMessageComposeViewController()
                 //message body
+                //MARK: make this a valid url
                 messageVC.body = "Check out this cool app Enigma\n\nhttps://itunes.apple.com/us/app/change-secret-photo-vault/id1175842519?ls=1&mt=8";
                 messageVC.messageComposeDelegate = self
                 
-                //dismiss popup, then present message popup
-                /*self.presentingVC?.dismiss(animated: true, completion: {
-                    
-                })*/
                 //present message sender
                 self.presentingVC?.present(messageVC, animated: true, completion: {
                     //when done, hide hud
@@ -486,7 +477,7 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
             NetworkActivityIndicatorManager.networkOperationFinished()
         
             //get each product that was restored
-            for product in result.restoredProducts {
+            for product in result.restoredPurchases {
                 //if the transaction is not done, finish it
                 if product.needsFinishTransaction {
                     SwiftyStoreKit.finishTransaction(product.transaction)
@@ -606,12 +597,12 @@ class StoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     func alert(withRestoreResut result: RestoreResults) -> UIAlertController {
         
         //if the producst brought back fail
-        if result.restoreFailedProducts.count > 0 {
+        if result.restoreFailedPurchases.count > 0 {
             //show alert
             return alert(withTitle: "Restore Failed", message: "The restored products failed")
         }
         //if there are purchases to restore
-        else if result.restoredProducts.count > 0 {
+        else if result.restoredPurchases.count > 0 {
             //show alert
             return alert(withTitle: "Purchases Restored", message: "Your purchases were succsefully restored")
         }
@@ -674,38 +665,15 @@ extension StoreView: MFMessageComposeViewControllerDelegate {
         //dismiss the controler
         controller.dismiss(animated: true, completion: nil)
         
-        
-        //set delaget for custom presentation
-        //let transDel = PopupAnimatorDelegate()
-        //presentingVC?.transitioningDelegate = transDel
-        
-        //get the view controller that is presenting the presentingVC
-        //let presentingPresentingVC = presentingVC?.presentingViewController
-        //print(presentingPresentingVC)
-        //dismiss the presentingVC, then re present it
-        //presentingVC?.dismiss(animated: false, completion: {
-            
-            //Global.information(viewShowing: .Store, containerView: presentingPresentingVC!, animated: false)
-        
-        //})
-        
-        //dismmis message controller
-        //controller.dismiss(animated: true, completion: nil)
-        //then dismiss the presenting view controller as well
-        //presentingVC?.dismiss(animated: false, completion: nil)
-        
         //check the result
         switch result {
             //if it was succsefull, give the encryption to the user
             //encryption should always be caesar, so no need for variable to pass it
             case .sent:
-                //MARK: commented out for testing purposes
-                print("sent")
                 self.saveEncryption(.Caesar)
             break
             //if the user hit cancel, do nothing
             case .cancelled:
-                print("cancel")
             break
             //if the messag failed, tell user
             case .failed:

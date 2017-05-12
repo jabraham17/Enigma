@@ -27,12 +27,15 @@ class CaesarCipher: KeyedEncryption {
     }
     //encrypt the text
     override func encrypt(_ toBeEncrypted: String) throws -> String {
-        //MARK: show view saying key out of range
         //specific key for encryption, this is simply the key from the super class in int form
-        var specificKey = Int(key)
-        //if its nil, set it to 0
+        let specificKey = Int(key)
+        //if its nil, throw an error
         if specificKey == nil {
-            specificKey = 0
+            throw Global.EncryptionErrors.InvalidKey(key: key, message: "'\(key)' is not parseable into a valid key")
+        }
+        //if beyond 26, too big for caesar cipher, throw error
+        if specificKey! > 26 {
+            throw Global.EncryptionErrors.KeyOutOfRange(key: key, message: "'\(key)' is out of range for the Caesar Cipher")
         }
         
         //get a array of all of the characters
@@ -74,10 +77,14 @@ class CaesarCipher: KeyedEncryption {
     //decrypt the text
     override func decrypt(_ toBeDecrypted: String) throws -> String {
         //specific key for decrytion, this is simply the key from the super class in int form
-        var specificKey = Int(key)
-        //if its nil, set it to 0
+        let specificKey = Int(key)
+        //if its nil, throw an error
         if specificKey == nil {
-            specificKey = 0
+            throw Global.EncryptionErrors.InvalidKey(key: key, message: "'\(key)' is not parseable into a valid key")
+        }
+        //if beyond 26, too big for caesar cipher, throw error
+        if specificKey! > 26 {
+            throw Global.EncryptionErrors.KeyOutOfRange(key: key, message: "'\(key)' is out of range for the Caesar Cipher")
         }
         
         //get a array of all of the characters

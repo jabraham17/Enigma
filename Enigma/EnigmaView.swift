@@ -88,7 +88,7 @@ import UIKit
             //put it as the text of the view
             text.attributedText = attributedText
             //set text view to the top
-            text.contentInset = UIEdgeInsets.zero
+            text.setContentOffset(CGPoint.zero, animated: false)
         }
         catch {
         }
