@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQn-sl-fZn">
-                    <rect key="frame" x="16" y="9" width="318" height="54"/>
+                    <rect key="frame" x="16" y="0.0" width="318" height="54"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="54" id="R86-jc-DfA"/>
                     </constraints>
@@ -30,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Get-5k-Juz">
-                    <rect key="frame" x="16" y="63" width="318" height="424"/>
+                    <rect key="frame" x="16" y="54" width="318" height="433"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
                         <fragment content="Information about Enigma">
@@ -45,7 +45,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="dQn-sl-fZn" firstAttribute="leading" secondItem="09z-vy-PSZ" secondAttribute="leading" constant="16" id="84s-nX-xvR"/>
-                <constraint firstItem="dQn-sl-fZn" firstAttribute="top" secondItem="09z-vy-PSZ" secondAttribute="top" constant="9" id="N7M-v8-9wy"/>
+                <constraint firstItem="dQn-sl-fZn" firstAttribute="top" secondItem="09z-vy-PSZ" secondAttribute="top" id="N7M-v8-9wy"/>
                 <constraint firstItem="Get-5k-Juz" firstAttribute="top" secondItem="dQn-sl-fZn" secondAttribute="bottom" id="Ux1-ck-bSE"/>
                 <constraint firstItem="dQn-sl-fZn" firstAttribute="trailing" secondItem="Get-5k-Juz" secondAttribute="trailing" id="XaG-F6-4pV"/>
                 <constraint firstItem="dQn-sl-fZn" firstAttribute="leading" secondItem="Get-5k-Juz" secondAttribute="leading" id="dzA-8g-kX4"/>

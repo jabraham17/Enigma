@@ -1,7 +1,7 @@
 PODS:
-  - CryptoSwift (0.6.8)
-  - PKHUD (4.2.1)
-  - SwiftyStoreKit (0.8.6)
+  - CryptoSwift (0.6.9)
+  - PKHUD (4.2.2)
+  - SwiftyStoreKit (0.9.0)
 
 DEPENDENCIES:
   - CryptoSwift
@@ -9,10 +9,10 @@ DEPENDENCIES:
   - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
-  PKHUD: 957ce2a68b3c97a51839b30216120c1dbc0c3a78
-  SwiftyStoreKit: 3cd98b53dc4ab9fd33c1023a8eae38225ebae312
+  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
+  PKHUD: 9a3599e04d57676ec14746c40e423a52fb6588c0
+  SwiftyStoreKit: b63bb9b64b8dce40319705bf0b7945fe322d62c5
 
-PODFILE CHECKSUM: 1da775bc621983a49f2eb4ada7a1c79ad9e8a37c
+PODFILE CHECKSUM: 41aa1184fb7e2845c5964178dcfb002fa676e350
 
 COCOAPODS: 1.2.0

@@ -77,8 +77,11 @@ import UIKit
                 }
                 //put it as the text of the view
                 text.attributedText = attributedText
+                print(text.contentOffset)
+                //MARK: contetn offset is wrong, the text is not scrolling to top
                 //set text view to the top
                 text.setContentOffset(CGPoint.zero, animated: false)
+                print(text.contentOffset)
             }
             catch {
             }
