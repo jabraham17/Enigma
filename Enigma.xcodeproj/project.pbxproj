@@ -110,10 +110,6 @@
 		D442958D1E328241006EC08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44295901E328241006EC08E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D44295921E328241006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D442959B1E328242006EC08E /* EnigmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaTests.swift; sourceTree = "<group>"; };
-		D442959D1E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D44295A61E328242006EC08E /* EnigmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaUITests.swift; sourceTree = "<group>"; };
-		D44295A81E328242006EC08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44295B61E3285BA006EC08E /* UITextViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewCustom.swift; sourceTree = "<group>"; };
 		D447256F1E81FB0F00E6D881 /* StoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		D44725701E81FB0F00E6D881 /* StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
@@ -281,8 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				D44295851E328241006EC08E /* Enigma */,
-				D442959A1E328242006EC08E /* EnigmaTests */,
-				D44295A51E328242006EC08E /* EnigmaUITests */,
 				D44295841E328241006EC08E /* Products */,
 				A688947D6797F15013208DF6 /* Pods */,
 				EDE27FA3B1070ABAC19041A0 /* Frameworks */,
@@ -316,24 +310,6 @@
 				D44295921E328241006EC08E /* Info.plist */,
 			);
 			path = Enigma;
-			sourceTree = "<group>";
-		};
-		D442959A1E328242006EC08E /* EnigmaTests */ = {
-			isa = PBXGroup;
-			children = (
-				D442959B1E328242006EC08E /* EnigmaTests.swift */,
-				D442959D1E328242006EC08E /* Info.plist */,
-			);
-			path = EnigmaTests;
-			sourceTree = "<group>";
-		};
-		D44295A51E328242006EC08E /* EnigmaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D44295A61E328242006EC08E /* EnigmaUITests.swift */,
-				D44295A81E328242006EC08E /* Info.plist */,
-			);
-			path = EnigmaUITests;
 			sourceTree = "<group>";
 		};
 		D44B534E1E660206005CFAE0 /* Error */ = {
@@ -490,7 +466,7 @@
 				TargetAttributes = {
 					D44295821E328241006EC08E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = KX43SXV662;
+						DevelopmentTeam = F5CJM79424;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -806,11 +782,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KX43SXV662;
+				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mja.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -823,11 +799,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KX43SXV662;
+				DEVELOPMENT_TEAM = F5CJM79424;
 				INFOPLIST_FILE = Enigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RabinApps.EnigmaMessageEncryption;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mja.Enigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
